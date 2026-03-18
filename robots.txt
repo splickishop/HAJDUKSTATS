@@ -1,0 +1,10 @@
+# robots.txt — Hajduk Stats
+# https://hajdukstats.netlify.app/
+
+User-agent: *
+Allow: /
+Disallow: /cdn-cgi/
+
+Sitemap: https://hajdukstats.netlify.app/sitemap.xml
+
+Crawl-delay: 10
