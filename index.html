@@ -1967,9 +1967,7 @@ function showTab(id,btn){
 // Init
 const _fns = [renderPregled, renderMatches, renderSezone, renderTreneri, renderIgraci];
 _fns.forEach(fn => { try { fn(); } catch(e) { console.warn(e); } });
-setTimeout(() => {
-  document.getElementById('loader').classList.add('gone');
-}, 1800);
+// loader se skriva tek nakon prvog uspješnog fetcha
 
 /* ── AUTO-REFRESH IZ GOOGLE APPS SCRIPT ─────────────────────────────────── */
 (function() {
@@ -2066,10 +2064,12 @@ setTimeout(() => {
       try { renderIgraci();  } catch(e) { console.warn('renderIgraci:',  e); }
 
       console.log('[HajdukStats] Podaci osvježeni iz Apps Scripta');
+      document.getElementById('loader').classList.add('gone');
       setPill('ok');
 
     } catch(e) {
       console.error('[HajdukStats] Greška:', e.message);
+      document.getElementById('loader').classList.add('gone');
       setPill('error');
     }
   }
