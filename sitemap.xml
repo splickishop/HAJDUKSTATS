@@ -3,37 +3,37 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://hajdukstats.netlify.app/</loc>
-    <lastmod>2026-03-13</lastmod>
+    <loc>https://www.hajdukstats.com/</loc>
+    <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://hajdukstats.netlify.app/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://www.hajdukstats.com/"/>
   </url>
 
   <url>
-    <loc>https://hajdukstats.netlify.app/#utakmice</loc>
-    <lastmod>2026-03-13</lastmod>
+    <loc>https://www.hajdukstats.com/#utakmice</loc>
+    <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://hajdukstats.netlify.app/#sezone</loc>
-    <lastmod>2026-03-13</lastmod>
+    <loc>https://www.hajdukstats.com/#sezone</loc>
+    <lastmod>2026-03-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hajdukstats.netlify.app/#treneri</loc>
-    <lastmod>2026-03-13</lastmod>
+    <loc>https://www.hajdukstats.com/#treneri</loc>
+    <lastmod>2026-03-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://hajdukstats.netlify.app/#igraci</loc>
-    <lastmod>2026-03-13</lastmod>
+    <loc>https://www.hajdukstats.com/#igraci</loc>
+    <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -1,142 +1,102 @@
-# Hajduk Stats — SEO Pack | Deploy Upute
-## Finalna verzija · Ožujak 2026
+# Hajduk Stats — SEO Pack
+## hajdukstats.com | Finalna verzija · Ožujak 2026
 
 ---
 
-## 📁 SADRŽAJ PAKETA
+## 📁 SADRŽAJ PAKETA (15 datoteka)
 
 ```
-hajduk_seo_pack/
+/
+│  ── SLIKE ──────────────────────────────────────────────────
+├── og-image.png           1200×630  Facebook, WhatsApp, LinkedIn share
+├── twitter-image.png      1200×630  Twitter/X card
+├── favicon.png            64×64     Browser tab (glavni)
+├── favicon-32x32.png      32×32     Browser tab
+├── favicon-16x16.png      16×16     Browser tab mali
+├── apple-touch-icon.png   180×180   iPhone/iPad bookmark
+├── icon-192.png           192×192   Android PWA ikona
+├── icon-512.png           512×512   PWA splash screen
 │
-│  ── SLIKE (sve idu u root folder) ──
-├── og-image.png          1200×630px  Facebook, WhatsApp, LinkedIn, Twitter share
-├── twitter-image.png     1200×630px  Twitter/X card (isti sadržaj)
-├── favicon.png           64×64px     Browser tab (glavni favicon)
-├── favicon-32x32.png     32×32px     Browser tab
-├── favicon-16x16.png     16×16px     Browser tab mali
-├── apple-touch-icon.png  180×180px   iPhone/iPad bookmark ikona
-├── icon-192.png          192×192px   Android PWA ikona
-├── icon-512.png          512×512px   PWA splash screen
+│  ── TEKSTUALNE DATOTEKE ─────────────────────────────────────
+├── seo_head_only.html     ← novi <head> blok — kopiraj u index.html
+├── robots.txt             ← upute za Google/Bing botove
+├── sitemap.xml            ← mapa stranice
+├── site.webmanifest       ← PWA manifest
+├── _headers               ← Netlify HTTP headeri + cache
+├── _redirects             ← redirect hajdukstats.com → www.hajdukstats.com
 │
-│  ── TEKSTUALNE DATOTEKE ──
-├── seo_head_only.html               ← NOVI <head> blok za kopirati u index.html
-├── robots.txt                       ← Upute za Google/Bing botove
-├── sitemap.xml                      ← Mapa stranice za search engine
-├── site.webmanifest                 ← PWA manifest (instalacija s mobitela)
-├── _headers                         ← Netlify HTTP headeri (security + cache)
-├── patch_seo.py                     ← Python skript za automatski patch
-│
-└── README.md                        ← Ove upute
+└── README.md              ← ove upute
 ```
 
 ---
 
-## 🚀 DEPLOY — 3 NAČINA
+## 🚀 DEPLOY KORACI
 
-### Način 1 — Ručno (preporučeno, 5 min)
+### 1. Ažuriraj index.html
+Otvori `index.html` → pronađi `<head>` → zamijeni cijeli blok
+sadržajem iz `seo_head_only.html`.
 
-1. Otvori svoju `index.html` u editoru (VS Code, Notepad++...)
-2. Pronađi `<head>` — obriši SVE između `<head>` i `</head>` (uključujući oba taga)
-3. Kopiraj cijeli sadržaj iz `seo_head_only.html` i zalijepi umjesto toga
-4. Sve ostale datoteke iz ovog paketa postavi u **root folder** projekta
+### 2. Dodaj Google Search Console verifikaciju
+U `seo_head_only.html` postoji placeholder:
+```html
+<!-- <meta name="google-site-verification" content="TVOJ_NOVI_KOD_OVDJE"> -->
+```
+→ Idi na Search Console → dodaj property `https://www.hajdukstats.com/`
+→ Kopiraj meta tag koji ti daju → odkomentiraj i zalijepi kod
 
-### Način 2 — Python auto-patch
-
-```bash
-# 1. Preimenuj svoju HTML datoteku
-mv tvoja_datoteka.html hajduk_stats_original.html
-
-# 2. Kopiraj patch skript i seo_head_only.html u isti folder
-# 3. Pokreni
-python3 patch_seo.py
-
-# Izlaz: index.html (gotova datoteka)
+### 3. Sve datoteke u GitHub root folder
+```
+repo/
+├── index.html
+├── googleXXXXXXXXXXXXXXXX.html   ← nova GSC verifikacijska datoteka
+├── og-image.png
+├── twitter-image.png
+├── favicon.png
+├── favicon-32x32.png
+├── favicon-16x16.png
+├── apple-touch-icon.png
+├── icon-192.png
+├── icon-512.png
+├── robots.txt
+├── sitemap.xml
+├── site.webmanifest
+├── _headers
+└── _redirects
 ```
 
-### Način 3 — Netlify Drag & Drop
+### 4. Netlify — poveži domenu
+Netlify → Site Settings → Domain Management:
+- Dodaj custom domain: `hajdukstats.com`
+- Netlify će automatski dodati i `www.hajdukstats.com`
+- Uključi **Force HTTPS**
+- DNS: postavi A record ili CNAME prema Netlify uputama
 
-1. Otvori https://app.netlify.com → tvoj site
-2. Deploys → "Drag and drop your site output folder here"
-3. Ubaci folder sa svim datotekama
+### 5. Submit sitemap u Search Console
+`https://www.hajdukstats.com/sitemap.xml`
 
 ---
 
-## 📂 FINALNA STRUKTURA ROOT FOLDERA
+## ⚠️ VAŽNO — www vs non-www
 
-```
-/  (root — što Netlify vidi)
-├── index.html              ← tvoja app s novim <head>
-├── robots.txt              ✅ iz ovog paketa
-├── sitemap.xml             ✅ iz ovog paketa
-├── site.webmanifest        ✅ iz ovog paketa
-├── _headers                ✅ iz ovog paketa
-├── og-image.png            ✅ iz ovog paketa
-├── twitter-image.png       ✅ iz ovog paketa
-├── favicon.png             ✅ iz ovog paketa
-├── favicon-32x32.png       ✅ iz ovog paketa
-├── favicon-16x16.png       ✅ iz ovog paketa
-├── apple-touch-icon.png    ✅ iz ovog paketa
-├── icon-192.png            ✅ iz ovog paketa
-└── icon-512.png            ✅ iz ovog paketa
-```
+Odlučili smo za **www.hajdukstats.com** kao kanonsku domenu.
+Datoteka `_redirects` automatski preusmjerava:
+`hajdukstats.com` → `www.hajdukstats.com` (301 permanent redirect)
+
+Ovo je važno za SEO — Google ne smije vidjeti isti sadržaj
+na dvije URL adrese.
 
 ---
 
-## ✅ NAKON DEPLOYA — Obavezni koraci
+## ✅ PROVJERA NAKON DEPLOYA
 
-### 1. Google Search Console (5 min)
-1. Idi na https://search.google.com/search-console
-2. Add Property → `https://hajdukstats.netlify.app/`
-3. Verifikacija: HTML tag metoda → kopiraj meta tag → zalijepi u `<head>` ispod canonical taga
-4. Sitemaps → dodaj: `sitemap.xml` → Submit
-
-### 2. Provjeri OG sliku
-Testiraj kako link izgleda kada ga dijeliš:
-- Facebook: https://developers.facebook.com/tools/debug/
-- Twitter/X: https://cards-dev.twitter.com/validator
-- LinkedIn: https://www.linkedin.com/post-inspector/
-- WhatsApp: pošalji link sebi
-
-### 3. Provjeri Structured Data
-https://search.google.com/test/rich-results
-→ unesi URL → trebao bi vidjeti FAQ i WebSite schema
-
-### 4. PageSpeed Score
-https://pagespeed.web.dev/
-→ unesi URL → cilj: 85+ mobile, 95+ desktop
+| Alat | URL | Što provjeriš |
+|------|-----|---------------|
+| OG Debugger | developers.facebook.com/tools/debug/ | Izgled WhatsApp/FB sharea |
+| Twitter Validator | cards-dev.twitter.com/validator | Twitter card |
+| Rich Results | search.google.com/test/rich-results | FAQ schema, Breadcrumbs |
+| PageSpeed | pagespeed.web.dev | Brzina (cilj: 85+ mob) |
+| Search Console | search.google.com/search-console | Indexiranost |
 
 ---
 
-## 🔄 AŽURIRANJE SEZONE / KOLA
-
-Kada promijeniš podatke u HTML-u (novo kolo, novi bodovi):
-
-**sitemap.xml** — promijeni `<lastmod>` datum:
-```xml
-<lastmod>2026-03-20</lastmod>  ← datum zadnje promjene
-```
-
-**seo_head_only.html** — promijeni bodove u FAQ schema:
-```json
-"text": "HNK Hajduk Split ima 50 bodova nakon 26 odigranih kola..."
-```
-
-**og-image.png** — ako hoćeš ažurirati statistike na share slici,
-javi se i generiramo novu u minuti.
-
----
-
-## 🔑 KLJUČNE RIJEČI KOJE TARGETIRAMO
-
-| Keyword | Volumen | Težina |
-|---------|---------|--------|
-| Hajduk Split statistike | Visok | Srednja |
-| HNK Hajduk 2025 2026 | Srednji | Niska |
-| Hajduk bodovi tablica | Srednji | Niska |
-| SuperSport HNL statistike | Srednji | Srednja |
-| Goncalo Garcia Hajduk | Nizak | Vrlo niska |
-| Hajduk igrači golovi | Nizak | Niska |
-
----
-
-*Hajduk Stats SEO Pack · hajdukstats.netlify.app · Ožujak 2026*
+*Hajduk Stats · hajdukstats.com · Ožujak 2026*

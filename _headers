@@ -1,5 +1,5 @@
 # _headers — Netlify HTTP Headers
-# Postaviti u root direktorij projekta (uz index.html)
+# Postaviti u root direktorij projekta
 
 /*
   X-Frame-Options: SAMEORIGIN

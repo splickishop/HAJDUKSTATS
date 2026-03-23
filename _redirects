@@ -1,0 +1,4 @@
+# _redirects — Netlify Redirects
+# Redirect hajdukstats.com → www.hajdukstats.com (kanonska domena)
+
+https://hajdukstats.com/* https://www.hajdukstats.com/:splat 301!
