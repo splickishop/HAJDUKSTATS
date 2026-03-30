@@ -19,14 +19,21 @@
 <meta name="author" content="Hajduk Stats">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#090909">
-<link rel="canonical" href="https://hajdukstats.netlify.app/">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="geo.region" content="HR-17">
+<meta name="geo.placename" content="Split, Hrvatska">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" as="style">
+<link rel="canonical" href="https://www.hajdukstats.com/">
 
 <!-- ── Open Graph (Facebook, WhatsApp, LinkedIn) ────────────────────────── -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://hajdukstats.netlify.app/">
+<meta property="og:url" content="https://www.hajdukstats.com/">
 <meta property="og:title" content="Hajduk Stats — Statistike HNK Hajduk Split">
 <meta property="og:description" content="Detaljna statistička analiza HNK Hajduk Split — bodovi, golovi, velike prilike, pobjede po treneru i sezoni. Podaci iza emocija.">
-<meta property="og:image" content="https://hajdukstats.netlify.app/og-image.png">
+<meta property="og:image" content="https://www.hajdukstats.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Hajduk Stats">
@@ -34,10 +41,10 @@
 
 <!-- ── Twitter / X Card ─────────────────────────────────────────────────── -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://hajdukstats.netlify.app/">
+<meta name="twitter:url" content="https://www.hajdukstats.com/">
 <meta name="twitter:title" content="Hajduk Stats — Statistike HNK Hajduk Split">
 <meta name="twitter:description" content="Detaljna statistička analiza HNK Hajduk Split — bodovi, golovi, velike prilike, pobjede po treneru i sezoni.">
-<meta name="twitter:image" content="https://hajdukstats.netlify.app/og-image.png">
+<meta name="twitter:image" content="https://www.hajdukstats.com/og-image.png">
 
 <!-- ── Structured Data (JSON-LD) ────────────────────────────────────────── -->
 <script type="application/ld+json">
@@ -45,16 +52,36 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Hajduk Stats",
-  "url": "https://hajdukstats.netlify.app/",
+  "url": "https://www.hajdukstats.com/",
   "description": "Detaljna statistička analiza HNK Hajduk Split — bodovi, golovi, velike prilike, pobjede po treneru i sezoni.",
   "inLanguage": "hr",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.hajdukstats.com/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  },
   "about": {
     "@type": "SportsTeam",
     "name": "HNK Hajduk Split",
+    "alternateName": ["Hajduk", "Bijeli"],
     "sport": "Football",
+    "url": "https://hajduk.hr",
+    "foundingDate": "1911",
     "location": {
       "@type": "Place",
-      "name": "Split, Hrvatska"
+      "name": "Stadion Poljud, Split, Hrvatska",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Split",
+        "addressCountry": "HR"
+      }
+    },
+    "memberOf": {
+      "@type": "SportsOrganization",
+      "name": "SuperSport HNL"
     }
   }
 }
@@ -282,15 +309,11 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   /* Matches */
   .frow{gap:6px;}
   .fbtn{font-size:.65rem;padding:6px 11px;letter-spacing:.08em;}
-  .mrow{grid-template-columns:46px 1fr 58px 52px;gap:6px;padding:10px 10px;}
-  .mvp{text-align:center;}
-  .mvp .vn{font-size:.95rem;}
-  .mvp .vl{font-size:.5rem;letter-spacing:.05em;}
-  .mdots{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end;}
-  .dot{width:5px;height:5px;}
-  .mkolo{font-size:.6rem;}
-  .mname{font-size:.75rem;}
-  .mres{font-size:.95rem;}
+  .mrow{grid-template-columns:52px 1fr 64px;gap:8px;padding:11px 12px;}
+  .mvp,.mdots{display:none;}
+  .mkolo{font-size:.65rem;}
+  .mname{font-size:.82rem;}
+  .mres{font-size:1.1rem;}
 
   /* Season & coach tables — horizontal scroll */
   .cbox[style*="overflow-x"]{padding:16px 0;}
@@ -560,11 +583,11 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
           <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
         </div>
         <div class="kontakt-info">
-          <div class="kontakt-email"><a href="mailto:splickishop@gmail.com" style="color:inherit;text-decoration:none">splickishop&#64;gmail.com</a></div>
+          <div class="kontakt-email"><a href="/cdn-cgi/l/email-protection#7b080b17121810120813140b5d584d4f401c161a121755181416" style="color:inherit;text-decoration:none">splickishop&#64;gmail.com</a></div>
           <div class="kontakt-detail">Odgovaramo unutar 24 sata</div>
         </div>
       </div>
-      <a class="kontakt-btn" href="mailto:splickishop@gmail.com">
+      <a class="kontakt-btn" href="/cdn-cgi/l/email-protection#5a292a36333931332932352a7c796c6e613d373b333674393537">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         Pošaljite poruku
       </a>

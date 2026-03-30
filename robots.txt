@@ -1,0 +1,23 @@
+# robots.txt — hajdukstats.com
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Blokiranje nepotrebnih putanja (ako postoje u budućnosti)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://www.hajdukstats.com/sitemap.xml
+
+# Crawl-delay za manje poznate botove
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
