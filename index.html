@@ -1229,7 +1229,7 @@ function renderPregled(){
 
   document.getElementById('statsCards').innerHTML=`
     <div class="card cr"><div class="clbl">Bodovi</div><div class="cval r">${cur.bodovi}</div><div class="csub">od ${cur.kola} kola</div></div>
-    <div class="card cb"><div class="clbl">B/U omjer</div><div class="cval b">${cur.bu}</div><div class="csub">bodova po utakmici</div></div>
+    <div class="card cb"><div class="clbl">B/U omjer</div><div class="cval b">${(+cur.bu).toFixed(2)}</div><div class="csub">bodova po utakmici</div></div>
     <div class="card cg"><div class="clbl">Pobjede</div><div class="cval g">${wins}</div><div class="csub">${draws} remija · ${losses} poraza</div></div>
     <div class="card cw"><div class="clbl">Dani golovi</div><div class="cval">${totG}</div><div class="csub">${cur.golovi} po utakmici</div></div>
     <div class="card cr"><div class="clbl">Primljeni</div><div class="cval r">${totP}</div><div class="csub">${cur.primljeni} po utakmici</div></div>
@@ -1290,7 +1290,7 @@ function renderSezone(){
       <td class="sn ${cur?'cur':''}">${s.sezona}</td>
       <td>${s.kola}</td>
       <td class="hl ${cur?'cur':''}">${s.bodovi}</td>
-      <td ${cur?'style="color:var(--red-b);font-family:\'Comfortaa\';font-size:1.1rem"':''}>${s.bu}</td>
+      <td ${cur?'style="color:var(--red-b);font-family:\'Comfortaa\';font-size:1.1rem"':''}>${(+s.bu).toFixed(2)}</td>
       <td>${s.golovi}</td><td>${s.primljeni}</td>
       <td ${cur?'style="color:var(--blue-l);font-family:\'Comfortaa\';font-size:1.1rem"':''}>${s.vp}</td>
       <td>${s.promaseneVp}</td>
@@ -1448,7 +1448,7 @@ function renderTreneri(){
         <div class="tc-stat"><div class="tc-sv g">${p}</div><div class="tc-sl">Pobjede</div></div>
         <div class="tc-stat"><div class="tc-sv y">${n}</div><div class="tc-sl">Remiji</div></div>
         <div class="tc-stat"><div class="tc-sv r">${l}</div><div class="tc-sl">Porazi</div></div>
-        <div class="tc-stat"><div class="tc-sv">${t.bu}</div><div class="tc-sl">B/U</div></div>
+        <div class="tc-stat"><div class="tc-sv">${(+t.bu).toFixed(2)}</div><div class="tc-sl">B/U</div></div>
       </div>
       <div class="wr-wrap">
         <div class="wr-bar">
@@ -1475,7 +1475,7 @@ function renderTreneri(){
     <td class="hl" style="color:#4CAF50">${t.pobjede}</td>
     <td style="color:#FFC107;font-family:'Comfortaa';font-size:1.1rem">${t.remiji}</td>
     <td class="hl" style="color:var(--red-b)">${t.porazi}</td>
-    <td style="font-family:'Comfortaa';font-size:1.1rem">${t.bu}</td>
+    <td style="font-family:'Comfortaa';font-size:1.1rem">${(+t.bu).toFixed(2)}</td>
     <td style="color:#aaa">${t.vrijednost}</td>
   </tr>`).join('')}</tbody></table>`;
 
