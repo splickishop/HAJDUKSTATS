@@ -176,6 +176,10 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .tab-friends{color:#ff8833 !important;border-bottom-color:transparent;}
 .tab-friends:hover{color:#ffaa66 !important;}
 .tab-friends.active{color:#ff8833 !important;border-bottom-color:#ff6600 !important;}
+.tab-video{background:transparent;border-bottom:2px solid transparent !important;}
+.tab-video,.tab-video:not(.active){color:transparent !important;background-clip:text !important;-webkit-background-clip:text !important;background-image:linear-gradient(90deg,#4d8aff,#a0c4ff) !important;-webkit-text-fill-color:transparent !important;}
+.tab-video:hover{opacity:.85;}
+.tab-video.active{-webkit-text-fill-color:transparent !important;color:transparent !important;background-image:linear-gradient(90deg,#4d8aff,#a0c4ff) !important;border-bottom-color:#4d8aff !important;}
 .prijatelji-wrap{max-width:600px;margin:0 auto;padding:20px 0 60px;}
 .prijatelji-heading{font-family:'Comfortaa',sans-serif;font-size:clamp(2.4rem,6vw,3.8rem);letter-spacing:.06em;line-height:.9;margin-bottom:8px;color:var(--white);}
 .prijatelji-heading em{font-style:italic;color:#ff6600;}
@@ -416,6 +420,18 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
     <div class="live-pill">Live data</div>
     <div class="s-badge">2025/2026</div>
   </div>
+  <!-- Social icons -->
+  <div style="position:absolute;bottom:10px;right:44px;display:flex;align-items:center;gap:12px;z-index:2;">
+    <a href="https://www.facebook.com/profile.php?id=61576285065804" target="_blank" rel="noopener" aria-label="Facebook" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);color:#aaa;transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(24,119,242,.18)';this.style.borderColor='rgba(24,119,242,.4)';this.style.color='#4a90e2'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.09)';this.style.color='#aaa'">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@HajdukStats" target="_blank" rel="noopener" aria-label="YouTube" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);color:#aaa;transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(255,0,0,.18)';this.style.borderColor='rgba(255,0,0,.4)';this.style.color='#ff4444'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.09)';this.style.color='#aaa'">
+      <svg width="16" height="12" viewBox="0 0 24 17" fill="currentColor"><path d="M23.5 2.6A3 3 0 0 0 21.4.5C19.5 0 12 0 12 0S4.5 0 2.6.5A3 3 0 0 0 .5 2.6C0 4.5 0 8.5 0 8.5s0 4 .5 5.9a3 3 0 0 0 2.1 2.1C4.5 17 12 17 12 17s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 12.5 24 8.5 24 8.5s0-4-.5-5.9z"/><polygon points="9.75,12.02 15.5,8.5 9.75,4.98" fill="#090909"/></svg>
+    </a>
+    <a href="https://www.instagram.com/hajdukstats_" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);color:#aaa;transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(225,48,108,.15)';this.style.borderColor='rgba(225,48,108,.4)';this.style.color='#e1306c'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.09)';this.style.color='#aaa'">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
 </header>
 
 <div class="tabs">
@@ -424,6 +440,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   <button class="tab" onclick="showTab('sezone',this)">Sezone</button>
   <button class="tab" onclick="showTab('treneri',this)">Treneri</button>
   <button class="tab" onclick="showTab('igraci',this)">Igrači</button>
+  <button class="tab tab-video" onclick="showTab('video',this)">▶ Video analiza</button>
   <button class="tab tab-friends" onclick="showTab('prijatelji',this)" style="color:#FF0000">▶ YouTube</button>
   <button class="tab" onclick="showTab('kontakt',this)">Kontakt</button>
 </div>
@@ -524,6 +541,27 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   <div class="cbox" id="igraciAsistencije"></div>
   <div class="stitle"><i></i>Golovi + Asistencije (G+A)</div>
   <div class="cbox" id="igraciGA"></div>
+</div>
+
+<!-- VIDEO ANALIZA -->
+<div class="sec" id="video">
+  <div class="stitle"><i></i>Video analiza — po utakmicama</div>
+
+  <!-- Player -->
+  <div id="videoPlayer" style="display:none;margin-bottom:18px;background:var(--card);border:1px solid var(--border);border-radius:4px;overflow:hidden;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px 10px;flex-wrap:wrap;gap:6px;">
+      <div style="min-width:0;flex:1;">
+        <div style="font-family:Comfortaa,sans-serif;font-size:.88rem;font-weight:700;color:#ddd;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" id="videoMatchTitle">—</div>
+        <div style="font-family:Comfortaa,sans-serif;font-size:.68rem;color:#555;letter-spacing:.08em;text-transform:uppercase" id="videoMatchSub">—</div>
+        <div style="font-family:Comfortaa,sans-serif;font-size:.78rem;color:#888;margin-top:5px;line-height:1.5;display:none" id="videoMatchOpis"></div>
+      </div>
+      <button onclick="closeVideo()" style="font-family:Comfortaa,sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);background:transparent;border:1px solid var(--border);border-radius:2px;padding:5px 12px;cursor:pointer;flex-shrink:0;">✕</button>
+    </div>
+    <div id="videoPlayerInner" style="padding:0 0 12px;"></div>
+  </div>
+
+  <!-- Match list -->
+  <div id="videoGrid"></div>
 </div>
 
 <!-- PRIJATELJI -->
@@ -627,7 +665,7 @@ const MATCHES = [
   {kolo:'9. kolo',  name:'Vukovar (gosti)',           g:1,p:0, wdl:'W', vp:2, zvp:0, prom:2,  home:false},
   {kolo:'10. kolo', name:'Istra (gosti)',             g:3,p:0, wdl:'W', vp:3, zvp:2, prom:1,  home:false},
   {kolo:'11. kolo', name:'Gorica (gosti)',            g:3,p:1, wdl:'W', vp:3, zvp:2, prom:1,  home:false},
-  {kolo:'12. kolo', name:'Slaven Belupo (gosti)',     g:0,p:0, wdl:'D', vp:1, zvp:0, prom:1,  home:false},
+  {kolo:'12. kolo', name:'Slaven Belupo (gosti)',     g:2,p:2, wdl:'D', vp:1, zvp:0, prom:1,  home:false},
   {kolo:'13. kolo', name:'Hajduk - Osijek',           g:2,p:0, wdl:'W', vp:0, zvp:0, prom:0,  home:true},
   {kolo:'14. kolo', name:'Rijeka (gosti)',             g:0,p:5, wdl:'L', vp:1, zvp:0, prom:1,  home:false},
   {kolo:'15. kolo', name:'Hajduk - Varaždin',          g:1,p:1, wdl:'D', vp:4, zvp:0, prom:4,  home:true},
@@ -658,6 +696,42 @@ const TRENERI = [
   { sezona:'2025/2026', trener:'Goncalo Garcia',                              utakmice:25, pobjede:14, remiji:5,  porazi:6,  bu:1.88, vrijednost:'€38.50m' },
   { sezona:'2024/2025', trener:'Gennaro Gattuso',                             utakmice:36, pobjede:17, remiji:12, porazi:7,  bu:1.75, vrijednost:'€52.90m' },
   { sezona:'2023/2024', trener:'Ivan Leko (Karoglan + Ivanković)',             utakmice:36, pobjede:21, remiji:5,  porazi:10, bu:1.89, vrijednost:'€63.13m' },
+];
+
+
+const VIDEO_MATCHES = [
+  // Format: { kolo, name, wdl, g, p, videa: [ { id, opis }, ... ] }
+  // id: Streamable video ID (zadnji dio linka, npr. abc123)
+  // opis: kratki opis klipa (neobavezno)
+  // videa: prazna lista [] = nema videa; dodaj objekte za svaki klip
+  { kolo:'1. kolo',  name:'Hajduk - Istra',         wdl:'W', g:2, p:1, videa:[] },
+  { kolo:'2. kolo',  name:'Hajduk - Gorica',         wdl:'W', g:2, p:0, videa:[] },
+  { kolo:'3. kolo',  name:'Hajduk - Slaven Belupo',  wdl:'W', g:3, p:0, videa:[] },
+  { kolo:'4. kolo',  name:'Osijek (gosti)',           wdl:'W', g:2, p:0, videa:[] },
+  { kolo:'5. kolo',  name:'Hajduk - Rijeka',          wdl:'D', g:2, p:2, videa:[] },
+  { kolo:'6. kolo',  name:'Varaždin (gosti)',          wdl:'L', g:0, p:2, videa:[] },
+  { kolo:'7. kolo',  name:'Hajduk - Dinamo',          wdl:'L', g:0, p:2, videa:[] },
+  { kolo:'8. kolo',  name:'Hajduk - Lokomotiva',      wdl:'W', g:2, p:0, videa:[] },
+  { kolo:'9. kolo',  name:'Vukovar (gosti)',           wdl:'W', g:1, p:0, videa:[] },
+  { kolo:'10. kolo', name:'Istra (gosti)',             wdl:'W', g:3, p:0, videa:[] },
+  { kolo:'11. kolo', name:'Gorica (gosti)',            wdl:'W', g:3, p:1, videa:[] },
+  { kolo:'12. kolo', name:'Slaven Belupo (gosti)',     wdl:'D', g:2, p:2, videa:[
+    { id:'vaob95', opis:'Visok presing i brz izlazak naprijed Slaven Belupa' },
+    { id:'yf3i5n', opis:'Odlična, školska akcija Hajduka u 3 dodavanja do gola — brza promjena strane preciznom dijagonalom, odlično utrčavanje Brajkovića i asistencija za Rebića' },
+  ]},
+  { kolo:'13. kolo', name:'Hajduk - Osijek',           wdl:'W', g:2, p:0, videa:[] },
+  { kolo:'14. kolo', name:'Rijeka (gosti)',             wdl:'L', g:0, p:5, videa:[] },
+  { kolo:'15. kolo', name:'Hajduk - Varaždin',          wdl:'D', g:1, p:1, videa:[] },
+  { kolo:'16. kolo', name:'Dinamo (gosti)',             wdl:'D', g:1, p:1, videa:[] },
+  { kolo:'17. kolo', name:'Lokomotiva (gosti)',         wdl:'W', g:3, p:1, videa:[] },
+  { kolo:'18. kolo', name:'Hajduk - Vukovar',          wdl:'W', g:2, p:1, videa:[] },
+  { kolo:'19. kolo', name:'Hajduk - Istra',            wdl:'L', g:1, p:2, videa:[] },
+  { kolo:'20. kolo', name:'Gorica (gosti)',             wdl:'L', g:0, p:1, videa:[] },
+  { kolo:'21. kolo', name:'Hajduk - Slaven Belupo',    wdl:'W', g:2, p:0, videa:[] },
+  { kolo:'22. kolo', name:'Osijek (gosti)',             wdl:'W', g:2, p:0, videa:[] },
+  { kolo:'23. kolo', name:'Hajduk - Rijeka',            wdl:'W', g:1, p:0, videa:[] },
+  { kolo:'24. kolo', name:'Varaždin (gosti)',            wdl:'D', g:1, p:1, videa:[] },
+  { kolo:'25. kolo', name:'Hajduk - Dinamo',            wdl:'L', g:1, p:3, videa:[] },
 ];
 
 const IGRACI = [
@@ -1229,7 +1303,7 @@ function renderPregled(){
 
   document.getElementById('statsCards').innerHTML=`
     <div class="card cr"><div class="clbl">Bodovi</div><div class="cval r">${cur.bodovi}</div><div class="csub">od ${cur.kola} kola</div></div>
-    <div class="card cb"><div class="clbl">B/U omjer</div><div class="cval b">${(+cur.bu).toFixed(2)}</div><div class="csub">bodova po utakmici</div></div>
+    <div class="card cb"><div class="clbl">B/U omjer</div><div class="cval b">${cur.bu}</div><div class="csub">bodova po utakmici</div></div>
     <div class="card cg"><div class="clbl">Pobjede</div><div class="cval g">${wins}</div><div class="csub">${draws} remija · ${losses} poraza</div></div>
     <div class="card cw"><div class="clbl">Dani golovi</div><div class="cval">${totG}</div><div class="csub">${cur.golovi} po utakmici</div></div>
     <div class="card cr"><div class="clbl">Primljeni</div><div class="cval r">${totP}</div><div class="csub">${cur.primljeni} po utakmici</div></div>
@@ -1290,7 +1364,7 @@ function renderSezone(){
       <td class="sn ${cur?'cur':''}">${s.sezona}</td>
       <td>${s.kola}</td>
       <td class="hl ${cur?'cur':''}">${s.bodovi}</td>
-      <td ${cur?'style="color:var(--red-b);font-family:\'Comfortaa\';font-size:1.1rem"':''}>${(+s.bu).toFixed(2)}</td>
+      <td ${cur?'style="color:var(--red-b);font-family:\'Comfortaa\';font-size:1.1rem"':''}>${s.bu}</td>
       <td>${s.golovi}</td><td>${s.primljeni}</td>
       <td ${cur?'style="color:var(--blue-l);font-family:\'Comfortaa\';font-size:1.1rem"':''}>${s.vp}</td>
       <td>${s.promaseneVp}</td>
@@ -1448,7 +1522,7 @@ function renderTreneri(){
         <div class="tc-stat"><div class="tc-sv g">${p}</div><div class="tc-sl">Pobjede</div></div>
         <div class="tc-stat"><div class="tc-sv y">${n}</div><div class="tc-sl">Remiji</div></div>
         <div class="tc-stat"><div class="tc-sv r">${l}</div><div class="tc-sl">Porazi</div></div>
-        <div class="tc-stat"><div class="tc-sv">${(+t.bu).toFixed(2)}</div><div class="tc-sl">B/U</div></div>
+        <div class="tc-stat"><div class="tc-sv">${t.bu}</div><div class="tc-sl">B/U</div></div>
       </div>
       <div class="wr-wrap">
         <div class="wr-bar">
@@ -1475,7 +1549,7 @@ function renderTreneri(){
     <td class="hl" style="color:#4CAF50">${t.pobjede}</td>
     <td style="color:#FFC107;font-family:'Comfortaa';font-size:1.1rem">${t.remiji}</td>
     <td class="hl" style="color:var(--red-b)">${t.porazi}</td>
-    <td style="font-family:'Comfortaa';font-size:1.1rem">${(+t.bu).toFixed(2)}</td>
+    <td style="font-family:'Comfortaa';font-size:1.1rem">${t.bu}</td>
     <td style="color:#aaa">${t.vrijednost}</td>
   </tr>`).join('')}</tbody></table>`;
 
@@ -1983,6 +2057,114 @@ function renderIgraci(){
   window._igRenderTable();
 }
 
+
+/* ── VIDEO ANALIZA ───────────────────────────────────────────────────────── */
+function renderVideo(){
+  const grid = document.getElementById('videoGrid');
+  if(!grid) return;
+
+  const wdlCol = { W:'#4CAF50', D:'#FFC107', L:'#FF1A1A' };
+  const wdlTxt = { W:'Pobjeda', D:'Remi', L:'Poraz' };
+
+  // One row per match; click opens all its players stacked
+  const withVideo = [...VIDEO_MATCHES].reverse().filter(m => m.videa && m.videa.length > 0);
+
+  if(!withVideo.length){
+    grid.innerHTML = `<div style="text-align:center;padding:60px 20px;">
+      <div style="font-size:2.8rem;margin-bottom:16px;opacity:.12">▶</div>
+      <div style="font-family:Comfortaa,sans-serif;font-size:1.1rem;letter-spacing:.1em;color:#333;margin-bottom:8px">Još nema video analiza</div>
+      <div style="font-family:Comfortaa,sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#2a2a2a">Videa se dodaju po objavi na Streamable</div>
+    </div>`;
+    return;
+  }
+
+  const totalClips = withVideo.reduce((s,m) => s + m.videa.length, 0);
+
+  const rows = withVideo.map((m, mi) => {
+    const col      = wdlCol[m.wdl] || '#555';
+    const rtxt     = wdlTxt[m.wdl] || '—';
+    const score    = `${m.g} : ${m.p}`;
+    const resClass = m.wdl==='W'?'win':m.wdl==='D'?'draw':'loss';
+    const nClips   = m.videa.length;
+    // encode videa array as JSON-safe string for onclick
+    const videaJSON = JSON.stringify(m.videa).replace(/"/g,'&quot;');
+    const matchTitle = (m.kolo + ' · ' + m.name).replace(/'/g,"\'");
+    const matchSub   = (score + ' — ' + rtxt).replace(/'/g,"\'");
+
+    return `<div class="mrow" style="animation-delay:${mi*.022}s;cursor:pointer;"
+      onclick="openMatchVideos(this)"
+      data-videa="${videaJSON}"
+      data-title="${matchTitle}"
+      data-sub="${matchSub}"
+      onmouseover="this.style.borderColor='rgba(77,138,255,.4)'" onmouseout="this.style.borderColor=''">
+      <div class="mkolo">${m.kolo}</div>
+      <div class="mname" style="display:flex;align-items:center;gap:8px;min-width:0">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--blue);flex-shrink:0"><svg width="7" height="8" viewBox="0 0 7 8" fill="white"><polygon points="0,0 7,4 0,8"/></svg></span>
+        <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${m.name}</span>
+      </div>
+      <div class="mres ${resClass}">${score}</div>
+      <div style="text-align:right;font-family:Comfortaa,sans-serif;font-size:.72rem;letter-spacing:.08em;color:${col}">${rtxt}</div>
+      <div style="text-align:right;font-family:Comfortaa,sans-serif;font-size:.68rem;color:var(--blue-l);letter-spacing:.06em;white-space:nowrap">▶ ${nClips > 1 ? nClips + ' klipa' : 'Pogledaj'}</div>
+    </div>`;
+  });
+
+  const countTxt = `${withVideo.length} ${withVideo.length===1?'utakmica':'utakmice'} · ${totalClips} ${totalClips===1?'klip':'klipa'}`;
+  grid.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:flex-end;margin-bottom:10px;">
+      <div style="font-family:Comfortaa,sans-serif;font-size:.7rem;color:#444;letter-spacing:.08em">${countTxt}</div>
+    </div>
+    <div class="mgrid" style="gap:7px">${rows.join('')}</div>`;
+}
+
+function openMatchVideos(rowEl){
+  const videa  = JSON.parse(rowEl.getAttribute('data-videa').replace(/&quot;/g,'"'));
+  const title  = rowEl.getAttribute('data-title');
+  const sub    = rowEl.getAttribute('data-sub');
+  const player = document.getElementById('videoPlayer');
+
+  // Build stacked players
+  const inner = document.getElementById('videoPlayerInner');
+  inner.innerHTML = videa.map((v,i) => `
+    <div style="${i>0?'margin-top:10px;':''}">
+      ${videa.length>1 ? `<div style="font-family:Comfortaa,sans-serif;font-size:.72rem;color:#555;letter-spacing:.08em;margin-bottom:5px;padding:0 2px">${v.opis||('Klip '+(i+1))}</div>` : (v.opis ? `<div style="font-family:Comfortaa,sans-serif;font-size:.78rem;color:#888;margin-bottom:6px;line-height:1.5">${v.opis}</div>` : '')}
+      <div style="position:relative;width:100%;padding-bottom:42%;background:#000;border-radius:3px;overflow:hidden;">
+        <iframe src="https://streamable.com/e/${v.id}?autoplay=${i===0?1:0}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+    </div>`).join('');
+
+  document.getElementById('videoMatchTitle').textContent = title;
+  document.getElementById('videoMatchSub').textContent   = sub;
+  player.style.display = 'block';
+  player.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+function playVideo(streamableId, title, sub, opis){
+  const player  = document.getElementById('videoPlayer');
+  const iframe  = document.getElementById('videoIframe');
+  const titleEl = document.getElementById('videoMatchTitle');
+  const subEl   = document.getElementById('videoMatchSub');
+  const opisEl  = document.getElementById('videoMatchOpis');
+  iframe.src = 'https://streamable.com/e/' + streamableId + '?autoplay=1';
+  titleEl.textContent = title;
+  subEl.textContent   = sub;
+  if(opis && opis.trim()){
+    opisEl.textContent  = opis;
+    opisEl.style.display = 'block';
+  } else {
+    opisEl.textContent  = '';
+    opisEl.style.display = 'none';
+  }
+  player.style.display = 'block';
+  player.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+function closeVideo(){
+  const player = document.getElementById('videoPlayer');
+  const inner  = document.getElementById('videoPlayerInner');
+  inner.innerHTML = '';
+  player.style.display = 'none';
+}
+
 /* ── TAB + INIT ──────────────────────────────────────────────────────────── */
 function showTab(id,btn){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
@@ -1993,7 +2175,7 @@ function showTab(id,btn){
 }
 
 // Init
-const _fns = [renderPregled, renderMatches, renderSezone, renderTreneri, renderIgraci];
+const _fns = [renderPregled, renderMatches, renderSezone, renderTreneri, renderIgraci, renderVideo];
 _fns.forEach(fn => { try { fn(); } catch(e) { console.warn(e); } });
 // Odbrojavanje i progress bar dok čeka fetch
 (function(){
