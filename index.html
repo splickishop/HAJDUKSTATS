@@ -398,6 +398,58 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   .tab{min-height:44px;}
   .fbtn{min-height:38px;}
 }
+
+/* ── Video player responsive ──────────────────────────────────────────────── */
+.video-responsive-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  background: #000;
+  overflow: hidden;
+}
+/* Remove white border: the iframe loads with white bg before video — use black bg + no margin/padding */
+.video-responsive-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+  display: block;
+}
+/* On desktop, cap the width */
+@media (min-width: 601px) {
+  .video-responsive-wrap {
+    width: 88%;
+    margin: 0 auto;
+    padding-bottom: calc(56.25% * 0.88);
+    border-radius: 4px;
+    margin-bottom: 4px;
+  }
+}
+/* Mobile: full width, no border-radius on sides */
+@media (max-width: 600px) {
+  .video-responsive-wrap {
+    width: 100%;
+    padding-bottom: 56.25%;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+  #videoPlayer {
+    border-radius: 6px;
+  }
+  #videoPlayerHeader {
+    flex-direction: column;
+    gap: 10px;
+  }
+  #videoPlayerHeader button {
+    align-self: flex-end;
+  }
+  #videoMatchTitle {
+    font-size: 1.05rem !important;
+  }
+  #videoMatchSub {
+    font-size: .85rem !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -550,16 +602,16 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   <div class="stitle"><i></i>Video analiza — po utakmicama</div>
 
   <!-- Player -->
-  <div id="videoPlayer" style="display:none;margin-bottom:18px;background:var(--card);border:1px solid var(--border);border-radius:4px;overflow:hidden;">
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px 10px;flex-wrap:wrap;gap:6px;">
+  <div id="videoPlayer" style="display:none;margin-bottom:22px;background:var(--card);border:1px solid rgba(77,138,255,.18);border-radius:8px;overflow:hidden;">
+    <!-- Header: match info + close -->
+    <div id="videoPlayerHeader" style="padding:16px 18px 14px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
       <div style="min-width:0;flex:1;">
-        <div style="font-family:Comfortaa,sans-serif;font-size:.88rem;font-weight:700;color:#ddd;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" id="videoMatchTitle">—</div>
-        <div style="font-family:Comfortaa,sans-serif;font-size:.68rem;color:#555;letter-spacing:.08em;text-transform:uppercase" id="videoMatchSub">—</div>
-        <div style="font-family:Comfortaa,sans-serif;font-size:.80rem;color:#ccc;margin-top:5px;line-height:1.6;display:none" id="videoMatchOpis"></div>
+        <div id="videoMatchTitle" style="font-family:Comfortaa,sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:5px;line-height:1.3;word-break:break-word;">—</div>
+        <div id="videoMatchSub" style="font-family:Comfortaa,sans-serif;font-size:.82rem;color:#aaa;letter-spacing:.06em;margin-bottom:0;"></div>
       </div>
-      <button onclick="closeVideo()" style="font-family:Comfortaa,sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);background:transparent;border:1px solid var(--border);border-radius:2px;padding:5px 12px;cursor:pointer;flex-shrink:0;">✕</button>
+      <button onclick="closeVideo()" style="font-family:Comfortaa,sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#666;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:6px 13px;cursor:pointer;flex-shrink:0;transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.color='#ccc'" onmouseout="this.style.background='rgba(255,255,255,.05)';this.style.color='#666'">✕ Zatvori</button>
     </div>
-    <div id="videoPlayerInner" style="padding:0 0 12px;"></div>
+    <div id="videoPlayerInner" style="padding:0;"></div>
   </div>
 
   <!-- Match list -->
@@ -2124,15 +2176,21 @@ function openMatchVideos(rowEl){
   const sub    = rowEl.getAttribute('data-sub');
   const player = document.getElementById('videoPlayer');
 
-  // Build stacked players
+  // Build stacked video clips
   const inner = document.getElementById('videoPlayerInner');
-  inner.innerHTML = videa.map((v,i) => `
-    <div style="${i>0?'margin-top:10px;':''}">
-      ${videa.length>1 ? `<div style="font-family:Comfortaa,sans-serif;font-size:.74rem;color:#bbb;letter-spacing:.06em;margin-bottom:5px;padding:0 2px">${v.opis||('Klip '+(i+1))}</div>` : (v.opis ? `<div style="font-family:Comfortaa,sans-serif;font-size:.80rem;color:#ccc;margin-bottom:6px;line-height:1.6;font-weight:500">${v.opis}</div>` : '')}
-      <div style="position:relative;width:85%;margin:0 auto;padding-bottom:35.7%;background:#090909;border-radius:3px;overflow:hidden;">
+  inner.innerHTML = videa.map((v,i) => {
+    const opisHtml = v.opis
+      ? `<div style="font-family:Comfortaa,sans-serif;font-size:.88rem;color:#ddd;line-height:1.65;font-weight:500;padding:14px 18px 10px;">${v.opis}</div>`
+      : (videa.length > 1 ? `<div style="font-family:Comfortaa,sans-serif;font-size:.75rem;color:#888;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px 8px;">Klip ${i+1}</div>` : '');
+    const divider = i > 0 ? '<div style="height:1px;background:rgba(255,255,255,.06);margin:0;"></div>' : '';
+    return `${divider}
+    <div style="padding-bottom:${i===videa.length-1?'0':'0'};">
+      ${opisHtml}
+      <div class="video-responsive-wrap">
         <iframe src="https://streamable.com/e/${v.id}?autoplay=0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 
   document.getElementById('videoMatchTitle').textContent = title;
   document.getElementById('videoMatchSub').textContent   = sub;
