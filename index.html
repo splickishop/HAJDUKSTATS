@@ -96,7 +96,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--red:#CC0000;--red-b:#FF1A1A;--blue:#003DA5;--blue-l:#4d8aff;--white:#F5F5F0;--bg:#090909;--card:#111;--border:rgba(255,255,255,0.07);--gray:#777;}
+:root{--red:#CC0000;--red-b:#FF1A1A;--blue:#003DA5;--blue-l:#4d8aff;--white:#F5F5F0;--bg:#090909;--card:#111;--border:rgba(255,255,255,0.07);--gray:#999;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--white);font-family:'Comfortaa',sans-serif;min-height:100vh;overflow-x:hidden;}
 
@@ -139,16 +139,16 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:18px 20px;position:relative;overflow:hidden;animation:fadeUp .5s ease both;}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
 .card.cr::before{background:var(--red);}.card.cb::before{background:var(--blue);}.card.cw::before{background:#555;}.card.cg::before{background:#4CAF50;}.card.cy::before{background:#FFC107;}
-.clbl{font-family:'Comfortaa',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.clbl{font-family:'Comfortaa',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#aaa;margin-bottom:6px;}
 .cval{font-family:'Comfortaa',sans-serif;font-size:2.8rem;line-height:1;letter-spacing:.02em;}
 .cval.r{color:var(--red-b);}.cval.b{color:var(--blue-l);}.cval.g{color:#4CAF50;}.cval.y{color:#FFC107;}
-.csub{font-size:.75rem;color:var(--gray);margin-top:3px;}
+.csub{font-size:.75rem;color:#aaa;margin-top:3px;}
 
 .cbox{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:26px;margin-bottom:20px;overflow:hidden;}
-.cbox-title{font-family:'Comfortaa',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:18px;}
+.cbox-title{font-family:'Comfortaa',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#aaa;margin-bottom:18px;}
 
 .bar-row{margin-bottom:13px;}
-.bar-lbl{font-family:'Comfortaa',sans-serif;font-size:.82rem;letter-spacing:.04em;color:#ccc;margin-bottom:4px;display:flex;justify-content:space-between;}
+.bar-lbl{font-family:'Comfortaa',sans-serif;font-size:.82rem;letter-spacing:.04em;color:#ddd;margin-bottom:4px;display:flex;justify-content:space-between;}
 .bar-lbl .bv{font-family:'Comfortaa',sans-serif;font-size:.95rem;color:var(--white);}
 .bar-track{height:7px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;}
 .bar-fill{height:100%;border-radius:4px;transition:width 1.3s cubic-bezier(.22,1,.36,1);}
@@ -162,7 +162,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .mgrid{display:grid;gap:7px;}
 .mrow{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:13px 18px;display:grid;grid-template-columns:78px 1fr 84px 70px 110px;align-items:center;gap:14px;animation:fadeUp .4s ease both;transition:border-color .2s;}
 .mrow:hover{border-color:rgba(204,0,0,.4);}
-.mkolo{font-family:'Comfortaa',sans-serif;font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);}
+.mkolo{font-family:'Comfortaa',sans-serif;font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;color:#999;}
 .mname{font-family:'Comfortaa',sans-serif;font-size:.92rem;font-weight:600;letter-spacing:.03em;}
 .mres{font-family:'Comfortaa',sans-serif;font-size:1.4rem;letter-spacing:.08em;text-align:center;}
 .mres.win{color:#4CAF50;}.mres.draw{color:#FFC107;}.mres.loss{color:var(--red-b);}.mres.pending{color:#333;font-size:.9rem;}
@@ -183,7 +183,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .prijatelji-wrap{max-width:600px;margin:0 auto;padding:20px 0 60px;}
 .prijatelji-heading{font-family:'Comfortaa',sans-serif;font-size:clamp(2.4rem,6vw,3.8rem);letter-spacing:.06em;line-height:.9;margin-bottom:8px;color:var(--white);}
 .prijatelji-heading em{font-style:italic;color:#ff6600;}
-.prijatelji-sub{font-family:'Comfortaa',sans-serif;font-size:1rem;letter-spacing:.05em;color:var(--gray);margin-bottom:32px;line-height:1.6;}
+.prijatelji-sub{font-family:'Comfortaa',sans-serif;font-size:1rem;letter-spacing:.05em;color:#aaa;margin-bottom:32px;line-height:1.6;}
 .friend-card{background:var(--card);border:1px solid rgba(255,102,0,.22);border-radius:10px;padding:26px 28px;margin-bottom:16px;position:relative;overflow:hidden;animation:fadeUp .6s ease both;transition:border-color .2s,box-shadow .2s;}
 .friend-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#ff6600,#ffaa00);}
 .friend-card:hover{border-color:rgba(255,102,0,.5);box-shadow:0 4px 24px rgba(255,102,0,.1);}
@@ -195,10 +195,10 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .friend-handle{font-family:'Comfortaa',sans-serif;font-size:.78rem;color:#ff8833;letter-spacing:.06em;}
 .friend-btn{display:inline-flex;align-items:center;gap:7px;font-family:'Comfortaa',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#ff6600;border:1px solid rgba(255,102,0,.4);border-radius:6px;padding:8px 14px;text-decoration:none;white-space:nowrap;transition:all .2s;flex-shrink:0;}
 .friend-btn:hover{background:rgba(255,102,0,.12);border-color:#ff6600;color:#ff8833;}
-.friend-desc{font-family:'Comfortaa',sans-serif;font-size:.88rem;color:var(--gray);line-height:1.65;margin-bottom:14px;}
+.friend-desc{font-family:'Comfortaa',sans-serif;font-size:.88rem;color:#aaa;line-height:1.65;margin-bottom:14px;}
 .friend-tag{display:inline-block;font-family:'Comfortaa',sans-serif;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:#ff6600;background:rgba(255,102,0,.1);border:1px solid rgba(255,102,0,.2);border-radius:20px;padding:3px 10px;}
 .stable{width:100%;border-collapse:collapse;font-family:'Comfortaa',sans-serif;}
-.stable th{font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;color:var(--gray);text-align:left;padding:9px 14px;border-bottom:1px solid var(--border);}
+.stable th{font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;color:#aaa;text-align:left;padding:9px 14px;border-bottom:1px solid var(--border);}
 .stable td{padding:13px 14px;border-bottom:1px solid var(--border);font-size:.92rem;}
 .stable tr:hover td{background:rgba(255,255,255,.02);}
 .sn{font-family:'Comfortaa',sans-serif;font-size:1.05rem;letter-spacing:.05em;}
@@ -221,14 +221,14 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .tc-stat{text-align:center;padding:10px 6px;background:rgba(255,255,255,.03);border-radius:3px;}
 .tc-sv{font-family:'Comfortaa',sans-serif;font-size:1.8rem;line-height:1;}
 .tc-sv.g{color:#4CAF50;}.tc-sv.y{color:#FFC107;}.tc-sv.r{color:var(--red-b);}
-.tc-sl{font-family:'Comfortaa',sans-serif;font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gray);margin-top:3px;}
-.tc-extra{font-family:'Comfortaa',sans-serif;font-size:.85rem;color:#aaa;padding-top:14px;border-top:1px solid var(--border);}
+.tc-sl{font-family:'Comfortaa',sans-serif;font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:#aaa;margin-top:3px;}
+.tc-extra{font-family:'Comfortaa',sans-serif;font-size:.85rem;color:#bbb;padding-top:14px;border-top:1px solid var(--border);}
 .tc-extra strong{color:var(--white);}
 .wr-wrap{margin-top:14px;}
 .wr-bar{height:6px;border-radius:3px;overflow:hidden;background:rgba(255,255,255,.06);display:flex;}
 .wr-w{background:#4CAF50;}.wr-d{background:#FFC107;}.wr-l{background:var(--red);}
 .wr-legend{display:flex;gap:14px;margin-top:7px;flex-wrap:wrap;}
-.wr-leg{font-family:'Comfortaa',sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);display:flex;align-items:center;gap:5px;}
+.wr-leg{font-family:'Comfortaa',sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#aaa;display:flex;align-items:center;gap:5px;}
 .wr-leg::before{content:'';width:8px;height:8px;border-radius:50%;}
 .wr-leg.wl::before{background:#4CAF50;}.wr-leg.dl::before{background:#FFC107;}.wr-leg.ll::before{background:var(--red);}
 
@@ -245,7 +245,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .kontakt-deco-icon{color:var(--red);font-size:1rem;}
 .kontakt-heading{font-family:'Comfortaa',sans-serif;font-size:clamp(2.4rem,6vw,3.8rem);letter-spacing:.06em;line-height:.9;margin-bottom:8px;color:var(--white);}
 .kontakt-heading em{font-style:italic;color:var(--red-b);}
-.kontakt-sub{font-family:'Comfortaa',sans-serif;font-size:1rem;letter-spacing:.06em;color:var(--gray);margin-bottom:40px;line-height:1.6;}
+.kontakt-sub{font-family:'Comfortaa',sans-serif;font-size:1rem;letter-spacing:.06em;color:#aaa;margin-bottom:40px;line-height:1.6;}
 .kontakt-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:28px 30px;margin-bottom:16px;position:relative;overflow:hidden;animation:fadeUp .6s ease both;box-shadow:0 2px 8px rgba(0,0,0,.07);}
 .kontakt-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--blue));}
 .kontakt-card-lbl{font-family:'Comfortaa',sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
@@ -284,6 +284,8 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   .h-title p{font-size:.6rem;letter-spacing:.12em;margin-top:1px;}
   .live-pill{margin-left:0;margin-right:0;font-size:.58rem;justify-content:center;}
   .s-badge{font-size:.72rem;padding:3px 10px;}
+  /* Social icons — move below s-badge on mobile */
+  .h-social{position:static !important;display:flex;justify-content:center;margin-top:8px;gap:10px;}
 
   /* Tabs — horizontal scroll, no wrap */
   .tabs{padding:0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-bottom:1px solid var(--border);}
@@ -421,7 +423,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
     <div class="s-badge">2025/2026</div>
   </div>
   <!-- Social icons -->
-  <div style="position:absolute;bottom:10px;right:44px;display:flex;align-items:center;gap:12px;z-index:2;">
+  <div class="h-social" style="position:absolute;bottom:10px;right:44px;display:flex;align-items:center;gap:12px;z-index:2;">
     <a href="https://www.facebook.com/profile.php?id=61566645072890" target="_blank" rel="noopener" aria-label="Facebook" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);color:#aaa;transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(24,119,242,.18)';this.style.borderColor='rgba(24,119,242,.4)';this.style.color='#4a90e2'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.09)';this.style.color='#aaa'">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
     </a>
@@ -553,7 +555,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
       <div style="min-width:0;flex:1;">
         <div style="font-family:Comfortaa,sans-serif;font-size:.88rem;font-weight:700;color:#ddd;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" id="videoMatchTitle">—</div>
         <div style="font-family:Comfortaa,sans-serif;font-size:.68rem;color:#555;letter-spacing:.08em;text-transform:uppercase" id="videoMatchSub">—</div>
-        <div style="font-family:Comfortaa,sans-serif;font-size:.78rem;color:#888;margin-top:5px;line-height:1.5;display:none" id="videoMatchOpis"></div>
+        <div style="font-family:Comfortaa,sans-serif;font-size:.80rem;color:#ccc;margin-top:5px;line-height:1.6;display:none" id="videoMatchOpis"></div>
       </div>
       <button onclick="closeVideo()" style="font-family:Comfortaa,sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);background:transparent;border:1px solid var(--border);border-radius:2px;padding:5px 12px;cursor:pointer;flex-shrink:0;">✕</button>
     </div>
@@ -1303,7 +1305,7 @@ function renderPregled(){
 
   document.getElementById('statsCards').innerHTML=`
     <div class="card cr"><div class="clbl">Bodovi</div><div class="cval r">${cur.bodovi}</div><div class="csub">od ${cur.kola} kola</div></div>
-    <div class="card cb"><div class="clbl">B/U omjer</div><div class="cval b">${cur.bu}</div><div class="csub">bodova po utakmici</div></div>
+    <div class="card cb"><div class="clbl">B/U omjer</div><div class="cval b">${typeof cur.bu === 'number' ? cur.bu.toFixed(2) : cur.bu}</div><div class="csub">bodova po utakmici</div></div>
     <div class="card cg"><div class="clbl">Pobjede</div><div class="cval g">${wins}</div><div class="csub">${draws} remija · ${losses} poraza</div></div>
     <div class="card cw"><div class="clbl">Dani golovi</div><div class="cval">${totG}</div><div class="csub">${cur.golovi} po utakmici</div></div>
     <div class="card cr"><div class="clbl">Primljeni</div><div class="cval r">${totP}</div><div class="csub">${cur.primljeni} po utakmici</div></div>
@@ -1364,7 +1366,7 @@ function renderSezone(){
       <td class="sn ${cur?'cur':''}">${s.sezona}</td>
       <td>${s.kola}</td>
       <td class="hl ${cur?'cur':''}">${s.bodovi}</td>
-      <td ${cur?'style="color:var(--red-b);font-family:\'Comfortaa\';font-size:1.1rem"':''}>${s.bu}</td>
+      <td ${cur?'style="color:var(--red-b);font-family:\'Comfortaa\';font-size:1.1rem"':''}>${typeof s.bu==='number'?s.bu.toFixed(2):s.bu}</td>
       <td>${s.golovi}</td><td>${s.primljeni}</td>
       <td ${cur?'style="color:var(--blue-l);font-family:\'Comfortaa\';font-size:1.1rem"':''}>${s.vp}</td>
       <td>${s.promaseneVp}</td>
@@ -1522,7 +1524,7 @@ function renderTreneri(){
         <div class="tc-stat"><div class="tc-sv g">${p}</div><div class="tc-sl">Pobjede</div></div>
         <div class="tc-stat"><div class="tc-sv y">${n}</div><div class="tc-sl">Remiji</div></div>
         <div class="tc-stat"><div class="tc-sv r">${l}</div><div class="tc-sl">Porazi</div></div>
-        <div class="tc-stat"><div class="tc-sv">${t.bu}</div><div class="tc-sl">B/U</div></div>
+        <div class="tc-stat"><div class="tc-sv">${typeof t.bu==='number'?t.bu.toFixed(2):t.bu}</div><div class="tc-sl">B/U</div></div>
       </div>
       <div class="wr-wrap">
         <div class="wr-bar">
@@ -1549,7 +1551,7 @@ function renderTreneri(){
     <td class="hl" style="color:#4CAF50">${t.pobjede}</td>
     <td style="color:#FFC107;font-family:'Comfortaa';font-size:1.1rem">${t.remiji}</td>
     <td class="hl" style="color:var(--red-b)">${t.porazi}</td>
-    <td style="font-family:'Comfortaa';font-size:1.1rem">${t.bu}</td>
+    <td style="font-family:'Comfortaa';font-size:1.1rem">${typeof t.bu==='number'?t.bu.toFixed(2):t.bu}</td>
     <td style="color:#aaa">${t.vrijednost}</td>
   </tr>`).join('')}</tbody></table>`;
 
@@ -2126,9 +2128,9 @@ function openMatchVideos(rowEl){
   const inner = document.getElementById('videoPlayerInner');
   inner.innerHTML = videa.map((v,i) => `
     <div style="${i>0?'margin-top:10px;':''}">
-      ${videa.length>1 ? `<div style="font-family:Comfortaa,sans-serif;font-size:.72rem;color:#555;letter-spacing:.08em;margin-bottom:5px;padding:0 2px">${v.opis||('Klip '+(i+1))}</div>` : (v.opis ? `<div style="font-family:Comfortaa,sans-serif;font-size:.78rem;color:#888;margin-bottom:6px;line-height:1.5">${v.opis}</div>` : '')}
-      <div style="position:relative;width:100%;padding-bottom:42%;background:#000;border-radius:3px;overflow:hidden;">
-        <iframe src="https://streamable.com/e/${v.id}?autoplay=${i===0?1:0}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      ${videa.length>1 ? `<div style="font-family:Comfortaa,sans-serif;font-size:.74rem;color:#bbb;letter-spacing:.06em;margin-bottom:5px;padding:0 2px">${v.opis||('Klip '+(i+1))}</div>` : (v.opis ? `<div style="font-family:Comfortaa,sans-serif;font-size:.80rem;color:#ccc;margin-bottom:6px;line-height:1.6;font-weight:500">${v.opis}</div>` : '')}
+      <div style="position:relative;width:85%;margin:0 auto;padding-bottom:35.7%;background:#090909;border-radius:3px;overflow:hidden;">
+        <iframe src="https://streamable.com/e/${v.id}?autoplay=0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
       </div>
     </div>`).join('');
 
@@ -2144,7 +2146,7 @@ function playVideo(streamableId, title, sub, opis){
   const titleEl = document.getElementById('videoMatchTitle');
   const subEl   = document.getElementById('videoMatchSub');
   const opisEl  = document.getElementById('videoMatchOpis');
-  iframe.src = 'https://streamable.com/e/' + streamableId + '?autoplay=1';
+  iframe.src = 'https://streamable.com/e/' + streamableId + '?autoplay=0';
   titleEl.textContent = title;
   subEl.textContent   = sub;
   if(opis && opis.trim()){
@@ -2172,6 +2174,13 @@ function showTab(id,btn){
   document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
   const el=document.getElementById(id);
   if(el)el.classList.add('active');
+  // Stop video player when switching away from video tab
+  if(id !== 'video'){
+    const inner = document.getElementById('videoPlayerInner');
+    if(inner) inner.innerHTML = '';
+    const player = document.getElementById('videoPlayer');
+    if(player) player.style.display = 'none';
+  }
 }
 
 // Init
