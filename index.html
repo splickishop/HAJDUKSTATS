@@ -755,16 +755,19 @@ const TRENERI = [
 
 const VIDEO_MATCHES = [
   // Format: { kolo, name, wdl, g, p, videa: [ { id, opis }, ... ] }
-  // id: Streamable video ID (zadnji dio linka, npr. abc123)
+  // id: Streamable video ID (zadnji dio linka, npr. abc123) — ili koristite 'url' za direktan embed URL (npr. youtubetrimmer link)
   // opis: kratki opis klipa (neobavezno)
   // videa: prazna lista [] = nema videa; dodaj objekte za svaki klip
   { kolo:'30. kolo', name:'Slaven Belupo (gosti)',     wdl:'D', g:2, p:2, videa:[
     { id:'bstdgt', opis:'Analiza golova' },
-    { id:'vaob95', opis:'Visok presing i brz izlazak naprijed Slaven Belupa' },
-    { id:'yf3i5n', opis:'Odlična, školska akcija Hajduka u 3 dodavanja do gola — brza promjena strane preciznom dijagonalom, odlično utrčavanje Brajkovića i asistencija za Rebića' },
-  ]},
-  { kolo:'31. kolo', name:'Hajduk - Osijek',           wdl:'W', g:2, p:0, videa:[] },
-  { kolo:'32. kolo', name:'Rijeka (gosti)',             wdl:'L', g:0, p:5, videa:[] },
+   ]},
+  { kolo:'31. kolo', name:'Hajduk - Osijek',           wdl:'L', g:0, p:1, videa:[
+	{ url: 'https://www.youtubetrimmer.com/view/?v=A7cxQnIVcu0&start=1826&end=1884&loop=1', opis: 'Izgradnja napada Hajduka' },
+	] },
+  { kolo:'32. kolo', name:'Rijeka (gosti)',             wdl:'D', g:0, p:0, videa:[
+	{ url: 'https://www.youtubetrimmer.com/view/?v=pS240iD222c&start=2432&end=2474&loop=1', opis: 'Branjenje Rijekinog posjeda i izgradnje napada' },
+	{ url: 'https://www.youtubetrimmer.com/view/?v=pS240iD222c&start=2474&end=2520&loop=1', opis: 'Odlična akcija Hajduka i veliki promašaj Pukštasa' },
+	] },
   { kolo:'33. kolo', name:'Hajduk - Varaždin',          wdl:'D', g:1, p:1, videa:[] },
   { kolo:'34. kolo', name:'Dinamo (gosti)',             wdl:'D', g:1, p:1, videa:[] },
   { kolo:'35. kolo', name:'Lokomotiva (gosti)',         wdl:'W', g:3, p:1, videa:[] },
@@ -2110,7 +2113,7 @@ function renderVideo(){
     grid.innerHTML = `<div style="text-align:center;padding:60px 20px;">
       <div style="font-size:2.8rem;margin-bottom:16px;opacity:.12">▶</div>
       <div style="font-family:Comfortaa,sans-serif;font-size:1.1rem;letter-spacing:.1em;color:#333;margin-bottom:8px">Još nema video analiza</div>
-      <div style="font-family:Comfortaa,sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#2a2a2a">Videa se dodaju po objavi na Streamable</div>
+      <div style="font-family:Comfortaa,sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#2a2a2a">Videa se dodaju po objavi</div>
     </div>`;
     return;
   }
@@ -2170,7 +2173,7 @@ function openMatchVideos(rowEl){
     <div style="padding-bottom:${i===videa.length-1?'0':'0'};">
       ${opisHtml}
       <div class="video-responsive-wrap">
-        <iframe src="https://streamable.com/e/${v.id}?autoplay=0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        <iframe src="${v.url || ('https://streamable.com/e/' + v.id + '?autoplay=0')}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
       </div>
     </div>`;
   }).join('');
@@ -2187,7 +2190,7 @@ function playVideo(streamableId, title, sub, opis){
   const titleEl = document.getElementById('videoMatchTitle');
   const subEl   = document.getElementById('videoMatchSub');
   const opisEl  = document.getElementById('videoMatchOpis');
-  iframe.src = 'https://streamable.com/e/' + streamableId + '?autoplay=0';
+  iframe.src = streamableId.startsWith('http') ? streamableId : 'https://streamable.com/e/' + streamableId + '?autoplay=0';
   titleEl.textContent = title;
   subEl.textContent   = sub;
   if(opis && opis.trim()){
