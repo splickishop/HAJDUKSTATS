@@ -160,7 +160,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .fbtn.active{background:var(--red);color:#fff;border-color:var(--red);}
 
 .mgrid{display:grid;gap:7px;}
-.mrow{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:13px 18px;display:grid;grid-template-columns:78px 1fr 84px 70px 110px;align-items:center;gap:14px;animation:fadeUp .4s ease both;transition:border-color .2s;}
+.mrow{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:13px 18px;display:grid;grid-template-columns:78px 1fr 84px 70px 70px 110px;align-items:center;gap:14px;animation:fadeUp .4s ease both;transition:border-color .2s;}
 .mrow:hover{border-color:rgba(204,0,0,.4);}
 .mkolo{font-family:'Comfortaa',sans-serif;font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;color:#999;}
 .mname{font-family:'Comfortaa',sans-serif;font-size:.92rem;font-weight:600;letter-spacing:.03em;}
@@ -364,6 +364,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 
   /* Utakmice — širi grid da stane ime */
   .mrow{grid-template-columns:46px 1fr 58px;gap:6px;padding:10px 10px;}
+  .mvp,.mdots{display:none;}
   .mname{font-size:.78rem;line-height:1.25;}
   .mkolo{font-size:.6rem;}
   .mres{font-size:.95rem;}
@@ -702,48 +703,48 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false">
 /* ── DATA (ugrađena iz Google Sheetsa) ─────────────────────────────────────── */
 const SEASONS = [
-  { sezona:'2023/2024', kola:36, bodovi:68, bu:1.89, golovi:1.5,  primljeni:0.7,  vp:1.8,  promaseneVp:1.1 },
-  { sezona:'2024/2025', kola:36, bodovi:63, bu:1.75, golovi:1.4,  primljeni:0.9,  vp:1.8,  promaseneVp:1.0 },
-  { sezona:'2025/2026', kola:25, bodovi:47, bu:1.88, golovi:1.48, primljeni:0.96, vp:2.64, promaseneVp:1.68 },
+  { sezona:'2023/2024', kola:36, bodovi:68, bu:1.89, golovi:1.5,  primljeni:0.7,  vp:1.8,  promaseneVp:1.1,  xg:null },
+  { sezona:'2024/2025', kola:36, bodovi:63, bu:1.75, golovi:1.4,  primljeni:0.9,  vp:1.8,  promaseneVp:1.0,  xg:null },
+  { sezona:'2025/2026', kola:32, bodovi:61, bu:1.91, golovi:1.59, primljeni:0.91, vp:2.94, promaseneVp:1.94, xg:60.1 },
 ];
 
 const MATCHES = [
-  {kolo:'1. kolo',  name:'Hajduk - Istra',         g:2,p:1, wdl:'W', vp:3, zvp:2, prom:1,  home:true},
-  {kolo:'2. kolo',  name:'Hajduk - Gorica',         g:2,p:0, wdl:'W', vp:4, zvp:2, prom:2,  home:true},
-  {kolo:'3. kolo',  name:'Hajduk - Slaven Belupo',  g:3,p:0, wdl:'W', vp:3, zvp:2, prom:1,  home:true},
-  {kolo:'4. kolo',  name:'Osijek (gosti)',           g:2,p:0, wdl:'W', vp:0, zvp:0, prom:0,  home:false},
-  {kolo:'5. kolo',  name:'Hajduk - Rijeka',          g:2,p:2, wdl:'D', vp:3, zvp:2, prom:1,  home:true},
-  {kolo:'6. kolo',  name:'Varaždin (gosti)',          g:0,p:2, wdl:'L', vp:0, zvp:0, prom:0,  home:false},
-  {kolo:'7. kolo',  name:'Hajduk - Dinamo',          g:0,p:2, wdl:'L', vp:0, zvp:0, prom:0,  home:true},
-  {kolo:'8. kolo',  name:'Hajduk - Lokomotiva',      g:2,p:0, wdl:'W', vp:3, zvp:2, prom:1,  home:true},
-  {kolo:'9. kolo',  name:'Vukovar (gosti)',           g:1,p:0, wdl:'W', vp:2, zvp:0, prom:2,  home:false},
-  {kolo:'10. kolo', name:'Istra (gosti)',             g:3,p:0, wdl:'W', vp:3, zvp:2, prom:1,  home:false},
-  {kolo:'11. kolo', name:'Gorica (gosti)',            g:3,p:1, wdl:'W', vp:3, zvp:2, prom:1,  home:false},
-  {kolo:'12. kolo', name:'Slaven Belupo (gosti)',     g:2,p:2, wdl:'D', vp:1, zvp:0, prom:1,  home:false},
-  {kolo:'13. kolo', name:'Hajduk - Osijek',           g:2,p:0, wdl:'W', vp:0, zvp:0, prom:0,  home:true},
-  {kolo:'14. kolo', name:'Rijeka (gosti)',             g:0,p:5, wdl:'L', vp:1, zvp:0, prom:1,  home:false},
-  {kolo:'15. kolo', name:'Hajduk - Varaždin',          g:1,p:1, wdl:'D', vp:4, zvp:0, prom:4,  home:true},
-  {kolo:'16. kolo', name:'Dinamo (gosti)',             g:1,p:1, wdl:'D', vp:1, zvp:1, prom:0,  home:false},
-  {kolo:'17. kolo', name:'Lokomotiva (gosti)',         g:3,p:1, wdl:'W', vp:5, zvp:2, prom:3,  home:false},
-  {kolo:'18. kolo', name:'Hajduk - Vukovar',          g:2,p:1, wdl:'W', vp:5, zvp:2, prom:3,  home:true},
-  {kolo:'19. kolo', name:'Hajduk - Istra',            g:1,p:2, wdl:'L', vp:6, zvp:0, prom:6,  home:true},
-  {kolo:'20. kolo', name:'Gorica (gosti)',             g:0,p:1, wdl:'L', vp:2, zvp:0, prom:2,  home:false},
-  {kolo:'21. kolo', name:'Hajduk - Slaven Belupo',    g:2,p:0, wdl:'W', vp:2, zvp:1, prom:1,  home:true},
-  {kolo:'22. kolo', name:'Osijek (gosti)',             g:2,p:0, wdl:'W', vp:5, zvp:2, prom:3,  home:false},
-  {kolo:'23. kolo', name:'Hajduk - Rijeka',            g:1,p:0, wdl:'W', vp:3, zvp:1, prom:2,  home:true},
-  {kolo:'24. kolo', name:'Varaždin (gosti)',            g:1,p:1, wdl:'D', vp:3, zvp:0, prom:3,  home:false},
-  {kolo:'25. kolo', name:'Hajduk - Dinamo',            g:1,p:3, wdl:'L', vp:4, zvp:1, prom:3, home:true},
-  {kolo:'26. kolo', name:'Hajduk - Lokomotiva',        g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,home:true},
-  {kolo:'27. kolo', name:'Vukovar (gosti)',             g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,home:false},
-  {kolo:'28. kolo', name:'Istra (gosti)',               g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,home:false},
-  {kolo:'29. kolo', name:'Hajduk - Gorica',            g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,home:true},
-  {kolo:'30. kolo', name:'Slaven Belupo (gosti)',       g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,home:false},
-  {kolo:'31. kolo', name:'Hajduk - Osijek',             g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,home:true},
-  {kolo:'32. kolo', name:'Rijeka (gosti)',               g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,home:false},
-  {kolo:'33. kolo', name:'Hajduk - Varaždin',            g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,home:true},
-  {kolo:'34. kolo', name:'Dinamo (gosti)',               g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,home:false},
-  {kolo:'35. kolo', name:'Lokomotiva (gosti)',           g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,home:false},
-  {kolo:'36. kolo', name:'Hajduk - Vukovar',            g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,home:true},
+  {kolo:'1. kolo',  name:'Hajduk - Istra',         g:2,p:1, wdl:'W', vp:3, zvp:2, prom:1,  xg:1.93, home:true},
+  {kolo:'2. kolo',  name:'Hajduk - Gorica',         g:2,p:0, wdl:'W', vp:4, zvp:2, prom:2,  xg:2.89, home:true},
+  {kolo:'3. kolo',  name:'Hajduk - Slaven Belupo',  g:3,p:0, wdl:'W', vp:3, zvp:2, prom:1,  xg:3.24, home:true},
+  {kolo:'4. kolo',  name:'Osijek (gosti)',           g:2,p:0, wdl:'W', vp:0, zvp:0, prom:0,  xg:1.2,  home:false},
+  {kolo:'5. kolo',  name:'Hajduk - Rijeka',          g:2,p:2, wdl:'D', vp:3, zvp:2, prom:1,  xg:1.69, home:true},
+  {kolo:'6. kolo',  name:'Varaždin (gosti)',          g:0,p:2, wdl:'L', vp:0, zvp:0, prom:0,  xg:0.69, home:false},
+  {kolo:'7. kolo',  name:'Hajduk - Dinamo',          g:0,p:2, wdl:'L', vp:0, zvp:0, prom:0,  xg:0.5,  home:true},
+  {kolo:'8. kolo',  name:'Hajduk - Lokomotiva',      g:2,p:0, wdl:'W', vp:3, zvp:2, prom:1,  xg:0.93, home:true},
+  {kolo:'9. kolo',  name:'Vukovar (gosti)',           g:1,p:0, wdl:'W', vp:2, zvp:0, prom:2,  xg:1.91, home:false},
+  {kolo:'10. kolo', name:'Istra (gosti)',             g:3,p:0, wdl:'W', vp:3, zvp:2, prom:1,  xg:1.95, home:false},
+  {kolo:'11. kolo', name:'Gorica (gosti)',            g:3,p:1, wdl:'W', vp:3, zvp:2, prom:1,  xg:2.26, home:false},
+  {kolo:'12. kolo', name:'Slaven Belupo (gosti)',     g:2,p:2, wdl:'D', vp:1, zvp:0, prom:1,  xg:1.32, home:false},
+  {kolo:'13. kolo', name:'Hajduk - Osijek',           g:2,p:0, wdl:'W', vp:0, zvp:0, prom:0,  xg:1.74, home:true},
+  {kolo:'14. kolo', name:'Rijeka (gosti)',             g:0,p:5, wdl:'L', vp:1, zvp:0, prom:1,  xg:0.97, home:false},
+  {kolo:'15. kolo', name:'Hajduk - Varaždin',          g:1,p:1, wdl:'D', vp:4, zvp:0, prom:4,  xg:1.38, home:true},
+  {kolo:'16. kolo', name:'Dinamo (gosti)',             g:1,p:1, wdl:'D', vp:1, zvp:1, prom:0,  xg:0.72, home:false},
+  {kolo:'17. kolo', name:'Lokomotiva (gosti)',         g:3,p:1, wdl:'W', vp:5, zvp:2, prom:3,  xg:3.31, home:false},
+  {kolo:'18. kolo', name:'Hajduk - Vukovar',          g:2,p:1, wdl:'W', vp:5, zvp:2, prom:3,  xg:2.61, home:true},
+  {kolo:'19. kolo', name:'Hajduk - Istra',            g:1,p:2, wdl:'L', vp:6, zvp:0, prom:6,  xg:2.19, home:true},
+  {kolo:'20. kolo', name:'Gorica (gosti)',             g:0,p:1, wdl:'L', vp:2, zvp:0, prom:2,  xg:1.61, home:false},
+  {kolo:'21. kolo', name:'Hajduk - Slaven Belupo',    g:2,p:0, wdl:'W', vp:2, zvp:1, prom:1,  xg:1.08, home:true},
+  {kolo:'22. kolo', name:'Osijek (gosti)',             g:2,p:0, wdl:'W', vp:5, zvp:2, prom:3,  xg:2.63, home:false},
+  {kolo:'23. kolo', name:'Hajduk - Rijeka',            g:1,p:0, wdl:'W', vp:3, zvp:1, prom:2,  xg:1.26, home:true},
+  {kolo:'24. kolo', name:'Varaždin (gosti)',            g:1,p:1, wdl:'D', vp:3, zvp:0, prom:3,  xg:1.7,  home:false},
+  {kolo:'25. kolo', name:'Hajduk - Dinamo',            g:1,p:3, wdl:'L', vp:4, zvp:1, prom:3,  xg:1.1,  home:true},
+  {kolo:'26. kolo', name:'Hajduk - Lokomotiva',        g:2,p:1, wdl:'W', vp:4, zvp:2, prom:2,  xg:4.24, home:true},
+  {kolo:'27. kolo', name:'Vukovar (gosti)',             g:6,p:0, wdl:'W', vp:9, zvp:5, prom:4,  xg:4.91, home:false},
+  {kolo:'28. kolo', name:'Istra (gosti)',               g:3,p:1, wdl:'W', vp:3, zvp:0, prom:3,  xg:2.08, home:false},
+  {kolo:'29. kolo', name:'Hajduk - Gorica',            g:1,p:0, wdl:'W', vp:2, zvp:0, prom:2,  xg:1.41, home:true},
+  {kolo:'30. kolo', name:'Slaven Belupo (gosti)',       g:2,p:2, wdl:'D', vp:4, zvp:1, prom:3,  xg:1.73, home:false},
+  {kolo:'31. kolo', name:'Hajduk - Osijek',             g:0,p:1, wdl:'L', vp:4, zvp:0, prom:4,  xg:2.07, home:true},
+  {kolo:'32. kolo', name:'Rijeka (gosti)',               g:0,p:0, wdl:'D', vp:2, zvp:0, prom:2,  xg:0.85, home:false},
+  {kolo:'33. kolo', name:'Hajduk - Varaždin',            g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,xg:null,home:true},
+  {kolo:'34. kolo', name:'Dinamo (gosti)',               g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,xg:null,home:false},
+  {kolo:'35. kolo', name:'Lokomotiva (gosti)',           g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,xg:null,home:false},
+  {kolo:'36. kolo', name:'Hajduk - Vukovar',            g:null,p:null,wdl:null,vp:null,zvp:null,prom:null,xg:null,home:true},
 ];
 
 const TRENERI = [
@@ -1349,7 +1350,9 @@ function renderPregled(){
     <div class="card cr"><div class="clbl">Primljeni</div><div class="cval r">${totP}</div><div class="csub">${cur.primljeni} po utakmici</div></div>
     <div class="card cb"><div class="clbl">Vel. prilike</div><div class="cval b">${totVP}</div><div class="csub">${cur.vp} po utakmici</div></div>
     <div class="card cw"><div class="clbl">Iskoristivost velikih prilika</div><div class="cval">${ef}%</div><div class="csub">${totZVP} zabijeno · ${totVP-totZVP} promašeno</div></div>
-    <div class="card cy"><div class="clbl">Promašene vel. prilike/U</div><div class="cval y">${cur.promaseneVp}</div><div class="csub">po utakmici</div></div>`;
+    <div class="card cy"><div class="clbl">Promašene vel. prilike/U</div><div class="cval y">${cur.promaseneVp}</div><div class="csub">po utakmici</div></div>
+    ${cur.xg!=null?`<div class="card cg"><div class="clbl">xG — ukupno</div><div class="cval g">${cur.xg}</div><div class="csub">očekivani golovi</div></div>`:''}`;
+
 
   // Modern VP efficiency visualization
   renderVPEfficiency(document.getElementById('rings'), totZVP, totVP-totZVP, totVP, ef);
@@ -1378,6 +1381,7 @@ function renderMatches(){
     const r=res(m), txt=`${m.g} : ${m.p}`;
     const dispName = m.home ? m.name : m.name + ' (gosti)';
     const vpH=m.vp!==null?`<div class="mvp"><span class="vn">${m.vp}</span><span class="vl">Vel. prilike</span></div>`:`<div class="mvp"><span class="vn" style="color:#2a2a2a">—</span><span class="vl">Vel. prilike</span></div>`;
+    const xgH=m.xg!=null?`<div class="mvp"><span class="vn" style="color:#FFC107">${m.xg}</span><span class="vl">xG</span></div>`:`<div class="mvp"><span class="vn" style="color:#2a2a2a">—</span><span class="vl">xG</span></div>`;
     let dH='<div class="mdots">';
     if(m.vp!==null) for(let j=0;j<m.vp;j++) dH+=`<div class="dot ${j<m.zvp?'s':'m'}"></div>`;
     dH+='</div>';
@@ -1385,7 +1389,7 @@ function renderMatches(){
       <div class="mkolo">${m.kolo}</div>
       <div class="mname">${dispName}</div>
       <div class="mres ${r}">${txt}</div>
-      ${vpH}${dH}
+      ${vpH}${xgH}${dH}
     </div>`;
   }).join('');
 }
@@ -1408,10 +1412,11 @@ function renderSezone(){
       <td>${s.golovi}</td><td>${s.primljeni}</td>
       <td ${cur?'style="color:var(--blue-l);font-family:\'Comfortaa\';font-size:1.1rem"':''}>${s.vp}</td>
       <td>${s.promaseneVp}</td>
+      <td ${cur?'style="color:#FFC107;font-family:\'Comfortaa\';font-size:1.1rem"':''}>${s.xg!=null?s.xg:'—'}</td>
     </tr>`;
   }).join('');
   document.getElementById('seasonTable').innerHTML=`<table class="stable"><thead><tr>
-    <th>Sezona</th><th>Kola</th><th>Bodovi</th><th>B/U</th><th>Golovi/U</th><th>Primljeni/U</th><th>Vel. prilike/U</th><th>Prom. vel. prilike/U</th>
+    <th>Sezona</th><th>Kola</th><th>Bodovi</th><th>B/U</th><th>Golovi/U</th><th>Primljeni/U</th><th>Vel. prilike/U</th><th>Prom. vel. prilike/U</th><th>xG ukupno</th>
   </tr></thead><tbody>${tbody}</tbody></table>`;
 
   // B/U gauge cards (preslikano s trenera)
@@ -2295,6 +2300,7 @@ _fns.forEach(fn => { try { fn(); } catch(e) { console.warn(e); } });
           vp:    toNum(r.vp),
           zvp:   toNum(r.zvp),
           prom:  toNum(r.prom),
+          xg:    toNum(r.xg),
           home:  r.home === true || r.home === 'true' || r.home === 1,
         }));
       }
@@ -2322,6 +2328,7 @@ _fns.forEach(fn => { try { fn(); } catch(e) { console.warn(e); } });
           primljeni:   toNum(r.primljeni),
           vp:          toNum(r.vp),
           promaseneVp: toNum(r.promaseneVp),
+          xg:          toNum(r.xg),
         }));
         SEASONS.sort((a, b) => a.sezona.localeCompare(b.sezona));
       }
