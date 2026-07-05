@@ -173,30 +173,6 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
 .dot.s{background:#4CAF50;}.dot.m{background:var(--red);opacity:.75;}
 
-.tab-friends{color:#ff8833 !important;border-bottom-color:transparent;}
-.tab-friends:hover{color:#ffaa66 !important;}
-.tab-friends.active{color:#ff8833 !important;border-bottom-color:#ff6600 !important;}
-.tab-video{background:transparent;border-bottom:2px solid transparent !important;}
-.tab-video,.tab-video:not(.active){color:transparent !important;background-clip:text !important;-webkit-background-clip:text !important;background-image:linear-gradient(90deg,#4d8aff,#a0c4ff) !important;-webkit-text-fill-color:transparent !important;}
-.tab-video:hover{opacity:.85;}
-.tab-video.active{-webkit-text-fill-color:transparent !important;color:transparent !important;background-image:linear-gradient(90deg,#4d8aff,#a0c4ff) !important;border-bottom-color:#4d8aff !important;}
-.prijatelji-wrap{max-width:600px;margin:0 auto;padding:20px 0 60px;}
-.prijatelji-heading{font-family:'Comfortaa',sans-serif;font-size:clamp(2.4rem,6vw,3.8rem);letter-spacing:.06em;line-height:.9;margin-bottom:8px;color:var(--white);}
-.prijatelji-heading em{font-style:italic;color:#ff6600;}
-.prijatelji-sub{font-family:'Comfortaa',sans-serif;font-size:1rem;letter-spacing:.05em;color:#aaa;margin-bottom:32px;line-height:1.6;}
-.friend-card{background:var(--card);border:1px solid rgba(255,102,0,.22);border-radius:10px;padding:26px 28px;margin-bottom:16px;position:relative;overflow:hidden;animation:fadeUp .6s ease both;transition:border-color .2s,box-shadow .2s;}
-.friend-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#ff6600,#ffaa00);}
-.friend-card:hover{border-color:rgba(255,102,0,.5);box-shadow:0 4px 24px rgba(255,102,0,.1);}
-.friend-card-top{display:flex;align-items:center;gap:16px;margin-bottom:14px;}
-.friend-yt-icon{width:50px;height:50px;background:#ff0000;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;}
-.friend-yt-icon svg{width:26px;height:26px;}
-.friend-meta{flex:1;}
-.friend-name{font-family:'Comfortaa',sans-serif;font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:2px;}
-.friend-handle{font-family:'Comfortaa',sans-serif;font-size:.78rem;color:#ff8833;letter-spacing:.06em;}
-.friend-btn{display:inline-flex;align-items:center;gap:7px;font-family:'Comfortaa',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#ff6600;border:1px solid rgba(255,102,0,.4);border-radius:6px;padding:8px 14px;text-decoration:none;white-space:nowrap;transition:all .2s;flex-shrink:0;}
-.friend-btn:hover{background:rgba(255,102,0,.12);border-color:#ff6600;color:#ff8833;}
-.friend-desc{font-family:'Comfortaa',sans-serif;font-size:.88rem;color:#aaa;line-height:1.65;margin-bottom:14px;}
-.friend-tag{display:inline-block;font-family:'Comfortaa',sans-serif;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:#ff6600;background:rgba(255,102,0,.1);border:1px solid rgba(255,102,0,.2);border-radius:20px;padding:3px 10px;}
 .stable{width:100%;border-collapse:collapse;font-family:'Comfortaa',sans-serif;}
 .stable th{font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;color:#aaa;text-align:left;padding:9px 14px;border-bottom:1px solid var(--border);}
 .stable td{padding:13px 14px;border-bottom:1px solid var(--border);font-size:.92rem;}
@@ -400,57 +376,6 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   .fbtn{min-height:38px;}
 }
 
-/* ── Video player responsive ──────────────────────────────────────────────── */
-.video-responsive-wrap {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 */
-  background: #000;
-  overflow: hidden;
-}
-/* Remove white border: the iframe loads with white bg before video — use black bg + no margin/padding */
-.video-responsive-wrap iframe {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  border: 0;
-  display: block;
-}
-/* On desktop, cap the width */
-@media (min-width: 601px) {
-  .video-responsive-wrap {
-    width: 88%;
-    margin: 0 auto;
-    padding-bottom: calc(56.25% * 0.88);
-    border-radius: 4px;
-    margin-bottom: 4px;
-  }
-}
-/* Mobile: full width, no border-radius on sides */
-@media (max-width: 600px) {
-  .video-responsive-wrap {
-    width: 100%;
-    padding-bottom: 56.25%;
-    border-radius: 0;
-    margin-bottom: 0;
-  }
-  #videoPlayer {
-    border-radius: 6px;
-  }
-  #videoPlayerHeader {
-    flex-direction: column;
-    gap: 10px;
-  }
-  #videoPlayerHeader button {
-    align-self: flex-end;
-  }
-  #videoMatchTitle {
-    font-size: 1.05rem !important;
-  }
-  #videoMatchSub {
-    font-size: .85rem !important;
-  }
-}
 </style>
 </head>
 <body>
@@ -495,8 +420,6 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   <button class="tab" onclick="showTab('sezone',this)">Sezone</button>
   <button class="tab" onclick="showTab('treneri',this)">Treneri</button>
   <button class="tab" onclick="showTab('igraci',this)">Igrači</button>
-  <button class="tab tab-video" onclick="showTab('video',this)">▶ Video analiza</button>
-  <button class="tab tab-friends" onclick="showTab('prijatelji',this)" style="color:#FF0000">▶ YouTube</button>
   <button class="tab" onclick="showTab('kontakt',this)">Kontakt</button>
 </div>
 
@@ -598,62 +521,6 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   <div class="cbox" id="igraciGA"></div>
 </div>
 
-<!-- VIDEO ANALIZA -->
-<div class="sec" id="video">
-  <div class="stitle"><i></i>Video analiza — po utakmicama</div>
-
-  <!-- Player -->
-  <div id="videoPlayer" style="display:none;margin-bottom:22px;background:var(--card);border:1px solid rgba(77,138,255,.18);border-radius:8px;overflow:hidden;">
-    <!-- Header: match info + close -->
-    <div id="videoPlayerHeader" style="padding:16px 18px 14px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
-      <div style="min-width:0;flex:1;">
-        <div id="videoMatchTitle" style="font-family:Comfortaa,sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:5px;line-height:1.3;word-break:break-word;">—</div>
-        <div id="videoMatchSub" style="font-family:Comfortaa,sans-serif;font-size:.82rem;color:#aaa;letter-spacing:.06em;margin-bottom:0;"></div>
-      </div>
-      <button onclick="closeVideo()" style="font-family:Comfortaa,sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#666;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:6px 13px;cursor:pointer;flex-shrink:0;transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.color='#ccc'" onmouseout="this.style.background='rgba(255,255,255,.05)';this.style.color='#666'">✕ Zatvori</button>
-    </div>
-    <div id="videoPlayerInner" style="padding:0;"></div>
-  </div>
-
-  <!-- Match list -->
-  <div id="videoGrid"></div>
-</div>
-
-<!-- PRIJATELJI -->
-<div class="sec" id="prijatelji">
-  <div class="prijatelji-wrap">
-
-    <div class="kontakt-deco">
-      <div class="kontakt-deco-line" style="background:linear-gradient(to right,transparent,rgba(255,100,0,.4),transparent)"></div>
-      <div class="kontakt-deco-icon" style="color:#ff6600">✦</div>
-      <div class="kontakt-deco-line" style="background:linear-gradient(to right,transparent,rgba(255,100,0,.4),transparent)"></div>
-    </div>
-
-    <div class="prijatelji-heading"><em>YouTube</em></div>
-    <p class="prijatelji-sub">Naš YouTube kanal — statistike, analize i podaci iza emocija.</p>
-
-    <!-- Iza pjace -->
-    <div class="friend-card">
-      <div class="friend-card-top">
-        <div class="friend-yt-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/></svg>
-        </div>
-        <div class="friend-meta">
-          <div class="friend-name">Hajduk Stats</div>
-          <div class="friend-handle">@HajdukStats</div>
-        </div>
-        <a href="https://www.youtube.com/@HajdukStats" target="_blank" rel="noopener" class="friend-btn">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Posjeti kanal
-        </a>
-      </div>
-      <p class="friend-desc">Hajduk Stats YouTube kanal — vizualne analize, statistike i podaci iza emocija za svakog pravog navijača Hajduka.</p>
-      <div class="friend-tag">YouTube</div>
-    </div>
-
-  </div>
-</div>
-
 <!-- KONTAKT -->
 <div class="sec" id="kontakt">
   <div class="kontakt-wrap">
@@ -753,27 +620,6 @@ const TRENERI = [
   { sezona:'2023/2024', trener:'Ivan Leko (Karoglan + Ivanković)',             utakmice:36, pobjede:21, remiji:5,  porazi:10, bu:1.89, vrijednost:'€63.13m' },
 ];
 
-
-const VIDEO_MATCHES = [
-  // Format: { kolo, name, wdl, g, p, videa: [ { id, opis }, ... ] }
-  // id: Streamable video ID (zadnji dio linka, npr. abc123) — ili koristite 'url' za direktan embed URL (npr. youtubetrimmer link)
-  // opis: kratki opis klipa (neobavezno)
-  // videa: prazna lista [] = nema videa; dodaj objekte za svaki klip
-  { kolo:'30. kolo', name:'Slaven Belupo (gosti)',     wdl:'D', g:2, p:2, videa:[
-    { id:'bstdgt', opis:'Analiza golova' },
-   ]},
-  { kolo:'31. kolo', name:'Hajduk - Osijek',           wdl:'L', g:0, p:1, videa:[
-	{ url: 'https://www.youtubetrimmer.com/view/?v=A7cxQnIVcu0&start=1826&end=1884&loop=1', opis: 'Izgradnja napada Hajduka' },
-	] },
-  { kolo:'32. kolo', name:'Rijeka (gosti)',             wdl:'D', g:0, p:0, videa:[
-	{ url: 'https://www.youtubetrimmer.com/view/?v=pS240iD222c&start=2432&end=2474&loop=1', opis: 'Branjenje Rijekinog posjeda i izgradnje napada' },
-	{ url: 'https://www.youtubetrimmer.com/view/?v=pS240iD222c&start=2474&end=2520&loop=1', opis: 'Odlična akcija Hajduka i veliki promašaj Pukštasa' },
-	] },
-  { kolo:'33. kolo', name:'Hajduk - Varaždin',          wdl:'D', g:1, p:1, videa:[] },
-  { kolo:'34. kolo', name:'Dinamo (gosti)',             wdl:'D', g:1, p:1, videa:[] },
-  { kolo:'35. kolo', name:'Lokomotiva (gosti)',         wdl:'W', g:3, p:1, videa:[] },
-  { kolo:'36. kolo', name:'Hajduk - Vukovar',          wdl:'W', g:2, p:1, videa:[] },
-];
 
 const IGRACI = [
   { ime:'Šego',        promasene:9, golovi:10, kreirane:5, asistencije:3, ga:13 },
@@ -2103,119 +1949,6 @@ function renderIgraci(){
 }
 
 
-/* ── VIDEO ANALIZA ───────────────────────────────────────────────────────── */
-function renderVideo(){
-  const grid = document.getElementById('videoGrid');
-  if(!grid) return;
-
-  const wdlCol = { W:'#4CAF50', D:'#FFC107', L:'#FF1A1A' };
-  const wdlTxt = { W:'Pobjeda', D:'Remi', L:'Poraz' };
-
-  // One row per match; click opens all its players stacked
-  const withVideo = [...VIDEO_MATCHES].reverse().filter(m => m.videa && m.videa.length > 0);
-
-  if(!withVideo.length){
-    grid.innerHTML = `<div style="text-align:center;padding:60px 20px;">
-      <div style="font-size:2.8rem;margin-bottom:16px;opacity:.12">▶</div>
-      <div style="font-family:Comfortaa,sans-serif;font-size:1.1rem;letter-spacing:.1em;color:#333;margin-bottom:8px">Još nema video analiza</div>
-      <div style="font-family:Comfortaa,sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#2a2a2a">Videa se dodaju po objavi</div>
-    </div>`;
-    return;
-  }
-
-  const totalClips = withVideo.reduce((s,m) => s + m.videa.length, 0);
-
-  const rows = withVideo.map((m, mi) => {
-    const col      = wdlCol[m.wdl] || '#555';
-    const rtxt     = wdlTxt[m.wdl] || '—';
-    const score    = `${m.g} : ${m.p}`;
-    const resClass = m.wdl==='W'?'win':m.wdl==='D'?'draw':'loss';
-    const nClips   = m.videa.length;
-    // encode videa array as JSON-safe string for onclick
-    const videaJSON = JSON.stringify(m.videa).replace(/"/g,'&quot;');
-    const matchTitle = (m.kolo + ' · ' + m.name).replace(/'/g,"\'");
-    const matchSub   = (score + ' — ' + rtxt).replace(/'/g,"\'");
-
-    return `<div class="mrow" style="animation-delay:${mi*.022}s;cursor:pointer;"
-      onclick="openMatchVideos(this)"
-      data-videa="${videaJSON}"
-      data-title="${matchTitle}"
-      data-sub="${matchSub}"
-      onmouseover="this.style.borderColor='rgba(77,138,255,.4)'" onmouseout="this.style.borderColor=''">
-      <div class="mkolo">${m.kolo}</div>
-      <div class="mname" style="display:flex;align-items:center;gap:8px;min-width:0">
-        <span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--blue);flex-shrink:0"><svg width="7" height="8" viewBox="0 0 7 8" fill="white"><polygon points="0,0 7,4 0,8"/></svg></span>
-        <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${m.name}</span>
-      </div>
-      <div class="mres ${resClass}">${score}</div>
-      <div style="text-align:right;font-family:Comfortaa,sans-serif;font-size:.72rem;letter-spacing:.08em;color:${col}">${rtxt}</div>
-      <div style="text-align:right;font-family:Comfortaa,sans-serif;font-size:.68rem;color:var(--blue-l);letter-spacing:.06em;white-space:nowrap">▶ ${nClips > 1 ? nClips + ' klipa' : 'Pogledaj'}</div>
-    </div>`;
-  });
-
-  const countTxt = `${withVideo.length} ${withVideo.length===1?'utakmica':'utakmice'} · ${totalClips} ${totalClips===1?'klip':'klipa'}`;
-  grid.innerHTML = `
-    <div style="display:flex;align-items:center;justify-content:flex-end;margin-bottom:10px;">
-      <div style="font-family:Comfortaa,sans-serif;font-size:.7rem;color:#444;letter-spacing:.08em">${countTxt}</div>
-    </div>
-    <div class="mgrid" style="gap:7px">${rows.join('')}</div>`;
-}
-
-function openMatchVideos(rowEl){
-  const videa  = JSON.parse(rowEl.getAttribute('data-videa').replace(/&quot;/g,'"'));
-  const title  = rowEl.getAttribute('data-title');
-  const sub    = rowEl.getAttribute('data-sub');
-  const player = document.getElementById('videoPlayer');
-
-  // Build stacked video clips
-  const inner = document.getElementById('videoPlayerInner');
-  inner.innerHTML = videa.map((v,i) => {
-    const opisHtml = v.opis
-      ? `<div style="font-family:Comfortaa,sans-serif;font-size:.88rem;color:#ddd;line-height:1.65;font-weight:500;padding:14px 18px 10px;">${v.opis}</div>`
-      : (videa.length > 1 ? `<div style="font-family:Comfortaa,sans-serif;font-size:.75rem;color:#888;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px 8px;">Klip ${i+1}</div>` : '');
-    const divider = i > 0 ? '<div style="height:1px;background:rgba(255,255,255,.06);margin:0;"></div>' : '';
-    return `${divider}
-    <div style="padding-bottom:${i===videa.length-1?'0':'0'};">
-      ${opisHtml}
-      <div class="video-responsive-wrap">
-        <iframe src="${v.url || ('https://streamable.com/e/' + v.id + '?autoplay=0')}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-      </div>
-    </div>`;
-  }).join('');
-
-  document.getElementById('videoMatchTitle').textContent = title;
-  document.getElementById('videoMatchSub').textContent   = sub;
-  player.style.display = 'block';
-  player.scrollIntoView({ behavior:'smooth', block:'start' });
-}
-
-function playVideo(streamableId, title, sub, opis){
-  const player  = document.getElementById('videoPlayer');
-  const iframe  = document.getElementById('videoIframe');
-  const titleEl = document.getElementById('videoMatchTitle');
-  const subEl   = document.getElementById('videoMatchSub');
-  const opisEl  = document.getElementById('videoMatchOpis');
-  iframe.src = streamableId.startsWith('http') ? streamableId : 'https://streamable.com/e/' + streamableId + '?autoplay=0';
-  titleEl.textContent = title;
-  subEl.textContent   = sub;
-  if(opis && opis.trim()){
-    opisEl.textContent  = opis;
-    opisEl.style.display = 'block';
-  } else {
-    opisEl.textContent  = '';
-    opisEl.style.display = 'none';
-  }
-  player.style.display = 'block';
-  player.scrollIntoView({ behavior:'smooth', block:'start' });
-}
-
-function closeVideo(){
-  const player = document.getElementById('videoPlayer');
-  const inner  = document.getElementById('videoPlayerInner');
-  inner.innerHTML = '';
-  player.style.display = 'none';
-}
-
 /* ── TAB + INIT ──────────────────────────────────────────────────────────── */
 function showTab(id,btn){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
@@ -2223,17 +1956,10 @@ function showTab(id,btn){
   document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
   const el=document.getElementById(id);
   if(el)el.classList.add('active');
-  // Stop video player when switching away from video tab
-  if(id !== 'video'){
-    const inner = document.getElementById('videoPlayerInner');
-    if(inner) inner.innerHTML = '';
-    const player = document.getElementById('videoPlayer');
-    if(player) player.style.display = 'none';
-  }
 }
 
 // Init
-const _fns = [renderPregled, renderMatches, renderSezone, renderTreneri, renderIgraci, renderVideo];
+const _fns = [renderPregled, renderMatches, renderSezone, renderTreneri, renderIgraci];
 _fns.forEach(fn => { try { fn(); } catch(e) { console.warn(e); } });
 // Odbrojavanje i progress bar dok čeka fetch
 (function(){
