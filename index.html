@@ -18,8 +18,8 @@
 <meta name="keywords" content="Hajduk Split, HNK Hajduk, Hajduk statistike, Hajduk Stats, hrvatska liga, SuperSport HNL, football stats Croatia, Hajduk bodovi, Hajduk golovi">
 <meta name="author" content="Hajduk Stats">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#090909">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#F5F8FC">
+<meta name="color-scheme" content="light">
 <meta name="format-detection" content="telephone=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -96,37 +96,37 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--red:#CC0000;--red-b:#FF1A1A;--blue:#003DA5;--blue-l:#4d8aff;--white:#F5F5F0;--bg:#090909;--card:#111;--border:rgba(255,255,255,0.07);--gray:#999;}
+:root{--red:#D6001C;--red-b:#FF2438;--blue:#0047AB;--blue-l:#1E6FEB;--white:#0F1B33;--bg:#F5F8FC;--card:#FFFFFF;--border:rgba(15,27,51,0.09);--gray:#5B6472;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--white);font-family:'Comfortaa',sans-serif;min-height:100vh;overflow-x:hidden;}
 
 #loader{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;transition:opacity .6s;}
 #loader.gone{opacity:0;pointer-events:none;}
 .ld-txt{font-family:'Comfortaa',sans-serif;font-size:1.1rem;letter-spacing:.3em;color:var(--gray);margin-top:18px;}
-.ld-bar{width:200px;height:2px;background:#1a1a1a;margin-top:14px;border-radius:2px;overflow:hidden;}
+.ld-bar{width:200px;height:2px;background:#E1E7F0;margin-top:14px;border-radius:2px;overflow:hidden;}
 .ld-fill{height:100%;background:var(--red);transition:width .4s ease;}
-.ld-sub{font-family:'Comfortaa',sans-serif;font-size:.72rem;letter-spacing:.2em;color:#444;margin-top:6px;text-transform:uppercase;}
-.ld-countdown{font-family:'Comfortaa',sans-serif;font-size:2.2rem;font-weight:700;color:#222;margin-top:16px;letter-spacing:.05em;min-height:2.8rem;}
+.ld-sub{font-family:'Comfortaa',sans-serif;font-size:.72rem;letter-spacing:.2em;color:#8A94A6;margin-top:6px;text-transform:uppercase;}
+.ld-countdown{font-family:'Comfortaa',sans-serif;font-size:2.2rem;font-weight:700;color:#D7DEE8;margin-top:16px;letter-spacing:.05em;min-height:2.8rem;}
 @keyframes ldfill{to{width:100%}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
 @keyframes ldpulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-header{position:relative;padding:36px 44px 30px;border-bottom:1px solid var(--border);overflow:hidden;}
-header::before{content:'';position:absolute;top:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(204,0,0,.16) 0%,transparent 65%);pointer-events:none;}
-header::after{content:'';position:absolute;top:-80px;right:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(0,61,165,.18) 0%,transparent 65%);pointer-events:none;}
+header{position:relative;padding:36px 44px 30px;border-bottom:1px solid var(--border);overflow:hidden;background:#fff;}
+header::before{content:'';position:absolute;top:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(214,0,28,.10) 0%,transparent 65%);pointer-events:none;}
+header::after{content:'';position:absolute;top:-80px;right:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(0,71,171,.12) 0%,transparent 65%);pointer-events:none;}
 .h-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:20px;}
 .h-shield{width:120px;height:120px;flex-shrink:0;}
-.h-title h1{font-family:'Comfortaa',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:.04em;line-height:1.25;padding:.05em 0;background:linear-gradient(135deg,#fff 50%,#888);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.h-title h1{font-family:'Comfortaa',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:.04em;line-height:1.25;padding:.05em 0;background:linear-gradient(135deg,#0F1B33 45%,var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .h-title p{font-family:'Comfortaa',sans-serif;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-top:5px;}
-.live-pill{margin-left:auto;display:flex;align-items:center;gap:7px;font-family:'Comfortaa',sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#4CAF50;margin-right:10px;}
-.live-pill::before{content:'';width:7px;height:7px;border-radius:50%;background:#4CAF50;animation:blink 2s ease-in-out infinite;}
+.live-pill{margin-left:auto;display:flex;align-items:center;gap:7px;font-family:'Comfortaa',sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#2E9E4F;margin-right:10px;}
+.live-pill::before{content:'';width:7px;height:7px;border-radius:50%;background:#2E9E4F;animation:blink 2s ease-in-out infinite;}
 .s-badge{background:var(--red);color:#fff;font-family:'Comfortaa',sans-serif;font-size:1rem;letter-spacing:.1em;padding:5px 16px;border-radius:2px;}
 
-.tabs{max-width:1240px;margin:0 auto;padding:0 44px;display:flex;gap:2px;border-bottom:1px solid var(--border);}
+.tabs{max-width:1240px;margin:0 auto;padding:0 44px;display:flex;gap:2px;border-bottom:1px solid var(--border);background:#fff;}
 .tab{font-family:'Comfortaa',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:14px 20px;border:none;background:transparent;color:var(--gray);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;margin-bottom:-1px;}
 .tab:hover{color:var(--white);}
-.tab.active{color:var(--white);border-bottom-color:var(--red);}
+.tab.active{color:var(--blue);border-bottom-color:var(--red);}
 
 main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .sec{display:none;}.sec.active{display:block;}
@@ -136,93 +136,93 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .stitle i{width:4px;height:22px;background:var(--red);border-radius:2px;display:inline-block;flex-shrink:0;}
 
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:14px;margin-bottom:28px;}
-.card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:18px 20px;position:relative;overflow:hidden;animation:fadeUp .5s ease both;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:18px 20px;position:relative;overflow:hidden;animation:fadeUp .5s ease both;box-shadow:0 1px 3px rgba(15,27,51,.05);}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
-.card.cr::before{background:var(--red);}.card.cb::before{background:var(--blue);}.card.cw::before{background:#555;}.card.cg::before{background:#4CAF50;}.card.cy::before{background:#FFC107;}
-.clbl{font-family:'Comfortaa',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#aaa;margin-bottom:6px;}
+.card.cr::before{background:var(--red);}.card.cb::before{background:var(--blue);}.card.cw::before{background:#9AA5B1;}.card.cg::before{background:#2E9E4F;}.card.cy::before{background:#E5A100;}
+.clbl{font-family:'Comfortaa',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
 .cval{font-family:'Comfortaa',sans-serif;font-size:2.8rem;line-height:1;letter-spacing:.02em;}
-.cval.r{color:var(--red-b);}.cval.b{color:var(--blue-l);}.cval.g{color:#4CAF50;}.cval.y{color:#FFC107;}
-.csub{font-size:.75rem;color:#aaa;margin-top:3px;}
+.cval.r{color:var(--red);}.cval.b{color:var(--blue);}.cval.g{color:#2E9E4F;}.cval.y{color:#E5A100;}
+.csub{font-size:.75rem;color:var(--gray);margin-top:3px;}
 
-.cbox{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:26px;margin-bottom:20px;overflow:hidden;}
-.cbox-title{font-family:'Comfortaa',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#aaa;margin-bottom:18px;}
+.cbox{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:26px;margin-bottom:20px;overflow:hidden;box-shadow:0 1px 3px rgba(15,27,51,.05);}
+.cbox-title{font-family:'Comfortaa',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:18px;}
 
 .bar-row{margin-bottom:13px;}
-.bar-lbl{font-family:'Comfortaa',sans-serif;font-size:.82rem;letter-spacing:.04em;color:#ddd;margin-bottom:4px;display:flex;justify-content:space-between;}
+.bar-lbl{font-family:'Comfortaa',sans-serif;font-size:.82rem;letter-spacing:.04em;color:#33405A;margin-bottom:4px;display:flex;justify-content:space-between;}
 .bar-lbl .bv{font-family:'Comfortaa',sans-serif;font-size:.95rem;color:var(--white);}
-.bar-track{height:7px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;}
+.bar-track{height:7px;background:rgba(15,27,51,0.06);border-radius:4px;overflow:hidden;}
 .bar-fill{height:100%;border-radius:4px;transition:width 1.3s cubic-bezier(.22,1,.36,1);}
-.bf-r{background:linear-gradient(90deg,#900,var(--red-b));}.bf-b{background:linear-gradient(90deg,#003da5,var(--blue-l));}.bf-w{background:linear-gradient(90deg,#555,#aaa);}.bf-g{background:linear-gradient(90deg,#2d7a30,#4CAF50);}.bf-y{background:linear-gradient(90deg,#a07000,#FFC107);}
+.bf-r{background:linear-gradient(90deg,#900,var(--red));}.bf-b{background:linear-gradient(90deg,#003da5,var(--blue-l));}.bf-w{background:linear-gradient(90deg,#8A94A6,#C3CBD6);}.bf-g{background:linear-gradient(90deg,#2d7a30,#2E9E4F);}.bf-y{background:linear-gradient(90deg,#a07000,#E5A100);}
 
 .frow{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px;}
-.fbtn{font-family:'Comfortaa',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 15px;border:1px solid var(--border);background:transparent;color:var(--gray);cursor:pointer;border-radius:2px;transition:all .2s;}
-.fbtn:hover{color:var(--white);border-color:rgba(255,255,255,.2);}
+.fbtn{font-family:'Comfortaa',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 15px;border:1px solid var(--border);background:#fff;color:var(--gray);cursor:pointer;border-radius:2px;transition:all .2s;}
+.fbtn:hover{color:var(--white);border-color:rgba(15,27,51,.2);}
 .fbtn.active{background:var(--red);color:#fff;border-color:var(--red);}
 
 .mgrid{display:grid;gap:7px;}
 .mrow{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:13px 18px;display:grid;grid-template-columns:78px 1fr 84px 70px 70px 110px;align-items:center;gap:14px;animation:fadeUp .4s ease both;transition:border-color .2s;}
-.mrow:hover{border-color:rgba(204,0,0,.4);}
-.mkolo{font-family:'Comfortaa',sans-serif;font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;color:#999;}
+.mrow:hover{border-color:rgba(214,0,28,.35);}
+.mkolo{font-family:'Comfortaa',sans-serif;font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);}
 .mname{font-family:'Comfortaa',sans-serif;font-size:.92rem;font-weight:600;letter-spacing:.03em;}
 .mres{font-family:'Comfortaa',sans-serif;font-size:1.4rem;letter-spacing:.08em;text-align:center;}
-.mres.win{color:#4CAF50;}.mres.draw{color:#FFC107;}.mres.loss{color:var(--red-b);}.mres.pending{color:#333;font-size:.9rem;}
+.mres.win{color:#2E9E4F;}.mres.draw{color:#E5A100;}.mres.loss{color:var(--red);}.mres.pending{color:#C3CBD6;font-size:.9rem;}
 .mvp{text-align:right;}
-.mvp .vn{font-family:'Comfortaa',sans-serif;font-size:1.2rem;color:var(--blue-l);}
+.mvp .vn{font-family:'Comfortaa',sans-serif;font-size:1.2rem;color:var(--blue);}
 .mvp .vl{font-size:.62rem;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;display:block;}
 .mdots{display:flex;gap:3px;justify-content:flex-end;flex-wrap:wrap;}
 .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
-.dot.s{background:#4CAF50;}.dot.m{background:var(--red);opacity:.75;}
+.dot.s{background:#2E9E4F;}.dot.m{background:var(--red);opacity:.75;}
 
 .stable{width:100%;border-collapse:collapse;font-family:'Comfortaa',sans-serif;}
-.stable th{font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;color:#aaa;text-align:left;padding:9px 14px;border-bottom:1px solid var(--border);}
+.stable th{font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;color:var(--gray);text-align:left;padding:9px 14px;border-bottom:1px solid var(--border);}
 .stable td{padding:13px 14px;border-bottom:1px solid var(--border);font-size:.92rem;}
-.stable tr:hover td{background:rgba(255,255,255,.02);}
+.stable tr:hover td{background:rgba(15,27,51,.025);}
 .sn{font-family:'Comfortaa',sans-serif;font-size:1.05rem;letter-spacing:.05em;}
-.sn.cur{color:var(--red-b);}
+.sn.cur{color:var(--red);}
 .hl{font-family:'Comfortaa',sans-serif;font-size:1.25rem;}
 
 .rings{display:block;margin-bottom:20px;}
 .ring-card{display:none;}
 .ri-val{font-family:'Comfortaa',sans-serif;font-size:1.9rem;line-height:1;}
 .ri-lbl{font-family:'Comfortaa',sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);margin-top:3px;}
-.ri-sub{font-size:.74rem;color:#555;margin-top:3px;}
+.ri-sub{font-size:.74rem;color:#8A94A6;margin-top:3px;}
 
 .tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-bottom:28px;}
-.tcard{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:26px;position:relative;overflow:hidden;animation:fadeUp .5s ease both;transition:border-color .2s;}
-.tcard:hover{border-color:rgba(204,0,0,.4);}
+.tcard{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:26px;position:relative;overflow:hidden;animation:fadeUp .5s ease both;transition:border-color .2s;box-shadow:0 1px 3px rgba(15,27,51,.05);}
+.tcard:hover{border-color:rgba(214,0,28,.35);}
 .tcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red);}
 .tc-name{font-family:'Comfortaa',sans-serif;font-size:1.7rem;letter-spacing:.05em;line-height:1;margin-bottom:3px;}
 .tc-season{font-family:'Comfortaa',sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:18px;}
 .tc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;}
-.tc-stat{text-align:center;padding:10px 6px;background:rgba(255,255,255,.03);border-radius:3px;}
+.tc-stat{text-align:center;padding:10px 6px;background:rgba(15,27,51,.035);border-radius:3px;}
 .tc-sv{font-family:'Comfortaa',sans-serif;font-size:1.8rem;line-height:1;}
-.tc-sv.g{color:#4CAF50;}.tc-sv.y{color:#FFC107;}.tc-sv.r{color:var(--red-b);}
-.tc-sl{font-family:'Comfortaa',sans-serif;font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:#aaa;margin-top:3px;}
-.tc-extra{font-family:'Comfortaa',sans-serif;font-size:.85rem;color:#bbb;padding-top:14px;border-top:1px solid var(--border);}
+.tc-sv.g{color:#2E9E4F;}.tc-sv.y{color:#E5A100;}.tc-sv.r{color:var(--red);}
+.tc-sl{font-family:'Comfortaa',sans-serif;font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gray);margin-top:3px;}
+.tc-extra{font-family:'Comfortaa',sans-serif;font-size:.85rem;color:#475569;padding-top:14px;border-top:1px solid var(--border);}
 .tc-extra strong{color:var(--white);}
 .wr-wrap{margin-top:14px;}
-.wr-bar{height:6px;border-radius:3px;overflow:hidden;background:rgba(255,255,255,.06);display:flex;}
-.wr-w{background:#4CAF50;}.wr-d{background:#FFC107;}.wr-l{background:var(--red);}
+.wr-bar{height:6px;border-radius:3px;overflow:hidden;background:rgba(15,27,51,.08);display:flex;}
+.wr-w{background:#2E9E4F;}.wr-d{background:#E5A100;}.wr-l{background:var(--red);}
 .wr-legend{display:flex;gap:14px;margin-top:7px;flex-wrap:wrap;}
-.wr-leg{font-family:'Comfortaa',sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#aaa;display:flex;align-items:center;gap:5px;}
+.wr-leg{font-family:'Comfortaa',sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);display:flex;align-items:center;gap:5px;}
 .wr-leg::before{content:'';width:8px;height:8px;border-radius:50%;}
-.wr-leg.wl::before{background:#4CAF50;}.wr-leg.dl::before{background:#FFC107;}.wr-leg.ll::before{background:var(--red);}
+.wr-leg.wl::before{background:#2E9E4F;}.wr-leg.dl::before{background:#E5A100;}.wr-leg.ll::before{background:var(--red);}
 
 /* Igrači empty state */
 .empty-state{text-align:center;padding:80px 20px;}
-.empty-state svg{opacity:.1;margin-bottom:20px;}
-.empty-title{font-family:'Comfortaa',sans-serif;font-size:1.8rem;letter-spacing:.1em;color:#bbb;margin-bottom:8px;}
-.empty-sub{font-family:'Comfortaa',sans-serif;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:#ccc;}
+.empty-state svg{opacity:.15;margin-bottom:20px;}
+.empty-title{font-family:'Comfortaa',sans-serif;font-size:1.8rem;letter-spacing:.1em;color:#475569;margin-bottom:8px;}
+.empty-sub{font-family:'Comfortaa',sans-serif;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);}
 
 /* Kontakt */
 .kontakt-wrap{max-width:560px;margin:0 auto;padding:20px 0 60px;}
 .kontakt-deco{display:flex;align-items:center;gap:16px;margin-bottom:32px;}
-.kontakt-deco-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(204,0,0,.4),transparent);}
+.kontakt-deco-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(214,0,28,.35),transparent);}
 .kontakt-deco-icon{color:var(--red);font-size:1rem;}
 .kontakt-heading{font-family:'Comfortaa',sans-serif;font-size:clamp(2.4rem,6vw,3.8rem);letter-spacing:.06em;line-height:.9;margin-bottom:8px;color:var(--white);}
-.kontakt-heading em{font-style:italic;color:var(--red-b);}
-.kontakt-sub{font-family:'Comfortaa',sans-serif;font-size:1rem;letter-spacing:.06em;color:#aaa;margin-bottom:40px;line-height:1.6;}
-.kontakt-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:28px 30px;margin-bottom:16px;position:relative;overflow:hidden;animation:fadeUp .6s ease both;box-shadow:0 2px 8px rgba(0,0,0,.07);}
+.kontakt-heading em{font-style:italic;color:var(--red);}
+.kontakt-sub{font-family:'Comfortaa',sans-serif;font-size:1rem;letter-spacing:.06em;color:var(--gray);margin-bottom:40px;line-height:1.6;}
+.kontakt-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:28px 30px;margin-bottom:16px;position:relative;overflow:hidden;animation:fadeUp .6s ease both;box-shadow:0 2px 10px rgba(15,27,51,.06);}
 .kontakt-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--blue));}
 .kontakt-card-lbl{font-family:'Comfortaa',sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
 .kontakt-card-body{display:flex;align-items:center;gap:16px;}
@@ -233,10 +233,10 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .kontakt-detail{font-family:'Comfortaa',sans-serif;font-size:.82rem;color:var(--gray);}
 .kontakt-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:11px 26px;background:var(--red);color:#fff;font-family:'Comfortaa',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .2s,transform .2s;}
 .kontakt-btn:hover{background:var(--red-b);transform:translateY(-2px);}
-.kontakt-note{margin-top:28px;padding:18px 22px;border-left:3px solid var(--red);background:rgba(204,0,0,.05);border-radius:0 4px 4px 0;}
-.kontakt-note p{font-family:'Comfortaa',sans-serif;font-size:.88rem;color:#666;line-height:1.65;}
+.kontakt-note{margin-top:28px;padding:18px 22px;border-left:3px solid var(--red);background:rgba(214,0,28,.05);border-radius:0 4px 4px 0;}
+.kontakt-note p{font-family:'Comfortaa',sans-serif;font-size:.88rem;color:#475569;line-height:1.65;}
 .kontakt-note strong{color:var(--white);}
-.kontakt-footer{margin-top:40px;text-align:center;font-family:'Comfortaa',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#bbb;}
+.kontakt-footer{margin-top:40px;text-align:center;font-family:'Comfortaa',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);}
 
 /* ── RESPONSIVE / MOBILE ───────────────────────────────────────────────── */
 
@@ -402,13 +402,13 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   </div>
   <!-- Social icons -->
   <div class="h-social" style="position:absolute;bottom:10px;right:44px;display:flex;align-items:center;gap:12px;z-index:2;">
-    <a href="https://www.facebook.com/profile.php?id=61566645072890" target="_blank" rel="noopener" aria-label="Facebook" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);color:#aaa;transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(24,119,242,.18)';this.style.borderColor='rgba(24,119,242,.4)';this.style.color='#4a90e2'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.09)';this.style.color='#aaa'">
+    <a href="https://www.facebook.com/profile.php?id=61566645072890" target="_blank" rel="noopener" aria-label="Facebook" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:rgba(15,27,51,.05);border:1px solid rgba(15,27,51,.09);color:#5b6472;transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(24,119,242,.14)';this.style.borderColor='rgba(24,119,242,.4)';this.style.color='#1877f2'" onmouseout="this.style.background='rgba(15,27,51,.05)';this.style.borderColor='rgba(15,27,51,.09)';this.style.color='#5b6472'">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
     </a>
-    <a href="https://www.youtube.com/@HajdukStats" target="_blank" rel="noopener" aria-label="YouTube" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);color:#aaa;transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(255,0,0,.18)';this.style.borderColor='rgba(255,0,0,.4)';this.style.color='#ff4444'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.09)';this.style.color='#aaa'">
-      <svg width="16" height="12" viewBox="0 0 24 17" fill="currentColor"><path d="M23.5 2.6A3 3 0 0 0 21.4.5C19.5 0 12 0 12 0S4.5 0 2.6.5A3 3 0 0 0 .5 2.6C0 4.5 0 8.5 0 8.5s0 4 .5 5.9a3 3 0 0 0 2.1 2.1C4.5 17 12 17 12 17s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 12.5 24 8.5 24 8.5s0-4-.5-5.9z"/><polygon points="9.75,12.02 15.5,8.5 9.75,4.98" fill="#090909"/></svg>
+    <a href="https://www.youtube.com/@HajdukStats" target="_blank" rel="noopener" aria-label="YouTube" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:rgba(15,27,51,.05);border:1px solid rgba(15,27,51,.09);color:#5b6472;transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(255,0,0,.12)';this.style.borderColor='rgba(255,0,0,.4)';this.style.color='#e02020'" onmouseout="this.style.background='rgba(15,27,51,.05)';this.style.borderColor='rgba(15,27,51,.09)';this.style.color='#5b6472'">
+      <svg width="16" height="12" viewBox="0 0 24 17" fill="currentColor"><path d="M23.5 2.6A3 3 0 0 0 21.4.5C19.5 0 12 0 12 0S4.5 0 2.6.5A3 3 0 0 0 .5 2.6C0 4.5 0 8.5 0 8.5s0 4 .5 5.9a3 3 0 0 0 2.1 2.1C4.5 17 12 17 12 17s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 12.5 24 8.5 24 8.5s0-4-.5-5.9z"/><polygon points="9.75,12.02 15.5,8.5 9.75,4.98" fill="#fff"/></svg>
     </a>
-    <a href="https://www.instagram.com/hajdukstats_com/" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);color:#aaa;transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(225,48,108,.15)';this.style.borderColor='rgba(225,48,108,.4)';this.style.color='#e1306c'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.09)';this.style.color='#aaa'">
+    <a href="https://www.instagram.com/hajdukstats_com/" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:rgba(15,27,51,.05);border:1px solid rgba(15,27,51,.09);color:#5b6472;transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(225,48,108,.13)';this.style.borderColor='rgba(225,48,108,.4)';this.style.color='#e1306c'" onmouseout="this.style.background='rgba(15,27,51,.05)';this.style.borderColor='rgba(15,27,51,.09)';this.style.color='#5b6472'">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
     </a>
   </div>
@@ -438,8 +438,8 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px">
       <div class="cbox-title" style="margin-bottom:0">Dani i primljeni golovi — po kolu</div>
       <div style="display:flex;gap:16px">
-        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;color:#888"><span style="width:10px;height:10px;border-radius:2px;background:#4CAF50;display:inline-block"></span>Dani golovi</span>
-        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;color:#888"><span style="width:10px;height:10px;border-radius:2px;background:#CC0000;display:inline-block"></span>Primljeni golovi</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;color:#5b6472"><span style="width:10px;height:10px;border-radius:2px;background:#2E9E4F;display:inline-block"></span>Dani golovi</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;color:#5b6472"><span style="width:10px;height:10px;border-radius:2px;background:#D6001C;display:inline-block"></span>Primljeni golovi</span>
       </div>
     </div>
     <div id="goloviChartWrap"></div>
@@ -450,9 +450,9 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px">
       <div class="cbox-title" style="margin-bottom:0">Zabijene i promašene velike prilike — po kolu</div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;color:#888"><span style="width:10px;height:10px;border-radius:2px;background:#4CAF50;display:inline-block"></span>Zabijene</span>
-        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;color:#888"><span style="width:10px;height:10px;border-radius:2px;background:#CC0000;display:inline-block"></span>Promašene</span>
-        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;color:#888"><span style="width:10px;height:10px;border-radius:2px;background:#4d8aff;display:inline-block"></span>Ukupne</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;color:#5b6472"><span style="width:10px;height:10px;border-radius:2px;background:#2E9E4F;display:inline-block"></span>Zabijene</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;color:#5b6472"><span style="width:10px;height:10px;border-radius:2px;background:#D6001C;display:inline-block"></span>Promašene</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;color:#5b6472"><span style="width:10px;height:10px;border-radius:2px;background:#0047AB;display:inline-block"></span>Ukupne</span>
       </div>
     </div>
     <div id="vpChartWrap"></div>
@@ -650,7 +650,7 @@ const pts = m => ({win:3,draw:1,loss:0,pending:0}[res(m)]);
 
 /* ── Legend helper ──────────────────────────────────────────────────────── */
 function legend(...items){
-  return items.map(([col,lbl])=>`<span style="display:inline-flex;align-items:center;gap:5px;font-family:'Comfortaa';font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-right:14px"><span style="width:10px;height:10px;background:${col};border-radius:2px;display:inline-block"></span>${lbl}</span>`).join('');
+  return items.map(([col,lbl])=>`<span style="display:inline-flex;align-items:center;gap:5px;font-family:'Comfortaa';font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#5b6472;margin-right:14px"><span style="width:10px;height:10px;background:${col};border-radius:2px;display:inline-block"></span>${lbl}</span>`).join('');
 }
 
 /* ── Modern per-match chart ────────────────────────────────────────────── */
@@ -683,7 +683,7 @@ function matchBarChart(wrapId, matches, fnA, fnB, colA, colB, labelA, labelB, fn
   inner.appendChild(canvas);
 
   const tip = document.createElement('div');
-  tip.style.cssText=`position:absolute;pointer-events:none;background:rgba(10,10,10,.96);border:1px solid rgba(255,255,255,.13);border-radius:8px;padding:10px 14px;font-family:'Comfortaa',sans-serif;font-size:.72rem;color:#eee;line-height:1.75;white-space:nowrap;transition:opacity .15s;opacity:0;z-index:10;box-shadow:0 6px 24px rgba(0,0,0,.6)`;
+  tip.style.cssText=`position:absolute;pointer-events:none;background:rgba(255,255,255,.98);border:1px solid rgba(15,27,51,.1);border-radius:8px;padding:10px 14px;font-family:'Comfortaa',sans-serif;font-size:.72rem;color:#1e293b;line-height:1.75;white-space:nowrap;transition:opacity .15s;opacity:0;z-index:10;box-shadow:0 6px 24px rgba(15,27,51,.16)`;
   inner.appendChild(tip);
 
   let animProg = 0, hovIdx = -1;
@@ -719,12 +719,12 @@ function matchBarChart(wrapId, matches, fnA, fnB, colA, colB, labelA, labelB, fn
       const v = Math.round((yMax/5)*i*10)/10;
       const y = PAD_T + chartH - (v/yMax)*chartH;
       ctx.beginPath();
-      ctx.strokeStyle = i===0 ? 'rgba(255,255,255,.12)' : 'rgba(255,255,255,.04)';
+      ctx.strokeStyle = i===0 ? 'rgba(15,27,51,.12)' : 'rgba(15,27,51,.04)';
       ctx.lineWidth = 1;
       ctx.moveTo(PAD_L, y);
       ctx.lineTo(PAD_L + slot*played.length, y);
       ctx.stroke();
-      ctx.fillStyle = '#444';
+      ctx.fillStyle = '#94a3b8';
       ctx.textAlign = 'right';
       ctx.fillText(v%1===0?v:v.toFixed(1), PAD_L-7, y);
     }
@@ -773,8 +773,8 @@ function matchBarChart(wrapId, matches, fnA, fnB, colA, colB, labelA, labelB, fn
 
       // Hover glow
       if(isHov && prog>=1){
-        ctx.globalAlpha = 0.12;
-        ctx.fillStyle = '#fff';
+        ctx.globalAlpha = 0.05;
+        ctx.fillStyle = '#0f1b33';
         roundRect(ctx, gx-5, PAD_T, totalGroupW+10, chartH, 4);
         ctx.fill();
       }
@@ -785,7 +785,7 @@ function matchBarChart(wrapId, matches, fnA, fnB, colA, colB, labelA, labelB, fn
       if(i % 3 === 0 || isHov){
         const short = m.kolo.replace('. kolo','.');
         ctx.font = isHov ? 'bold 10px Comfortaa' : '9px Comfortaa';
-        ctx.fillStyle = isHov ? '#ccc' : '#555';
+        ctx.fillStyle = isHov ? '#1e293b' : '#94a3b8';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
         ctx.fillText(short, cx, PAD_T+chartH+6);
@@ -804,7 +804,7 @@ function matchBarChart(wrapId, matches, fnA, fnB, colA, colB, labelA, labelB, fn
 
       // Result dot
       const r = res(m);
-      const dotCol = r==='win'?'#4CAF50':r==='draw'?'#FFC107':'#CC0000';
+      const dotCol = r==='win'?'#2E9E4F':r==='draw'?'#E5A100':'#D6001C';
       ctx.globalAlpha = hovIdx>=0&&!isHov ? 0.2 : 0.85;
       ctx.beginPath();
       ctx.arc(cx, PAD_T+chartH+34, 3, 0, Math.PI*2);
@@ -833,20 +833,20 @@ function matchBarChart(wrapId, matches, fnA, fnB, colA, colB, labelA, labelB, fn
 
   function buildTooltip(m, vA, vB, vC, lA, lB, lC){
     const r = res(m);
-    const rCol = r==='win'?'#4CAF50':r==='draw'?'#FFC107':'#CC0000';
+    const rCol = r==='win'?'#2E9E4F':r==='draw'?'#E5A100':'#D6001C';
     const rTxt = r==='win'?'Pobjeda':r==='draw'?'Remi':'Poraz';
     // Extract opponent from match name (remove "Hajduk - " or " (gosti)")
     const opp = m.name.replace('Hajduk - ','').replace(' (gosti)','');
     const score = m.g !== null ? `${m.g} : ${m.p}` : '—';
-    let html = `<div style="font-size:.8rem;font-weight:700;color:#fff;margin-bottom:6px">${opp}</div>`;
-    html += `<div style="font-size:.7rem;color:#888;margin-bottom:8px;display:flex;align-items:center;gap:8px">`;
+    let html = `<div style="font-size:.8rem;font-weight:700;color:#0f1b33;margin-bottom:6px">${opp}</div>`;
+    html += `<div style="font-size:.7rem;color:#5b6472;margin-bottom:8px;display:flex;align-items:center;gap:8px">`;
     html += `<span>${m.kolo}</span>`;
     html += `<span style="font-size:.95rem;font-weight:700;color:${rCol}">${score}</span>`;
     html += `<span style="color:${rCol};font-size:.68rem">${rTxt}</span></div>`;
-    html += `<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:7px;display:flex;flex-direction:column;gap:3px">`;
-    html += `<div style="display:flex;align-items:center;gap:7px"><span style="width:8px;height:8px;border-radius:2px;background:${colA};display:inline-block;flex-shrink:0"></span><span style="color:#aaa">${lA}:</span> <b style="color:${colA}">${vA}</b></div>`;
-    html += `<div style="display:flex;align-items:center;gap:7px"><span style="width:8px;height:8px;border-radius:2px;background:${colB};display:inline-block;flex-shrink:0"></span><span style="color:#aaa">${lB}:</span> <b style="color:${colB}">${vB}</b></div>`;
-    if(fnC) html += `<div style="display:flex;align-items:center;gap:7px"><span style="width:8px;height:8px;border-radius:2px;background:${colC};display:inline-block;flex-shrink:0"></span><span style="color:#aaa">${lC||'Ukupno'}:</span> <b style="color:${colC}">${vC}</b></div>`;
+    html += `<div style="border-top:1px solid rgba(15,27,51,.1);padding-top:7px;display:flex;flex-direction:column;gap:3px">`;
+    html += `<div style="display:flex;align-items:center;gap:7px"><span style="width:8px;height:8px;border-radius:2px;background:${colA};display:inline-block;flex-shrink:0"></span><span style="color:#5b6472">${lA}:</span> <b style="color:${colA}">${vA}</b></div>`;
+    html += `<div style="display:flex;align-items:center;gap:7px"><span style="width:8px;height:8px;border-radius:2px;background:${colB};display:inline-block;flex-shrink:0"></span><span style="color:#5b6472">${lB}:</span> <b style="color:${colB}">${vB}</b></div>`;
+    if(fnC) html += `<div style="display:flex;align-items:center;gap:7px"><span style="width:8px;height:8px;border-radius:2px;background:${colC};display:inline-block;flex-shrink:0"></span><span style="color:#5b6472">${lC||'Ukupno'}:</span> <b style="color:${colC}">${vC}</b></div>`;
     html += `</div>`;
     return html;
   }
@@ -906,8 +906,8 @@ function groupedBar(el, title, groups, series){
   let bars='', lbls='', grid='';
   for(let i=0;i<=4;i++){
     const v=(max/4*i), y=H-padB-(v/max)*(H-padB-padT);
-    grid+=`<line x1="${padL}" y1="${y}" x2="${W}" y2="${y}" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-    <text x="${padL-6}" y="${y+4}" text-anchor="end" font-family="Comfortaa" font-size="10" fill="#555">${v%1===0?v:v.toFixed(2)}</text>`;
+    grid+=`<line x1="${padL}" y1="${y}" x2="${W}" y2="${y}" stroke="rgba(15,27,51,.04)" stroke-width="1"/>
+    <text x="${padL-6}" y="${y+4}" text-anchor="end" font-family="Comfortaa" font-size="10" fill="#94a3b8">${v%1===0?v:v.toFixed(2)}</text>`;
   }
   groups.forEach((g,gi)=>{
     const gx=padL+gi*(gW+gGap);
@@ -918,13 +918,13 @@ function groupedBar(el, title, groups, series){
     });
     const parts=g.split('\n');
     const short0=parts[0].replace('20','').replace('/20','/');
-    lbls+=`<text x="${gx+gW/2}" y="${H-padB+14}" text-anchor="middle" font-family="Comfortaa" font-size="11" fill="#ccc">${short0}</text>`;
+    lbls+=`<text x="${gx+gW/2}" y="${H-padB+14}" text-anchor="middle" font-family="Comfortaa" font-size="11" fill="#33405A">${short0}</text>`;
     if(parts[1]){
       const short1=parts[1].replace('20','').replace('/20','/');
-      lbls+=`<text x="${gx+gW/2}" y="${H-padB+26}" text-anchor="middle" font-family="Comfortaa" font-size="9" fill="#555">${short1}</text>`;
+      lbls+=`<text x="${gx+gW/2}" y="${H-padB+26}" text-anchor="middle" font-family="Comfortaa" font-size="9" fill="#94a3b8">${short1}</text>`;
     }
   });
-  const leg = series.map(s=>`<span style="display:inline-flex;align-items:center;gap:5px;font-family:'Comfortaa';font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-right:14px"><span style="width:10px;height:10px;background:${s.fill};border-radius:2px;display:inline-block"></span>${s.label}</span>`).join('');
+  const leg = series.map(s=>`<span style="display:inline-flex;align-items:center;gap:5px;font-family:'Comfortaa';font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#5b6472;margin-right:14px"><span style="width:10px;height:10px;background:${s.fill};border-radius:2px;display:inline-block"></span>${s.label}</span>`).join('');
   el.innerHTML=`<div class="cbox-title">${title}</div><div style="margin-bottom:12px">${leg}</div>
   <div style="overflow-x:auto;-webkit-overflow-scrolling:touch"><svg viewBox="0 0 ${W} ${H}" style="min-width:${Math.max(W,300)}px;height:${H}px;display:block" preserveAspectRatio="xMinYMid meet">${grid}${bars}${lbls}</svg></div>`;
 }
@@ -956,21 +956,21 @@ function renderVPEfficiency(el, zabijene, promasene, ukupno, ef){
   right.style.cssText = 'flex:1;min-width:180px;display:flex;flex-direction:column;gap:0;';
   right.innerHTML = `
     <div style="margin-bottom:20px;">
-      <div style="font-family:Comfortaa,sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:#444;margin-bottom:6px">Iskoristivost velikih prilika</div>
-      <div id="vp-big-pct" style="font-family:Comfortaa,sans-serif;font-size:3.4rem;font-weight:700;line-height:1;color:#fff">0%</div>
+      <div style="font-family:Comfortaa,sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:#94a3b8;margin-bottom:6px">Iskoristivost velikih prilika</div>
+      <div id="vp-big-pct" style="font-family:Comfortaa,sans-serif;font-size:3.4rem;font-weight:700;line-height:1;color:#0f1b33">0%</div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
       <div style="padding:13px 10px;background:rgba(76,175,80,.06);border:1px solid rgba(76,175,80,.12);border-radius:7px;text-align:center;">
-        <div style="font-family:Comfortaa,sans-serif;font-size:1.7rem;font-weight:700;color:#4CAF50;line-height:1">${zabijene}</div>
-        <div style="font-family:Comfortaa,sans-serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#4CAF50;opacity:.65;margin-top:5px">Zabijene</div>
+        <div style="font-family:Comfortaa,sans-serif;font-size:1.7rem;font-weight:700;color:#2E9E4F;line-height:1">${zabijene}</div>
+        <div style="font-family:Comfortaa,sans-serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#2E9E4F;opacity:.65;margin-top:5px">Zabijene</div>
       </div>
       <div style="padding:13px 10px;background:rgba(204,0,0,.06);border:1px solid rgba(204,0,0,.12);border-radius:7px;text-align:center;">
-        <div style="font-family:Comfortaa,sans-serif;font-size:1.7rem;font-weight:700;color:#CC0000;line-height:1">${promasene}</div>
-        <div style="font-family:Comfortaa,sans-serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#CC0000;opacity:.65;margin-top:5px">Promašene</div>
+        <div style="font-family:Comfortaa,sans-serif;font-size:1.7rem;font-weight:700;color:#D6001C;line-height:1">${promasene}</div>
+        <div style="font-family:Comfortaa,sans-serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#D6001C;opacity:.65;margin-top:5px">Promašene</div>
       </div>
       <div style="padding:13px 10px;background:rgba(77,138,255,.06);border:1px solid rgba(77,138,255,.12);border-radius:7px;text-align:center;">
-        <div style="font-family:Comfortaa,sans-serif;font-size:1.7rem;font-weight:700;color:#4d8aff;line-height:1">${ukupno}</div>
-        <div style="font-family:Comfortaa,sans-serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#4d8aff;opacity:.65;margin-top:5px">Ukupno</div>
+        <div style="font-family:Comfortaa,sans-serif;font-size:1.7rem;font-weight:700;color:#1E6FEB;line-height:1">${ukupno}</div>
+        <div style="font-family:Comfortaa,sans-serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#1E6FEB;opacity:.65;margin-top:5px">Ukupno</div>
       </div>
     </div>`;
   layout.appendChild(right);
@@ -981,16 +981,16 @@ function renderVPEfficiency(el, zabijene, promasene, ukupno, ef){
   barWrap.style.cssText = 'margin-top:24px;position:relative;';
   barWrap.innerHTML = `
     <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
-      <span style="font-family:Comfortaa,sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#555">Raspodjela</span>
-      <span style="font-family:Comfortaa,sans-serif;font-size:.62rem;color:#555">${zabijene} zabijene · ${promasene} promašene</span>
+      <span style="font-family:Comfortaa,sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#94a3b8">Raspodjela</span>
+      <span style="font-family:Comfortaa,sans-serif;font-size:.62rem;color:#94a3b8">${zabijene} zabijene · ${promasene} promašene</span>
     </div>
-    <div style="position:relative;height:14px;border-radius:7px;overflow:hidden;background:rgba(255,255,255,.03);display:flex;gap:2px;">
+    <div style="position:relative;height:14px;border-radius:7px;overflow:hidden;background:rgba(15,27,51,.05);display:flex;gap:2px;">
       <div id="vp-bar-z" style="height:100%;width:0;background:linear-gradient(90deg,#2e7d32,#56c45a);border-radius:7px 0 0 7px;transition:width 1.4s cubic-bezier(.22,1,.36,1);box-shadow:0 0 14px rgba(76,175,80,.35);"></div>
       <div id="vp-bar-p" style="height:100%;flex:1;background:linear-gradient(90deg,#bb1111,#e53030);border-radius:0 7px 7px 0;opacity:0;transition:opacity .8s .25s;box-shadow:0 0 10px rgba(204,0,0,.25);"></div>
     </div>
     <div style="display:flex;justify-content:space-between;margin-top:7px;">
-      <span style="font-family:Comfortaa,sans-serif;font-size:.68rem;color:#4CAF50;font-weight:600">${ef}% iskoristivost</span>
-      <span style="font-family:Comfortaa,sans-serif;font-size:.68rem;color:#CC0000;font-weight:600">${100-ef}% promašeno</span>
+      <span style="font-family:Comfortaa,sans-serif;font-size:.68rem;color:#2E9E4F;font-weight:600">${ef}% iskoristivost</span>
+      <span style="font-family:Comfortaa,sans-serif;font-size:.68rem;color:#D6001C;font-weight:600">${100-ef}% promašeno</span>
     </div>`;
   card.appendChild(barWrap);
 
@@ -1006,13 +1006,13 @@ function renderVPEfficiency(el, zabijene, promasene, ukupno, ef){
   let hovSeg = null; // null | 'z' | 'p'
 
   const segments = [
-    { key:'z', val:zabijene,  pct:ef,      ang: Math.PI*2*(zabijene/ukupno),  col:'#4CAF50', colDim:'#2e7d32', label:'Zabijene',  pctLabel: ef+'%' },
-    { key:'p', val:promasene, pct:100-ef,  ang: Math.PI*2*(promasene/ukupno), col:'#CC0000', colDim:'#880000', label:'Promašene', pctLabel: (100-ef)+'%' },
+    { key:'z', val:zabijene,  pct:ef,      ang: Math.PI*2*(zabijene/ukupno),  col:'#2E9E4F', colDim:'#2e7d32', label:'Zabijene',  pctLabel: ef+'%' },
+    { key:'p', val:promasene, pct:100-ef,  ang: Math.PI*2*(promasene/ukupno), col:'#D6001C', colDim:'#880000', label:'Promašene', pctLabel: (100-ef)+'%' },
   ];
 
   // Tooltip element
   const tip = document.createElement('div');
-  tip.style.cssText = 'position:absolute;pointer-events:none;background:rgba(10,10,10,.95);border-radius:8px;padding:9px 14px;font-family:Comfortaa,sans-serif;font-size:.72rem;color:#eee;line-height:1.7;white-space:nowrap;opacity:0;transition:opacity .15s;z-index:10;border:1px solid rgba(255,255,255,.1);box-shadow:0 4px 20px rgba(0,0,0,.6)';
+  tip.style.cssText = 'position:absolute;pointer-events:none;background:rgba(15,27,51,.98);border-radius:8px;padding:9px 14px;font-family:Comfortaa,sans-serif;font-size:.72rem;color:#1e293b;line-height:1.7;white-space:nowrap;opacity:0;transition:opacity .15s;z-index:10;border:1px solid rgba(15,27,51,.1);box-shadow:0 4px 20px rgba(15,27,51,.16)';
   cvs.parentElement.style.position='relative';
   cvs.parentElement.appendChild(tip);
 
@@ -1041,7 +1041,7 @@ function renderVPEfficiency(el, zabijene, promasene, ukupno, ef){
     const rect = cvs.getBoundingClientRect();
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
     const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    tip.innerHTML = `<span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${seg.col};margin-right:6px;vertical-align:middle"></span><strong style="color:${seg.col}">${seg.label}</strong><br><span style="color:#888;font-size:.65rem">Veliki prilike</span> <strong>${seg.val}</strong><br><span style="color:#888;font-size:.65rem">Udio</span> <strong>${seg.pctLabel}</strong>`;
+    tip.innerHTML = `<span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${seg.col};margin-right:6px;vertical-align:middle"></span><strong style="color:${seg.col}">${seg.label}</strong><br><span style="color:#5b6472;font-size:.65rem">Veliki prilike</span> <strong>${seg.val}</strong><br><span style="color:#5b6472;font-size:.65rem">Udio</span> <strong>${seg.pctLabel}</strong>`;
     tip.style.opacity='1';
     const cx2 = rect.left + rect.width/2;
     const cy2 = rect.top + rect.height/2;
@@ -1063,11 +1063,11 @@ function renderVPEfficiency(el, zabijene, promasene, ukupno, ef){
 
     // Decorative ring
     ctx.beginPath(); ctx.arc(cx,cy,R+14,0,Math.PI*2);
-    ctx.strokeStyle='rgba(255,255,255,.025)'; ctx.lineWidth=1; ctx.stroke();
+    ctx.strokeStyle='rgba(15,27,51,.025)'; ctx.lineWidth=1; ctx.stroke();
 
     // Track (full circle)
     ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2);
-    ctx.strokeStyle='rgba(255,255,255,.06)'; ctx.lineWidth=THICK; ctx.stroke();
+    ctx.strokeStyle='rgba(15,27,51,.06)'; ctx.lineWidth=THICK; ctx.stroke();
 
     // Draw segments
     let cursor = start;
@@ -1110,7 +1110,7 @@ function renderVPEfficiency(el, zabijene, promasene, ukupno, ef){
 
     // Gap at 12 o'clock
     ctx.beginPath(); ctx.arc(cx,cy-R,THICK/2+2,0,Math.PI*2);
-    ctx.fillStyle='#090909'; ctx.fill();
+    ctx.fillStyle='#fff'; ctx.fill();
 
     // Centre content
     ctx.textAlign='center'; ctx.textBaseline='middle';
@@ -1126,19 +1126,19 @@ function renderVPEfficiency(el, zabijene, promasene, ukupno, ef){
       ctx.fillStyle=s.col;
       ctx.fillText(s.label.toLowerCase(), cx, cy+12);
       ctx.font=`600 ${Math.round(GAUGE_S2*0.09)}px Comfortaa`;
-      ctx.fillStyle='#ccc';
+      ctx.fillStyle='#475569';
       ctx.fillText(s.pctLabel, cx, cy+28);
     } else {
       // Big % in centre
       ctx.font=`700 ${Math.round(GAUGE_S2*0.19)}px Comfortaa`;
-      ctx.fillStyle='#fff';
-      ctx.shadowColor='rgba(255,255,255,.1)'; ctx.shadowBlur=14;
+      ctx.fillStyle='#0f1b33';
+      ctx.shadowColor='rgba(15,27,51,.1)'; ctx.shadowBlur=14;
       const displayPct=Math.round(ef*p);
       ctx.fillText(displayPct+'%', cx, cy-8);
       ctx.shadowBlur=0;
       // "iskoristivost" label
       ctx.font=`${Math.round(GAUGE_S2*0.075)}px Comfortaa`;
-      ctx.fillStyle='#4CAF50';
+      ctx.fillStyle='#2E9E4F';
       ctx.fillText('iskoristivost', cx, cy+13);
     }
     ctx.globalAlpha=1;
@@ -1204,10 +1204,10 @@ function renderPregled(){
   renderVPEfficiency(document.getElementById('rings'), totZVP, totVP-totZVP, totVP, ef);
 
   // Golovi per match
-  matchBarChart('goloviChartWrap', MATCHES, m=>m.g, m=>m.p, '#4CAF50','#CC0000','Dani golovi','Primljeni golovi');
+  matchBarChart('goloviChartWrap', MATCHES, m=>m.g, m=>m.p, '#2E9E4F','#D6001C','Dani golovi','Primljeni golovi');
 
   // VP per match
-  matchBarChart('vpChartWrap', MATCHES, m=>m.zvp, m=>m.prom, '#4CAF50','#CC0000','Zabijene vel. prilike','Promašene vel. prilike', m=>m.vp, '#4d8aff', 'Ukupne vel. prilike');
+  matchBarChart('vpChartWrap', MATCHES, m=>m.zvp, m=>m.prom, '#2E9E4F','#D6001C','Zabijene vel. prilike','Promašene vel. prilike', m=>m.vp, '#1E6FEB', 'Ukupne vel. prilike');
 }
 
 /* ── UTAKMICE ────────────────────────────────────────────────────────────── */
@@ -1226,8 +1226,8 @@ function renderMatches(){
   document.getElementById('mgrid').innerHTML=f.map((m,i)=>{
     const r=res(m), txt=`${m.g} : ${m.p}`;
     const dispName = m.home ? m.name : m.name + ' (gosti)';
-    const vpH=m.vp!==null?`<div class="mvp"><span class="vn">${m.vp}</span><span class="vl">Vel. prilike</span></div>`:`<div class="mvp"><span class="vn" style="color:#2a2a2a">—</span><span class="vl">Vel. prilike</span></div>`;
-    const xgH=m.xg!=null?`<div class="mvp"><span class="vn" style="color:#FFC107">${m.xg}</span><span class="vl">xG</span></div>`:`<div class="mvp"><span class="vn" style="color:#2a2a2a">—</span><span class="vl">xG</span></div>`;
+    const vpH=m.vp!==null?`<div class="mvp"><span class="vn">${m.vp}</span><span class="vl">Vel. prilike</span></div>`:`<div class="mvp"><span class="vn" style="color:#D7DEE8">—</span><span class="vl">Vel. prilike</span></div>`;
+    const xgH=m.xg!=null?`<div class="mvp"><span class="vn" style="color:#E5A100">${m.xg}</span><span class="vl">xG</span></div>`:`<div class="mvp"><span class="vn" style="color:#D7DEE8">—</span><span class="vl">xG</span></div>`;
     let dH='<div class="mdots">';
     if(m.vp!==null) for(let j=0;j<m.vp;j++) dH+=`<div class="dot ${j<m.zvp?'s':'m'}"></div>`;
     dH+='</div>';
@@ -1258,7 +1258,7 @@ function renderSezone(){
       <td>${s.golovi}</td><td>${s.primljeni}</td>
       <td ${cur?'style="color:var(--blue-l);font-family:\'Comfortaa\';font-size:1.1rem"':''}>${s.vp}</td>
       <td>${s.promaseneVp}</td>
-      <td ${cur?'style="color:#FFC107;font-family:\'Comfortaa\';font-size:1.1rem"':''}>${s.xg!=null?s.xg:'—'}</td>
+      <td ${cur?'style="color:#E5A100;font-family:\'Comfortaa\';font-size:1.1rem"':''}>${s.xg!=null?s.xg:'—'}</td>
     </tr>`;
   }).join('');
   document.getElementById('seasonTable').innerHTML=`<table class="stable"><thead><tr>
@@ -1271,13 +1271,13 @@ function renderSezone(){
   const SEASONS_REV=[...SEASONS].reverse();
   groupedBar(document.getElementById('golBar'),'Dani i primljeni golovi po utakmici',
     SEASONS_REV.map(s=>s.sezona),
-    [{label:'Dani',fill:'#4CAF50',values:SEASONS_REV.map(s=>s.golovi)},
-     {label:'Primljeni',fill:'#CC0000',values:SEASONS_REV.map(s=>s.primljeni)}]);
+    [{label:'Dani',fill:'#2E9E4F',values:SEASONS_REV.map(s=>s.golovi)},
+     {label:'Primljeni',fill:'#D6001C',values:SEASONS_REV.map(s=>s.primljeni)}]);
 
   groupedBar(document.getElementById('vpBar'),'Velike prilike po utakmici',
     SEASONS_REV.map(s=>s.sezona),
-    [{label:'Velike prilike ukupno',fill:'#4d8aff',values:SEASONS_REV.map(s=>s.vp)},
-     {label:'Promašene',fill:'#CC0000',values:SEASONS_REV.map(s=>s.promaseneVp)}]);
+    [{label:'Velike prilike ukupno',fill:'#1E6FEB',values:SEASONS_REV.map(s=>s.vp)},
+     {label:'Promašene',fill:'#D6001C',values:SEASONS_REV.map(s=>s.promaseneVp)}]);
 }
 
 /* ── Sezone B/U — radijalni gauge (isti dizajn kao trener B/U) ─────────── */
@@ -1285,11 +1285,11 @@ function renderSezoneBUChart(){
   const el = document.getElementById('buBar');
   const seasons = [...SEASONS].reverse();
   const maxScale = 2.5;
-  const COLORS = ['#CC0000','#888888','#4d8aff'];
+  const COLORS = ['#D6001C','#9AA5B1','#1E6FEB'];
 
   el.innerHTML = '<div class="cbox-title">Bodovi po utakmici (B/U)</div>' +
     '<div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;padding:8px 0">' +
-    seasons.map((s,i) => `<div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;min-width:110px;max-width:180px"><canvas id="sbu-canvas-${i}" style="display:block;width:100%;max-width:150px"></canvas><div style="text-align:center"><div style="font-family:Comfortaa,sans-serif;font-size:.82rem;font-weight:700;color:#ddd">${s.sezona}</div><div style="font-family:Comfortaa,sans-serif;font-size:.68rem;color:#555;margin-top:2px">${s.kola} kola</div></div></div>`).join('') +
+    seasons.map((s,i) => `<div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;min-width:110px;max-width:180px"><canvas id="sbu-canvas-${i}" style="display:block;width:100%;max-width:150px"></canvas><div style="text-align:center"><div style="font-family:Comfortaa,sans-serif;font-size:.82rem;font-weight:700;color:#1e293b">${s.sezona}</div><div style="font-family:Comfortaa,sans-serif;font-size:.68rem;color:#94a3b8;margin-top:2px">${s.kola} kola</div></div></div>`).join('') +
     '</div>';
 
   seasons.forEach((s,i) => {
@@ -1315,14 +1315,14 @@ function renderSezoneBUChart(){
       // Outer decorative ring
       ctx.beginPath();
       ctx.arc(cx, cy, R+8, 0, Math.PI*2);
-      ctx.strokeStyle = 'rgba(255,255,255,.03)';
+      ctx.strokeStyle = 'rgba(15,27,51,.03)';
       ctx.lineWidth = 1;
       ctx.stroke();
 
       // Track arc
       ctx.beginPath();
       ctx.arc(cx, cy, R, startA, endFull);
-      ctx.strokeStyle = 'rgba(255,255,255,.06)';
+      ctx.strokeStyle = 'rgba(15,27,51,.06)';
       ctx.lineWidth = 12;
       ctx.lineCap = 'round';
       ctx.stroke();
@@ -1366,7 +1366,7 @@ function renderSezoneBUChart(){
 
       // "b/u" sub-label
       ctx.font = `${Math.round(S*0.09)}px Comfortaa`;
-      ctx.fillStyle = '#555';
+      ctx.fillStyle = '#94a3b8';
       ctx.fillText('b/u', cx, cy + S*0.13);
 
       // Best star
@@ -1383,7 +1383,7 @@ function renderSezoneBUChart(){
         const tx = cx + (R+18)*Math.cos(a);
         const ty = cy + (R+18)*Math.sin(a);
         ctx.font = '8px Comfortaa';
-        ctx.fillStyle = '#444';
+        ctx.fillStyle = '#94a3b8';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText((maxScale*f).toFixed(1), tx, ty);
@@ -1437,11 +1437,11 @@ function renderTreneri(){
   </tr></thead><tbody>${TRENERI.map((t,i)=>`<tr ${i===0?'style="background:rgba(204,0,0,.06)"':''}>
     <td class="sn ${i===0?'cur':''}">${t.trener}</td>
     <td>${t.sezona}</td><td>${t.utakmice}</td>
-    <td class="hl" style="color:#4CAF50">${t.pobjede}</td>
-    <td style="color:#FFC107;font-family:'Comfortaa';font-size:1.1rem">${t.remiji}</td>
+    <td class="hl" style="color:#2E9E4F">${t.pobjede}</td>
+    <td style="color:#E5A100;font-family:'Comfortaa';font-size:1.1rem">${t.remiji}</td>
     <td class="hl" style="color:var(--red-b)">${t.porazi}</td>
     <td style="font-family:'Comfortaa';font-size:1.1rem">${typeof t.bu==='number'?t.bu.toFixed(2):t.bu}</td>
-    <td style="color:#aaa">${t.vrijednost}</td>
+    <td style="color:#5b6472">${t.vrijednost}</td>
   </tr>`).join('')}</tbody></table>`;
 
   // WDL grouped
@@ -1450,9 +1450,9 @@ function renderTreneri(){
       const ime = t.trener==='Ivan Leko (Karoglan + Ivanković)' ? 'Leko' : t.trener.split(' ').pop();
       return ime + '\n' + t.sezona;
     }),
-    [{label:'Pobjede',fill:'#4CAF50',values:TRENERI.map(t=>t.pobjede)},
-     {label:'Remiji',fill:'#FFC107',values:TRENERI.map(t=>t.remiji)},
-     {label:'Porazi',fill:'#CC0000',values:TRENERI.map(t=>t.porazi)}]);
+    [{label:'Pobjede',fill:'#2E9E4F',values:TRENERI.map(t=>t.pobjede)},
+     {label:'Remiji',fill:'#E5A100',values:TRENERI.map(t=>t.remiji)},
+     {label:'Porazi',fill:'#D6001C',values:TRENERI.map(t=>t.porazi)}]);
 
   renderBUChart();
   renderVrijednostChart();
@@ -1466,12 +1466,12 @@ function renderBUChart(){
     sezona: t.sezona, bu: t.bu
   }));
   const maxBU = 2.5; // fixed scale so arcs are comparable
-  const COLORS = ['#CC0000','#888888','#4d8aff'];
+  const COLORS = ['#D6001C','#9AA5B1','#1E6FEB'];
 
   // Build HTML with one canvas per coach
   el.innerHTML = '<div class="cbox-title">B/U omjer po treneru</div>' +
     '<div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;padding:8px 0">' +
-    coaches.map((c,i)=>`<div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;min-width:110px;max-width:180px"><canvas id="bu-canvas-${i}" style="display:block;width:100%;max-width:150px"></canvas><div style="text-align:center"><div style="font-family:Comfortaa,sans-serif;font-size:.82rem;font-weight:700;color:#ddd">${c.ime}</div><div style="font-family:Comfortaa,sans-serif;font-size:.68rem;color:#555;margin-top:2px">${c.sezona}</div></div></div>`).join('') +
+    coaches.map((c,i)=>`<div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;min-width:110px;max-width:180px"><canvas id="bu-canvas-${i}" style="display:block;width:100%;max-width:150px"></canvas><div style="text-align:center"><div style="font-family:Comfortaa,sans-serif;font-size:.82rem;font-weight:700;color:#1e293b">${c.ime}</div><div style="font-family:Comfortaa,sans-serif;font-size:.68rem;color:#94a3b8;margin-top:2px">${c.sezona}</div></div></div>`).join('') +
     '</div>';
 
   coaches.forEach((c,i)=>{
@@ -1497,14 +1497,14 @@ function renderBUChart(){
       // Outer decorative ring
       ctx.beginPath();
       ctx.arc(cx, cy, R+8, 0, Math.PI*2);
-      ctx.strokeStyle = 'rgba(255,255,255,.03)';
+      ctx.strokeStyle = 'rgba(15,27,51,.03)';
       ctx.lineWidth = 1;
       ctx.stroke();
 
       // Track arc
       ctx.beginPath();
       ctx.arc(cx, cy, R, startA, endFull);
-      ctx.strokeStyle = 'rgba(255,255,255,.06)';
+      ctx.strokeStyle = 'rgba(15,27,51,.06)';
       ctx.lineWidth = 12;
       ctx.lineCap = 'round';
       ctx.stroke();
@@ -1549,7 +1549,7 @@ function renderBUChart(){
 
       // "B/U" sub-label
       ctx.font = `${Math.round(S*0.09)}px Comfortaa`;
-      ctx.fillStyle = '#555';
+      ctx.fillStyle = '#94a3b8';
       ctx.fillText('b/u', cx, cy + S*0.13);
 
       // Best star
@@ -1566,7 +1566,7 @@ function renderBUChart(){
         const tx = cx + (R+18)*Math.cos(a);
         const ty = cy + (R+18)*Math.sin(a);
         ctx.font = `8px Comfortaa`;
-        ctx.fillStyle = '#444';
+        ctx.fillStyle = '#94a3b8';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText((maxBU*f).toFixed(1), tx, ty);
@@ -1595,7 +1595,7 @@ function renderVrijednostChart(){
     label: t.vrijednost
   }));
   const maxV = Math.max(...coaches.map(c=>c.val)) * 1.15;
-  const COLORS = ['#CC0000','#888888','#4d8aff'];
+  const COLORS = ['#D6001C','#9AA5B1','#1E6FEB'];
   const PAD_L=16, PAD_R=16, PAD_T=36, PAD_B=56;
 
   const canvas = document.createElement('canvas');
@@ -1624,20 +1624,20 @@ function renderVrijednostChart(){
       const y=PAD_T+chartH-(v/maxV)*chartH;
       ctx.beginPath();
       ctx.setLineDash([4,5]);
-      ctx.strokeStyle='rgba(255,255,255,.05)';
+      ctx.strokeStyle='rgba(15,27,51,.05)';
       ctx.lineWidth=1;
       ctx.moveTo(PAD_L,y); ctx.lineTo(PAD_L+chartW,y);
       ctx.stroke();
       ctx.setLineDash([]);
       ctx.font='9px Comfortaa';
-      ctx.fillStyle='#3a3a3a';
+      ctx.fillStyle='#94a3b8';
       ctx.textAlign='right';
       ctx.textBaseline='middle';
       ctx.fillText('€'+v.toFixed(0)+'m', PAD_L-4, y);
     }
     // Baseline
     ctx.beginPath();
-    ctx.strokeStyle='rgba(255,255,255,.1)';
+    ctx.strokeStyle='rgba(15,27,51,.1)';
     ctx.lineWidth=1;
     ctx.moveTo(PAD_L,PAD_T+chartH); ctx.lineTo(PAD_L+chartW,PAD_T+chartH);
     ctx.stroke();
@@ -1672,7 +1672,7 @@ function renderVrijednostChart(){
 
       // Top highlight stripe
       if(barH>10){
-        ctx.fillStyle='rgba(255,255,255,.12)';
+        ctx.fillStyle='rgba(15,27,51,.12)';
         ctx.beginPath();
         ctx.roundRect(bx, by, BAR_W, Math.min(6,barH), [6,6,0,0]);
         ctx.fill();
@@ -1695,7 +1695,7 @@ function renderVrijednostChart(){
         ctx.font=`700 ${isHov?14:12}px Comfortaa`;
         const tw=ctx.measureText(valTxt).width;
         const pillW=tw+16, pillH=22, pillX=cx-pillW/2, pillY=by-(isMax?38:28);
-        ctx.fillStyle='rgba(20,20,20,.9)';
+        ctx.fillStyle='rgba(255,255,255,.95)';
         ctx.strokeStyle=col+'88';
         ctx.lineWidth=1;
         ctx.beginPath();
@@ -1717,12 +1717,12 @@ function renderVrijednostChart(){
 
       // X labels
       ctx.font=`600 ${isHov?13:12}px Comfortaa`;
-      ctx.fillStyle=isHov?'#fff':'#ccc';
+      ctx.fillStyle=isHov?'#1e293b':'#94a3b8';
       ctx.textAlign='center';
       ctx.textBaseline='top';
       ctx.fillText(c.ime, cx, PAD_T+chartH+10);
       ctx.font='10px Comfortaa';
-      ctx.fillStyle='#555';
+      ctx.fillStyle='#94a3b8';
       ctx.fillText(c.sezona, cx, PAD_T+chartH+27);
 
       ctx.globalAlpha=1;
@@ -1786,7 +1786,7 @@ function renderIgraci(){
       // Guide lines
       [0.25, 0.5, 0.75, 1].forEach(f => {
         ctx.beginPath();
-        ctx.strokeStyle = 'rgba(255,255,255,.04)';
+        ctx.strokeStyle = 'rgba(15,27,51,.04)';
         ctx.lineWidth = 1;
         const x = PAD_L + trackW * f;
         ctx.moveTo(x, PAD_V); ctx.lineTo(x, H - PAD_V);
@@ -1803,14 +1803,14 @@ function renderIgraci(){
 
         // Name
         ctx.font = `${isHov ? '700' : '600'} 12px Comfortaa`;
-        ctx.fillStyle = isHov ? '#fff' : '#ccc';
+        ctx.fillStyle = isHov ? '#1e293b' : '#94a3b8';
         ctx.textAlign = 'right';
         ctx.textBaseline = 'middle';
         ctx.fillText(d[labelKey], PAD_L - 10, y + ROW_H/2);
 
         // Track
         ctx.beginPath();
-        ctx.fillStyle = 'rgba(255,255,255,.04)';
+        ctx.fillStyle = 'rgba(15,27,51,.04)';
         ctx.roundRect(PAD_L, barY, trackW, barH, 6);
         ctx.fill();
 
@@ -1836,7 +1836,7 @@ function renderIgraci(){
         if(p >= 0.3){
           const vx = PAD_L + trackW + 10;
           ctx.font = `700 ${isHov ? 15 : 13}px Comfortaa`;
-          ctx.fillStyle = isHov ? '#fff' : col;
+          ctx.fillStyle = isHov ? '#0f1b33' : col;
           ctx.textAlign = 'left';
           ctx.textBaseline = 'middle';
           ctx.globalAlpha = Math.min(1, (p - 0.3) / 0.4);
@@ -1884,13 +1884,13 @@ function renderIgraci(){
   const maxGol = Math.max(...IGRACI.map(x => x.golovi));
   const maxAsi = Math.max(...IGRACI.map(x => x.asistencije));
 
-  horizBar('igraciPromasene',   'Promašene velike prilike po igraču', byProm, '#CC0000', 'ime', 'promasene',   maxProm);
-  horizBar('igraciKreirane',    'Kreirane velike prilike',            byKrei, '#4CAF50', 'ime', 'kreirane',    maxKrei);
-  horizBar('igraciGolovi',      'Golovi',                             byGol,  '#e8e8e8', 'ime', 'golovi', maxGol);
-  horizBar('igraciAsistencije', 'Asistencije',                        byAsi,  '#4d8aff', 'ime', 'asistencije', maxAsi);
+  horizBar('igraciPromasene',   'Promašene velike prilike po igraču', byProm, '#D6001C', 'ime', 'promasene',   maxProm);
+  horizBar('igraciKreirane',    'Kreirane velike prilike',            byKrei, '#2E9E4F', 'ime', 'kreirane',    maxKrei);
+  horizBar('igraciGolovi',      'Golovi',                             byGol,  '#33405A', 'ime', 'golovi', maxGol);
+  horizBar('igraciAsistencije', 'Asistencije',                        byAsi,  '#1E6FEB', 'ime', 'asistencije', maxAsi);
   const byGA  = [...IGRACI].filter(x => x.ga > 0).sort((a,b) => b.ga - a.ga);
   const maxGA2 = Math.max(...IGRACI.map(x => x.ga));
-  horizBar('igraciGA', 'Golovi + Asistencije (G+A)', byGA, '#f0a500', 'ime', 'ga', maxGA2);
+  horizBar('igraciGA', 'Golovi + Asistencije (G+A)', byGA, '#D98C00', 'ime', 'ga', maxGA2);
 
   // ── Sortable Table ────────────────────────────────────────────────────────
   window._igSortKey = 'promasene';
@@ -1902,16 +1902,16 @@ function renderIgraci(){
     const maxK  = Math.max(...IGRACI.map(x => x.kreirane));
     const maxA  = Math.max(...IGRACI.map(x => x.asistencije));
     const maxGA = Math.max(...IGRACI.map(x => x.ga));
-    const bar  = (w,col) => w>0 ? `<div style="flex:1;height:6px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;min-width:44px"><div style="height:100%;width:${w}%;background:${col};border-radius:3px"></div></div>` : '';
+    const bar  = (w,col) => w>0 ? `<div style="flex:1;height:6px;background:rgba(15,27,51,.05);border-radius:3px;overflow:hidden;min-width:44px"><div style="height:100%;width:${w}%;background:${col};border-radius:3px"></div></div>` : '';
     const pills = [
-      {k:'promasene',  lbl:'Promašene vel. prilike', col:'#CC0000'},
-      {k:'golovi',     lbl:'Golovi',                 col:'#e8e8e8'},
-      {k:'asistencije',lbl:'Asistencije',             col:'#4d8aff'},
-      {k:'ga',         lbl:'G+A',                    col:'#f0a500'},
-      {k:'kreirane',   lbl:'Kreirane vel. prilike',  col:'#4CAF50'},
+      {k:'promasene',  lbl:'Promašene vel. prilike', col:'#D6001C'},
+      {k:'golovi',     lbl:'Golovi',                 col:'#33405A'},
+      {k:'asistencije',lbl:'Asistencije',             col:'#1E6FEB'},
+      {k:'ga',         lbl:'G+A',                    col:'#D98C00'},
+      {k:'kreirane',   lbl:'Kreirane vel. prilike',  col:'#2E9E4F'},
     ].map(p => {
       const act = p.k === key;
-      return `<button onclick="window._igSortKey='${p.k}';window._igRenderTable()" style="font-family:Comfortaa,sans-serif;font-size:.68rem;letter-spacing:.08em;padding:5px 12px;border-radius:20px;border:1px solid ${act?p.col:'rgba(255,255,255,.12)'};background:${act?p.col+'22':'transparent'};color:${act?p.col:'#777'};cursor:pointer;white-space:nowrap;transition:all .15s">${p.lbl}${act?' ▼':''}</button>`;
+      return `<button onclick="window._igSortKey='${p.k}';window._igRenderTable()" style="font-family:Comfortaa,sans-serif;font-size:.68rem;letter-spacing:.08em;padding:5px 12px;border-radius:20px;border:1px solid ${act?p.col:'rgba(15,27,51,.12)'};background:${act?p.col+'22':'transparent'};color:${act?p.col:'#5b6472'};cursor:pointer;white-space:nowrap;transition:all .15s">${p.lbl}${act?' ▼':''}</button>`;
     }).join('');
 
     const el = document.getElementById('igraciTable');
@@ -1922,11 +1922,11 @@ function renderIgraci(){
       <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="stable"><thead><tr>
         <th>Igrač</th>
-        <th style="color:#CC0000">Prom. vel. prilike</th>
-        <th style="color:#e8e8e8">Golovi</th>
-        <th style="color:#4d8aff">Asistencije</th>
-        <th style="color:#f0a500">G+A</th>
-        <th style="color:#4CAF50">Kreirane vel. prilike</th>
+        <th style="color:#D6001C">Prom. vel. prilike</th>
+        <th style="color:#33405A">Golovi</th>
+        <th style="color:#1E6FEB">Asistencije</th>
+        <th style="color:#D98C00">G+A</th>
+        <th style="color:#2E9E4F">Kreirane vel. prilike</th>
       </tr></thead><tbody>` +
       sorted.map(p => {
         const pW  = maxP >0 ? Math.round(p.promasene   /maxP *100) : 0;
@@ -1936,11 +1936,11 @@ function renderIgraci(){
         const gaW = maxGA>0 ? Math.round(p.ga          /maxGA*100) : 0;
         return `<tr>
           <td class="sn">${p.ime}</td>
-          <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#CC0000;min-width:18px">${p.promasene||'—'}</span>${bar(pW,'#CC0000')}</div></td>
-          <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#e8e8e8;min-width:18px">${p.golovi||'—'}</span>${bar(gW,'#d0d0d0')}</div></td>
-          <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#4d8aff;min-width:18px">${p.asistencije||'—'}</span>${bar(aW,'#4d8aff')}</div></td>
-          <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#f0a500;min-width:18px">${p.ga||'—'}</span>${bar(gaW,'#f0a500')}</div></td>
-          <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#4CAF50;min-width:18px">${p.kreirane||'—'}</span>${bar(kW,'#4CAF50')}</div></td>
+          <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#D6001C;min-width:18px">${p.promasene||'—'}</span>${bar(pW,'#D6001C')}</div></td>
+          <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#33405A;min-width:18px">${p.golovi||'—'}</span>${bar(gW,'#94a3b8')}</div></td>
+          <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#1E6FEB;min-width:18px">${p.asistencije||'—'}</span>${bar(aW,'#1E6FEB')}</div></td>
+          <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#D98C00;min-width:18px">${p.ga||'—'}</span>${bar(gaW,'#D98C00')}</div></td>
+          <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#2E9E4F;min-width:18px">${p.kreirane||'—'}</span>${bar(kW,'#2E9E4F')}</div></td>
         </tr>`;
       }).join('') +
       `</tbody></table></div>`;
@@ -1992,8 +1992,8 @@ _fns.forEach(fn => { try { fn(); } catch(e) { console.warn(e); } });
 
   function setPill(state) {
     if (!pill) return;
-    if (state === 'loading') pill.style.color = '#FFC107';
-    else if (state === 'ok')  { pill.style.color = '#4CAF50'; setTimeout(() => { pill.style.color = ''; }, 2000); }
+    if (state === 'loading') pill.style.color = '#E5A100';
+    else if (state === 'ok')  { pill.style.color = '#2E9E4F'; setTimeout(() => { pill.style.color = ''; }, 2000); }
     else if (state === 'error') { pill.style.color = '#FF5252'; setTimeout(() => { pill.style.color = ''; }, 4000); }
   }
 
