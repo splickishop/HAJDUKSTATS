@@ -1,7 +1,8 @@
 [
   {
     "datum": "2026-08-29",
-    "naslov": "Dobrodošli u Novosti",
-    "tekst": "Ovdje upisujete svoje nove novosti / postove. Za novu objavu samo dodajte novi objekt u ovu listu."
+    "naslov": "Naslov novosti",
+    "tekst": "Tekst novosti",
+    "slika": "novosti/slika.jpg"
   }
 ]
