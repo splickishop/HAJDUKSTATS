@@ -1987,8 +1987,13 @@ function showTab(id,btn){
 
 /* ── NOVOSTI ─────────────────────────────────────────────────────────────── */
 (function(){
-  const NEWS_FOLDER = 'novosti/';
-  const NEWS_INDEX = NEWS_FOLDER + 'index.json';
+  // Novosti se čitaju direktno iz "novosti/" foldera na GitHubu —
+  // dovoljno je dodati novi .json fajl u taj folder, ništa se drugo ne dira.
+  const GH_USER = 'splickishop';
+  const GH_REPO = 'HAJDUKSTATS';
+  const GH_FOLDER = 'novosti';
+  const GH_API = 'https://api.github.com/repos/' + GH_USER + '/' + GH_REPO + '/contents/' + GH_FOLDER;
+
   const PAGE_SIZE = 5;
   let allNews = [];
   let shown = PAGE_SIZE;
@@ -2000,7 +2005,7 @@ function showTab(id,btn){
   }
 
   function fmtDate(d){
-    // Očekuje 'YYYY-MM-DD' ili 'DD.MM.YYYY.' — vrati hrvatski format
+    // Očekuje 'YYYY-MM-DD' — vrati hrvatski format
     if(!d) return '';
     const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d);
     if(m) return m[3] + '.' + m[2] + '.' + m[1] + '.';
@@ -2035,18 +2040,25 @@ function showTab(id,btn){
   async function loadNews(){
     const list = document.getElementById('newsList');
     try {
-      const idxRes = await fetch(NEWS_INDEX, {cache:'no-store'});
-      if(!idxRes.ok) throw new Error('HTTP ' + idxRes.status);
-      const files = await idxRes.json();
+      const dirRes = await fetch(GH_API, {headers:{Accept:'application/vnd.github+json'}});
+      if(!dirRes.ok) throw new Error('HTTP ' + dirRes.status);
+      const items = await dirRes.json();
+      if(!Array.isArray(items)) throw new Error('Neočekivan odgovor GitHub API-ja');
 
-      const posts = await Promise.all(files.map(async function(fname){
+      // Svaki .json fajl u folderu (osim eventualnog starog index.json) = jedna novost
+      const jsonFiles = items.filter(function(it){
+        return it.type === 'file' &&
+               /\.json$/i.test(it.name) &&
+               it.name.toLowerCase() !== 'index.json';
+      });
+
+      const posts = await Promise.all(jsonFiles.map(async function(file){
         try {
-          const r = await fetch(NEWS_FOLDER + fname, {cache:'no-store'});
+          const r = await fetch(file.download_url, {cache:'no-store'});
           if(!r.ok) return null;
-          const post = await r.json();
-          return post;
+          return await r.json();
         } catch(e){
-          console.warn('[Novosti] Greška pri učitavanju', fname, e);
+          console.warn('[Novosti] Greška pri učitavanju', file.name, e);
           return null;
         }
       }));
