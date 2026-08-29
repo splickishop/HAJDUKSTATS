@@ -1,6 +1,0 @@
-{
-  "title": "Primjer starije novosti",
-  "date": "2026-08-15",
-  "image": "",
-  "text": "Novosti se automatski slažu od najnovije prema najstarijoj, po polju \"date\". Prikazuje se zadnjih 5, a ostatak se otkriva klikom na \"Prikaži još\"."
-}
