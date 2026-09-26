@@ -160,7 +160,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .fbtn.active{background:var(--red);color:#fff;border-color:var(--red);}
 
 .mgrid{display:grid;gap:7px;}
-.mrow{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:13px 18px;display:grid;grid-template-columns:78px 1fr 84px 70px 70px 110px;align-items:center;gap:14px;animation:fadeUp .4s ease both;transition:border-color .2s;}
+.mrow{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:13px 18px;display:grid;grid-template-columns:78px 1fr 84px 70px 70px 110px;align-items:center;gap:14px;animation:fadeUp .4s ease both;transition:border-color .2s;cursor:pointer;}
 .mrow:hover{border-color:rgba(214,0,28,.35);}
 .mkolo{font-family:'Comfortaa',sans-serif;font-size:.73rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);}
 .mname{font-family:'Comfortaa',sans-serif;font-size:.92rem;font-weight:700;letter-spacing:.03em;color:var(--white);}
@@ -238,25 +238,54 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .kontakt-note strong{color:var(--white);}
 .kontakt-footer{margin-top:40px;text-align:center;font-family:'Comfortaa',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);}
 
-/* Novosti */
-.news-list{display:flex;flex-direction:column;gap:14px;}
-.news-card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:22px 26px;position:relative;overflow:hidden;animation:fadeUp .5s ease both;box-shadow:0 1px 3px rgba(15,27,51,.05);}
-.news-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--blue));}
-.news-date{font-family:'Comfortaa',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
-.news-title{font-family:'Comfortaa',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:.03em;color:var(--white);margin-bottom:8px;}
-.news-img{width:100%;max-height:340px;object-fit:cover;border-radius:4px;margin-bottom:14px;display:block;}
-.news-text{font-family:'Comfortaa',sans-serif;font-size:.9rem;font-weight:600;color:#1E2C40;line-height:1.7;white-space:pre-line;}
-.news-loadmore-wrap{display:flex;justify-content:center;margin-top:24px;}
-.news-loadmore{font-family:'Comfortaa',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:12px 30px;border:1px solid var(--border);background:#fff;color:var(--gray);cursor:pointer;border-radius:2px;transition:all .2s;}
-.news-loadmore:hover{color:#fff;background:var(--red);border-color:var(--red);}
-.news-empty,.news-error{font-family:'Comfortaa',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.06em;color:var(--gray);text-align:center;padding:30px 0;}
+/* ── Prekidač natjecanja (Prvenstvo / Europa) ───────────────────────────── */
+.comp-switch{max-width:1240px;margin:0 auto;padding:14px 44px 0;display:flex;align-items:center;gap:12px;background:#fff;flex-wrap:wrap;}
+.comp-switch-lbl{font-family:'Comfortaa',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);}
+.comp-pills{display:inline-flex;background:rgba(15,27,51,.05);border:1px solid var(--border);border-radius:999px;padding:3px;gap:2px;}
+.comp-pill{font-family:'Comfortaa',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.06em;padding:8px 20px;border:none;border-radius:999px;background:transparent;color:var(--gray);cursor:pointer;transition:all .25s ease;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
+.comp-pill span.dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.5;}
+.comp-pill:hover:not(.active){color:var(--white);}
+.comp-pill.active{background:linear-gradient(135deg,var(--red),var(--blue));color:#fff;box-shadow:0 3px 10px rgba(15,27,51,.2);}
+.comp-pill.active span.dot{opacity:1;}
 
-/* Istaknuti tab "Novosti" */
-.tab.tab-novosti{color:#7C3AED;}
-.tab.tab-novosti:hover{color:#5B21B6;}
-.tab.tab-novosti.active{color:#7C3AED;border-bottom-color:#06B6D4;}
-.tab-badge{display:inline-block;background:linear-gradient(135deg,#7C3AED,#06B6D4);color:#fff;font-family:'Comfortaa',sans-serif;font-size:.55rem;font-weight:800;letter-spacing:.06em;padding:2px 7px;border-radius:20px;margin-left:7px;vertical-align:2px;animation:badgePulse 2.2s ease-in-out infinite;}
-@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.35)}50%{box-shadow:0 0 0 5px rgba(124,58,237,0)}}
+/* ── Klikabilni redak igrača + avatar ───────────────────────────────────── */
+.p-avatar{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--blue));color:#fff;font-family:'Comfortaa',sans-serif;font-weight:700;font-size:.66rem;margin-right:10px;flex-shrink:0;vertical-align:middle;}
+.stable tbody tr.p-row{cursor:pointer;}
+.stable tbody tr.p-row td{transition:background .15s ease;}
+.stable tbody tr.p-row:hover td{background:rgba(214,0,28,.05);}
+
+/* ── Modal (igrač / utakmica) — zajednički stil ─────────────────────────── */
+.p-modal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:20px;}
+.p-modal.open{display:flex;}
+.p-modal-bg{position:absolute;inset:0;background:rgba(15,27,51,.55);backdrop-filter:blur(3px);animation:modalFadeIn .2s ease;}
+.p-modal-box{position:relative;background:#fff;border-radius:18px;max-width:560px;width:100%;max-height:86vh;overflow-y:auto;box-shadow:0 24px 60px rgba(15,27,51,.35);animation:modalUp .25s cubic-bezier(.2,.8,.3,1);}
+.p-modal-head{padding:26px 28px 20px;background:linear-gradient(135deg,#0F1B33,var(--blue));position:relative;border-radius:18px 18px 0 0;}
+.p-modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;border:none;background:rgba(255,255,255,.15);color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;font-family:'Comfortaa',sans-serif;line-height:1;}
+.p-modal-close:hover{background:rgba(255,255,255,.3);}
+.p-modal-avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--red-b));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Comfortaa',sans-serif;font-weight:700;font-size:1.3rem;margin-bottom:12px;box-shadow:0 4px 14px rgba(0,0,0,.25);}
+.p-modal-name{font-family:'Comfortaa',sans-serif;font-weight:700;font-size:1.25rem;color:#fff;letter-spacing:.02em;}
+.p-modal-body{padding:22px 26px 28px;}
+.p-comp-group{margin-bottom:20px;}
+.p-comp-group:last-child{margin-bottom:0;}
+.p-comp-label{font-family:'Comfortaa',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.p-comp-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.p-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.p-stat{background:var(--bg);border-radius:10px;padding:10px 6px;text-align:center;border:1px solid var(--border);}
+.p-stat-val{font-family:'Comfortaa',sans-serif;font-weight:700;font-size:1.25rem;color:var(--white);}
+.p-stat-lbl{font-family:'Comfortaa',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gray);margin-top:4px;line-height:1.3;}
+.p-modal-empty{font-family:'Comfortaa',sans-serif;font-size:.8rem;font-weight:600;color:var(--gray);text-align:center;padding:8px 0;}
+@keyframes modalUp{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes modalFadeIn{from{opacity:0}to{opacity:1}}
+
+/* ── Modal utakmice — specifično ────────────────────────────────────────── */
+.mm-kolo{font-family:'Comfortaa',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:10px;}
+.mm-teams{font-family:'Comfortaa',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;letter-spacing:.02em;margin-bottom:8px;}
+.mm-score{font-family:'Comfortaa',sans-serif;font-size:2.2rem;font-weight:700;letter-spacing:.05em;margin-bottom:6px;}
+.mm-result{font-family:'Comfortaa',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+@media(max-width:480px){
+  .p-stat-grid{grid-template-columns:repeat(2,1fr);}
+  .p-modal-box{max-height:92vh;}
+}
 
 /* ── RESPONSIVE / MOBILE ───────────────────────────────────────────────── */
 
@@ -287,6 +316,12 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   .tabs{padding:0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-bottom:1px solid var(--border);}
   .tabs::-webkit-scrollbar{display:none;}
   .tab{padding:12px 14px;font-size:.75rem;letter-spacing:.08em;white-space:nowrap;flex-shrink:0;}
+
+  /* Prekidač natjecanja — kompaktnije, tri opcije u red */
+  .comp-switch{padding:12px 16px 0;gap:8px;}
+  .comp-switch-lbl{display:none;}
+  .comp-pills{width:100%;}
+  .comp-pill{padding:7px 0;font-size:.7rem;letter-spacing:.03em;flex:1;justify-content:center;}
 
   /* Main content */
   main{padding:18px 16px 60px;}
@@ -418,7 +453,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
       <p>Podaci iza emocija ❤️💙</p>
     </div>
     <div class="live-pill">Live data</div>
-    <div class="s-badge">2026/2027</div>
+    <div class="s-badge" id="seasonBadge" data-liga="2026/2027" data-eu="EUROPA" data-ukupno="UKUPNO">2026/2027</div>
   </div>
   <!-- Social icons -->
   <div class="h-social" style="position:absolute;bottom:10px;right:44px;display:flex;align-items:center;gap:12px;z-index:2;">
@@ -431,9 +466,17 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   </div>
 </header>
 
+<div class="comp-switch">
+  <span class="comp-switch-lbl">Natjecanje</span>
+  <div class="comp-pills" id="compPills">
+    <button class="comp-pill active" data-comp="liga" onclick="setComp('liga')"><span class="dot"></span>Prvenstvo</button>
+    <button class="comp-pill" data-comp="europa" onclick="setComp('europa')"><span class="dot"></span>Europa</button>
+    <button class="comp-pill" data-comp="ukupno" onclick="setComp('ukupno')"><span class="dot"></span>Ukupno</button>
+  </div>
+</div>
+
 <div class="tabs">
   <button class="tab active" onclick="showTab('pregled',this)">Pregled</button>
-  <button class="tab tab-novosti" onclick="showTab('novosti',this)">Novosti<span class="tab-badge">NOVO</span></button>
   <button class="tab" onclick="showTab('utakmice',this)">Utakmice</button>
   <button class="tab" onclick="showTab('sezone',this)">Sezone</button>
   <button class="tab" onclick="showTab('treneri',this)">Treneri</button>
@@ -445,7 +488,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 
 <!-- PREGLED -->
 <div class="sec active" id="pregled">
-  <div class="stitle"><i></i>Sezona 2026/2027 — Pregled</div>
+  <div class="stitle"><i></i><span data-comp-label data-liga="Sezona 2026/2027 — Pregled" data-eu="Europska natjecanja — Pregled" data-ukupno="Ukupno (Prvenstvo + Europa) — Pregled">Sezona 2026/2027 — Pregled</span></div>
   <div class="cards" id="statsCards"></div>
 
   <div class="stitle"><i></i>Efikasnost velikih prilika</div>
@@ -474,15 +517,6 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
       </div>
     </div>
     <div id="vpChartWrap"></div>
-  </div>
-</div>
-
-<!-- NOVOSTI -->
-<div class="sec" id="novosti">
-  <div class="stitle"><i></i>Novosti</div>
-  <div class="news-list" id="newsList"></div>
-  <div class="news-loadmore-wrap" id="newsLoadMoreWrap" style="display:none">
-    <button class="news-loadmore" id="newsLoadMoreBtn">Prikaži još</button>
   </div>
 </div>
 
@@ -534,7 +568,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 
 <!-- IGRAČI -->
 <div class="sec" id="igraci">
-  <div class="stitle"><i></i>Igrači — Sezona 2026/2027</div>
+  <div class="stitle"><i></i><span data-comp-label data-liga="Igrači — Sezona 2026/2027" data-eu="Igrači — Europska natjecanja" data-ukupno="Igrači — Ukupno (Prvenstvo + Europa)">Igrači — Sezona 2026/2027</span></div>
   <div class="cbox" id="igraciTable"></div>
   <div class="stitle"><i></i>Promašene velike prilike po igraču</div>
   <div class="cbox" id="igraciPromasene"></div>
@@ -589,6 +623,34 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 
     <div class="kontakt-footer">Hajduk Stats &nbsp;·&nbsp; Split, Hrvatska</div>
 
+  </div>
+</div>
+
+<!-- MODAL: PROFIL IGRAČA -->
+<div class="p-modal" id="playerModal">
+  <div class="p-modal-bg" onclick="closePlayer()"></div>
+  <div class="p-modal-box">
+    <div class="p-modal-head">
+      <button class="p-modal-close" onclick="closePlayer()" aria-label="Zatvori">✕</button>
+      <div class="p-modal-avatar" id="pmAvatar"></div>
+      <div class="p-modal-name" id="pmName"></div>
+    </div>
+    <div class="p-modal-body" id="pmBody"></div>
+  </div>
+</div>
+
+<!-- MODAL: DETALJI UTAKMICE -->
+<div class="p-modal" id="matchModal">
+  <div class="p-modal-bg" onclick="closeMatch()"></div>
+  <div class="p-modal-box">
+    <div class="p-modal-head">
+      <button class="p-modal-close" onclick="closeMatch()" aria-label="Zatvori">✕</button>
+      <div class="mm-kolo" id="mmKolo"></div>
+      <div class="mm-teams" id="mmTitle"></div>
+      <div class="mm-score" id="mmScore"></div>
+      <div class="mm-result" id="mmResult"></div>
+    </div>
+    <div class="p-modal-body" id="mmBody"></div>
   </div>
 </div>
 
@@ -671,8 +733,208 @@ const IGRACI = [
   { ime:'Melnjak',     promasene:0, golovi:0,  kreirane:0, asistencije:1, ga:1  },
 ];
 
+/* ── EUROPSKA NATJECANJA (identična struktura, popunjava se iz zasebne Google tablice) ── */
+const EU_SEASONS = [];
+const EU_MATCHES = [];
+const EU_TRENERI = [];
+const EU_IGRACI  = [];
+
+/* ── Prekidač natjecanja: Prvenstvo / Europa / Ukupno ───────────────────── */
+let currentComp = 'liga';
+const DATA = {
+  liga:   { sezone: SEASONS.slice(), utakmice: MATCHES.slice(), treneri: TRENERI.slice(), igraci: IGRACI.slice(), _loaded: true },
+  europa: { sezone: EU_SEASONS.slice(), utakmice: EU_MATCHES.slice(), treneri: EU_TRENERI.slice(), igraci: EU_IGRACI.slice(), _loaded: false },
+  ukupno: { sezone: [], utakmice: [], treneri: [], igraci: [], _loaded: true }
+};
+
+/* ── Zbrajanje Prvenstvo + Europa u "Ukupno" ────────────────────────────── */
+function combineUtakmice(liga, europa){
+  // sve utakmice iz oba natjecanja u jednom popisu
+  return [...liga, ...europa];
+}
+
+function combineIgraci(liga, europa){
+  const map = new Map();
+  const add = arr => arr.forEach(p=>{
+    const cur = map.get(p.ime) || {ime:p.ime, promasene:0, golovi:0, kreirane:0, asistencije:0, ga:0};
+    cur.promasene   += p.promasene||0;
+    cur.golovi      += p.golovi||0;
+    cur.kreirane    += p.kreirane||0;
+    cur.asistencije += p.asistencije||0;
+    cur.ga           = cur.golovi + cur.asistencije;
+    map.set(p.ime, cur);
+  });
+  add(liga); add(europa);
+  return [...map.values()];
+}
+
+function combineSezone(liga, europa){
+  const map = new Map();
+  const add = arr => arr.forEach(s=>{
+    const cur = map.get(s.sezona) || {sezona:s.sezona, kola:0, bodovi:0, _golT:0, _priT:0, _vpT:0, _promT:0, xg:0, _hasXg:false};
+    const kola = s.kola||0;
+    cur.kola   += kola;
+    cur.bodovi += s.bodovi||0;
+    cur._golT  += (s.golovi||0)*kola;
+    cur._priT  += (s.primljeni||0)*kola;
+    cur._vpT   += (s.vp||0)*kola;
+    cur._promT += (s.promaseneVp||0)*kola;
+    if(s.xg!=null){ cur.xg += s.xg; cur._hasXg = true; }
+    map.set(s.sezona, cur);
+  });
+  add(liga); add(europa);
+  return [...map.values()].map(c=>({
+    sezona: c.sezona,
+    kola: c.kola,
+    bodovi: c.bodovi,
+    bu: c.kola ? +(c.bodovi/c.kola).toFixed(2) : 0,
+    golovi: c.kola ? +(c._golT/c.kola).toFixed(2) : 0,
+    primljeni: c.kola ? +(c._priT/c.kola).toFixed(2) : 0,
+    vp: c.kola ? +(c._vpT/c.kola).toFixed(2) : 0,
+    promaseneVp: c.kola ? +(c._promT/c.kola).toFixed(2) : 0,
+    xg: c._hasXg ? +c.xg.toFixed(2) : null,
+  })).sort((a,b)=>a.sezona.localeCompare(b.sezona));
+}
+
+function combineTreneri(liga, europa){
+  const map = new Map();
+  const add = arr => arr.forEach(t=>{
+    const key = t.sezona + '|' + t.trener;
+    const cur = map.get(key) || {sezona:t.sezona, trener:t.trener, utakmice:0, pobjede:0, remiji:0, porazi:0, vrijednost:t.vrijednost};
+    cur.utakmice += t.utakmice||0;
+    cur.pobjede  += t.pobjede||0;
+    cur.remiji   += t.remiji||0;
+    cur.porazi   += t.porazi||0;
+    if(!cur.vrijednost && t.vrijednost) cur.vrijednost = t.vrijednost;
+    map.set(key, cur);
+  });
+  add(liga); add(europa);
+  return [...map.values()].map(c=>({
+    ...c,
+    bu: c.utakmice ? +(((c.pobjede*3+c.remiji)/c.utakmice)).toFixed(2) : 0,
+  }));
+}
+
+function computeUkupno(){
+  DATA.ukupno.sezone   = combineSezone(DATA.liga.sezone, DATA.europa.sezone);
+  DATA.ukupno.utakmice = combineUtakmice(DATA.liga.utakmice, DATA.europa.utakmice);
+  DATA.ukupno.treneri  = combineTreneri(DATA.liga.treneri, DATA.europa.treneri);
+  DATA.ukupno.igraci   = combineIgraci(DATA.liga.igraci, DATA.europa.igraci);
+}
+computeUkupno();
+
+function renderAllSections(){
+  [renderPregled, renderMatches, renderSezone, renderTreneri, renderIgraci].forEach(fn=>{
+    try { fn(); } catch(e){ console.warn(e); }
+  });
+}
+
+function applyComp(comp){
+  if(comp === 'ukupno') computeUkupno();
+  const d = DATA[comp];
+  SEASONS.length = 0; SEASONS.push(...d.sezone);
+  MATCHES.length = 0; MATCHES.push(...d.utakmice);
+  TRENERI.length = 0; TRENERI.push(...d.treneri);
+  IGRACI.length  = 0; IGRACI.push(...d.igraci);
+  curF = 'sve';
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.toggle('active', b.textContent.trim()==='Sve'));
+  renderAllSections();
+}
+
+const COMP_LBL_KEY = { liga:'liga', europa:'eu', ukupno:'ukupno' };
+function setComp(comp){
+  currentComp = comp;
+  document.querySelectorAll('.comp-pill').forEach(b=>b.classList.toggle('active', b.dataset.comp === comp));
+  document.querySelectorAll('[data-comp-label]').forEach(el=>{
+    el.textContent = el.dataset[COMP_LBL_KEY[comp]] || el.dataset.liga;
+  });
+  const badge = document.getElementById('seasonBadge');
+  if(badge) badge.textContent = badge.dataset[COMP_LBL_KEY[comp]] || badge.dataset.liga;
+  applyComp(comp);
+  if((comp === 'europa' || comp === 'ukupno') && !DATA.europa._loaded) refreshEuropa();
+}
+
+/* ── Modal profila igrača ────────────────────────────────────────────────── */
+document.addEventListener('keydown', e => {
+  if(e.key !== 'Escape') return;
+  closePlayer();
+  closeMatch();
+});
+
+function initials(name){
+  return String(name).trim().split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+}
+
+function openPlayer(name){
+  computeUkupno();
+  const ligaP = DATA.liga.igraci.find(p=>p.ime===name)   || null;
+  const euP   = DATA.europa.igraci.find(p=>p.ime===name) || null;
+  const ukP   = DATA.ukupno.igraci.find(p=>p.ime===name) || null;
+
+  const nameEl = document.getElementById('pmName');
+  const avaEl  = document.getElementById('pmAvatar');
+  if(nameEl) nameEl.textContent = name;
+  if(avaEl)  avaEl.textContent = initials(name);
+
+  const groups = [
+    {label:'Prvenstvo', data: ligaP},
+    {label:'Europa',    data: euP},
+    {label:'Ukupno',    data: ukP},
+  ];
+  const stat = (val,lbl) => `<div class="p-stat"><div class="p-stat-val">${val || 0}</div><div class="p-stat-lbl">${lbl}</div></div>`;
+
+  const body = document.getElementById('pmBody');
+  if(body){
+    body.innerHTML = groups.map(g => {
+      if(!g.data){
+        return `<div class="p-comp-group"><div class="p-comp-label">${g.label}</div><div class="p-modal-empty">Nema podataka</div></div>`;
+      }
+      const d = g.data;
+      return `<div class="p-comp-group">
+        <div class="p-comp-label">${g.label}</div>
+        <div class="p-stat-grid">
+          ${stat(d.golovi,'Golovi')}
+          ${stat(d.asistencije,'Asistencije')}
+          ${stat(d.ga,'G+A')}
+          ${stat(d.kreirane,'Kreirane prilike')}
+          ${stat(d.promasene,'Promašene prilike')}
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  const modal = document.getElementById('playerModal');
+  if(modal) modal.classList.add('open');
+}
+function closePlayer(){
+  const modal = document.getElementById('playerModal');
+  if(modal) modal.classList.remove('open');
+}
+
 /* ── Helpers ─────────────────────────────────────────────────────────────── */
 const res = m => m.wdl === 'W' ? 'win' : m.wdl === 'D' ? 'draw' : m.wdl === 'L' ? 'loss' : 'pending';
+
+// Automatski prepoznaje "(gosti)" oznaku u nazivu utakmice i pravilno
+// okreće prikaz naziva i rezultata (golovi u m.g/m.p ostaju uvijek
+// Hajdukovi postignuti/primljeni golovi, bez obzira na domaćinstvo).
+function matchDisplay(m){
+  const rawName = m.name || '';
+  const away = /\(gosti\)/i.test(rawName);
+  if(away){
+    const opp = rawName.replace(/\s*\(gosti\)\s*/i, '').trim();
+    return {
+      opp, home: false,
+      title: `${opp} - Hajduk`,
+      scoreText: m.g != null ? `${m.p} : ${m.g}` : '—',
+    };
+  }
+  const opp = rawName.replace(/^Hajduk\s*-\s*/i, '').trim();
+  return {
+    opp, home: true,
+    title: rawName,
+    scoreText: m.g != null ? `${m.g} : ${m.p}` : '—',
+  };
+}
 const pts = m => ({win:3,draw:1,loss:0,pending:0}[res(m)]);
 
 /* ── Legend helper ──────────────────────────────────────────────────────── */
@@ -863,7 +1125,7 @@ function matchBarChart(wrapId, matches, fnA, fnB, colA, colB, labelA, labelB, fn
     const rCol = r==='win'?'#2E9E4F':r==='draw'?'#E5A100':'#D6001C';
     const rTxt = r==='win'?'Pobjeda':r==='draw'?'Remi':'Poraz';
     // Extract opponent from match name (remove "Hajduk - " or " (gosti)")
-    const opp = m.name.replace('Hajduk - ','').replace(' (gosti)','');
+    const opp = matchDisplay(m).opp;
     const score = m.g !== null ? `${m.g} : ${m.p}` : '—';
     let html = `<div style="font-size:.8rem;font-weight:700;color:#0f1b33;margin-bottom:6px">${opp}</div>`;
     html += `<div style="font-size:.7rem;font-weight:600;color:#2B3549;margin-bottom:8px;display:flex;align-items:center;gap:8px">`;
@@ -1250,15 +1512,18 @@ function renderMatches(){
     if(curF==='gosti')return!m.home;
     return true;
   }).slice().reverse(); // od zadnje odigrane prema prvoj
+  window._matchesRenderList = f; // za otvaranje modala po indexu
   document.getElementById('mgrid').innerHTML=f.map((m,i)=>{
-    const r=res(m), txt=`${m.g} : ${m.p}`;
-    const dispName = m.home ? m.name : m.name + ' (gosti)';
+    const r=res(m);
+    const info = matchDisplay(m);
+    const txt = info.scoreText;
+    const dispName = info.title;
     const vpH=m.vp!==null?`<div class="mvp"><span class="vn">${m.vp}</span><span class="vl">Vel. prilike</span></div>`:`<div class="mvp"><span class="vn" style="color:#D7DEE8">—</span><span class="vl">Vel. prilike</span></div>`;
     const xgH=m.xg!=null?`<div class="mvp"><span class="vn" style="color:#E5A100">${m.xg}</span><span class="vl">xG</span></div>`:`<div class="mvp"><span class="vn" style="color:#D7DEE8">—</span><span class="vl">xG</span></div>`;
     let dH='<div class="mdots">';
     if(m.vp!==null) for(let j=0;j<m.vp;j++) dH+=`<div class="dot ${j<m.zvp?'s':'m'}"></div>`;
     dH+='</div>';
-    return `<div class="mrow" style="animation-delay:${i*.022}s">
+    return `<div class="mrow" style="animation-delay:${i*.022}s" onclick="openMatch(${i})">
       <div class="mkolo">${m.kolo}</div>
       <div class="mname">${dispName}</div>
       <div class="mres ${r}">${txt}</div>
@@ -1271,6 +1536,43 @@ function filterM(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   renderMatches();
+}
+
+/* ── Modal detalja utakmice ──────────────────────────────────────────────── */
+function openMatch(i){
+  const m = window._matchesRenderList && window._matchesRenderList[i];
+  if(!m) return;
+  const info = matchDisplay(m);
+  const r = res(m);
+  const rCol  = r==='win' ? '#2E9E4F' : r==='draw' ? '#E5A100' : r==='loss' ? '#D6001C' : '#9AA5B1';
+  const rTxt  = r==='win' ? 'Pobjeda' : r==='draw' ? 'Remi' : r==='loss' ? 'Poraz' : 'Nije odigrano';
+
+  const koloEl   = document.getElementById('mmKolo');
+  const titleEl  = document.getElementById('mmTitle');
+  const scoreEl  = document.getElementById('mmScore');
+  const resultEl = document.getElementById('mmResult');
+  if(koloEl)   koloEl.textContent = `${m.kolo} · ${info.home ? 'Domaća utakmica' : 'Gostujuća utakmica'}`;
+  if(titleEl)  titleEl.textContent = info.title;
+  if(scoreEl){ scoreEl.textContent = info.scoreText; scoreEl.style.color = rCol; }
+  if(resultEl){ resultEl.textContent = rTxt; resultEl.style.color = rCol; }
+
+  const stat = (val,lbl) => `<div class="p-stat"><div class="p-stat-val">${val ?? '—'}</div><div class="p-stat-lbl">${lbl}</div></div>`;
+  const body = document.getElementById('mmBody');
+  if(body){
+    body.innerHTML = `<div class="p-stat-grid">
+      ${stat(m.vp,'Velike prilike')}
+      ${stat(m.zvp,'Iskorištene')}
+      ${stat(m.prom,'Promašene')}
+      ${stat(m.xg,'xG')}
+    </div>`;
+  }
+
+  const modal = document.getElementById('matchModal');
+  if(modal) modal.classList.add('open');
+}
+function closeMatch(){
+  const modal = document.getElementById('matchModal');
+  if(modal) modal.classList.remove('open');
 }
 
 /* ── SEZONE ──────────────────────────────────────────────────────────────── */
@@ -1892,6 +2194,13 @@ function renderIgraci(){
       if(nh !== hovIdx){ hovIdx = nh; draw(1); }
     });
     canvas.addEventListener('mouseleave', () => { hovIdx = -1; draw(1); });
+    canvas.style.cursor = 'pointer';
+    canvas.addEventListener('click', e => {
+      const rect = canvas.getBoundingClientRect();
+      const my = e.clientY - rect.top;
+      const idx = Math.floor((my - PAD_V) / ROW_H);
+      if(idx >= 0 && idx < data.length && typeof openPlayer === 'function') openPlayer(data[idx][labelKey]);
+    });
 
     const ro = new ResizeObserver(() => { prog = 0; animate(); });
     ro.observe(el);
@@ -1961,8 +2270,8 @@ function renderIgraci(){
         const kW  = maxK >0 ? Math.round(p.kreirane    /maxK *100) : 0;
         const aW  = maxA >0 ? Math.round(p.asistencije /maxA *100) : 0;
         const gaW = maxGA>0 ? Math.round(p.ga          /maxGA*100) : 0;
-        return `<tr>
-          <td class="sn">${p.ime}</td>
+        return `<tr class="p-row" onclick="openPlayer('${p.ime.replace(/'/g,"\\'")}')">
+          <td class="sn"><span class="p-avatar">${initials(p.ime)}</span>${p.ime}</td>
           <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#D6001C;min-width:18px">${p.promasene||'—'}</span>${bar(pW,'#D6001C')}</div></td>
           <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#1E2C40;min-width:18px">${p.golovi||'—'}</span>${bar(gW,'#3C4D62')}</div></td>
           <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#1E6FEB;min-width:18px">${p.asistencije||'—'}</span>${bar(aW,'#1E6FEB')}</div></td>
@@ -1985,107 +2294,9 @@ function showTab(id,btn){
   if(el)el.classList.add('active');
 }
 
-/* ── NOVOSTI ─────────────────────────────────────────────────────────────── */
-(function(){
-  // Novosti se čitaju direktno iz "novosti/" foldera na GitHubu —
-  // dovoljno je dodati novi .json fajl u taj folder, ništa se drugo ne dira.
-  const GH_USER = 'splickishop';
-  const GH_REPO = 'HAJDUKSTATS';
-  const GH_FOLDER = 'novosti';
-  const GH_API = 'https://api.github.com/repos/' + GH_USER + '/' + GH_REPO + '/contents/' + GH_FOLDER;
-
-  const PAGE_SIZE = 5;
-  let allNews = [];
-  let shown = PAGE_SIZE;
-
-  function esc(str){
-    const d = document.createElement('div');
-    d.textContent = str == null ? '' : String(str);
-    return d.innerHTML;
-  }
-
-  function fmtDate(d){
-    // Očekuje 'YYYY-MM-DD' — vrati hrvatski format
-    if(!d) return '';
-    const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d);
-    if(m) return m[3] + '.' + m[2] + '.' + m[1] + '.';
-    return d;
-  }
-
-  function render(){
-    const list = document.getElementById('newsList');
-    const wrap = document.getElementById('newsLoadMoreWrap');
-    if(!list) return;
-
-    if(!allNews.length){
-      list.innerHTML = '<div class="news-empty">Trenutno nema objavljenih novosti.</div>';
-      if(wrap) wrap.style.display = 'none';
-      return;
-    }
-
-    const visible = allNews.slice(0, shown);
-    list.innerHTML = visible.map(function(n){
-      return '' +
-        '<div class="news-card">' +
-          '<div class="news-date">' + esc(fmtDate(n.date)) + '</div>' +
-          '<div class="news-title">' + esc(n.title) + '</div>' +
-          (n.image ? '<img class="news-img" src="' + esc(n.image) + '" alt="' + esc(n.title) + '" loading="lazy">' : '') +
-          '<div class="news-text">' + esc(n.text) + '</div>' +
-        '</div>';
-    }).join('');
-
-    if(wrap) wrap.style.display = allNews.length > shown ? 'flex' : 'none';
-  }
-
-  async function loadNews(){
-    const list = document.getElementById('newsList');
-    try {
-      const dirRes = await fetch(GH_API, {headers:{Accept:'application/vnd.github+json'}});
-      if(!dirRes.ok) throw new Error('HTTP ' + dirRes.status);
-      const items = await dirRes.json();
-      if(!Array.isArray(items)) throw new Error('Neočekivan odgovor GitHub API-ja');
-
-      // Svaki .json fajl u folderu (osim eventualnog starog index.json) = jedna novost
-      const jsonFiles = items.filter(function(it){
-        return it.type === 'file' &&
-               /\.json$/i.test(it.name) &&
-               it.name.toLowerCase() !== 'index.json';
-      });
-
-      const posts = await Promise.all(jsonFiles.map(async function(file){
-        try {
-          const r = await fetch(file.download_url, {cache:'no-store'});
-          if(!r.ok) return null;
-          return await r.json();
-        } catch(e){
-          console.warn('[Novosti] Greška pri učitavanju', file.name, e);
-          return null;
-        }
-      }));
-
-      allNews = posts.filter(Boolean).sort(function(a,b){
-        return String(b.date).localeCompare(String(a.date));
-      });
-
-      render();
-    } catch(e){
-      console.warn('[Novosti] Greška:', e);
-      if(list) list.innerHTML = '<div class="news-error">Novosti trenutno nije moguće učitati.</div>';
-    }
-  }
-
-  const btn = document.getElementById('newsLoadMoreBtn');
-  if(btn) btn.addEventListener('click', function(){
-    shown = allNews.length;
-    render();
-  });
-
-  loadNews();
-})();
 
 // Init
-const _fns = [renderPregled, renderMatches, renderSezone, renderTreneri, renderIgraci];
-_fns.forEach(fn => { try { fn(); } catch(e) { console.warn(e); } });
+renderAllSections();
 // Odbrojavanje i progress bar dok čeka fetch
 (function(){
   var count = 5;
@@ -2111,6 +2322,10 @@ _fns.forEach(fn => { try { fn(); } catch(e) { console.warn(e); } });
 /* ── AUTO-REFRESH IZ GOOGLE APPS SCRIPT ─────────────────────────────────── */
 (function() {
   const API_URL = 'https://script.google.com/macros/s/AKfycbwn3DLmzY9ys6tQCvH-6Tzm2KIh4h2vQTatDDZZGE4ltzHYkGN1YnYhluweuKeAm3-Z/exec';
+  // Zasebna Google tablica / Apps Script deployment za EUROPSKA natjecanja —
+  // ista struktura JSON odgovora (utakmice, igraci, sezone, treneri).
+  // Zamijenite URL ispod stvarnim "exec" linkom vaše europske tablice.
+  const API_URL_EU = 'https://script.google.com/macros/s/PASTE_EUROPSKI_APPS_SCRIPT_URL_OVDJE/exec';
   const INTERVAL = 30;
 
   const pill = document.querySelector('.live-pill');
@@ -2129,6 +2344,61 @@ _fns.forEach(fn => { try { fn(); } catch(e) { console.warn(e); } });
     return v;
   }
 
+  function parseUtakmice(arr) {
+    return arr.map(r => ({
+      kolo:  r.kolo,
+      name:  r.name,
+      g:     toNum(r.g),
+      p:     toNum(r.p),
+      wdl:   r.wdl || null,
+      vp:    toNum(r.vp),
+      zvp:   toNum(r.zvp),
+      prom:  toNum(r.prom),
+      xg:    toNum(r.xg),
+      home:  r.home === true || r.home === 'true' || r.home === 1,
+    }));
+  }
+
+  function parseIgraci(arr) {
+    return arr.map(r => ({
+      ime:          r.ime,
+      promasene:    toNum(r.promasene) || 0,
+      golovi:       toNum(r.golovi)    || 0,
+      kreirane:     toNum(r.kreirane)  || 0,
+      asistencije:  toNum(r.asistencije) || 0,
+      ga:           toNum(r.ga)        || 0,
+    }));
+  }
+
+  function parseSezone(arr) {
+    const out = arr.map(r => ({
+      sezona:      r.sezona,
+      kola:        toNum(r.kola),
+      bodovi:      toNum(r.bodovi),
+      bu:          toNum(r.bu),
+      golovi:      toNum(r.golovi),
+      primljeni:   toNum(r.primljeni),
+      vp:          toNum(r.vp),
+      promaseneVp: toNum(r.promaseneVp),
+      xg:          toNum(r.xg),
+    }));
+    out.sort((a, b) => a.sezona.localeCompare(b.sezona));
+    return out;
+  }
+
+  function parseTreneri(arr) {
+    return arr.map(r => ({
+      sezona:    r.sezona,
+      trener:    r.trener,
+      utakmice:  toNum(r.utakmice),
+      pobjede:   toNum(r.pobjede),
+      remiji:    toNum(r.remiji),
+      porazi:    toNum(r.porazi),
+      bu:        toNum(r.bu),
+      vrijednost: r.vrijednost,
+    }));
+  }
+
   async function refresh() {
     setPill('loading');
     try {
@@ -2137,88 +2407,57 @@ _fns.forEach(fn => { try { fn(); } catch(e) { console.warn(e); } });
       const data = await res.json();
 
       const sig = JSON.stringify(data);
-      if (sig === window._lastSig) { setPill('ok'); return; }
-      window._lastSig = sig;
+      if (sig === window._ligaLastSig) { setPill('ok'); if(window._stopLoader) window._stopLoader(); document.getElementById('loader').classList.add('gone'); return; }
+      window._ligaLastSig = sig;
 
-      if (data.utakmice && data.utakmice.length) {
-        MATCHES.length = 0;
-        data.utakmice.forEach(r => MATCHES.push({
-          kolo:  r.kolo,
-          name:  r.name,
-          g:     toNum(r.g),
-          p:     toNum(r.p),
-          wdl:   r.wdl || null,
-          vp:    toNum(r.vp),
-          zvp:   toNum(r.zvp),
-          prom:  toNum(r.prom),
-          xg:    toNum(r.xg),
-          home:  r.home === true || r.home === 'true' || r.home === 1,
-        }));
-      }
+      if (data.utakmice && data.utakmice.length) DATA.liga.utakmice = parseUtakmice(data.utakmice);
+      if (data.igraci   && data.igraci.length)   DATA.liga.igraci   = parseIgraci(data.igraci);
+      if (data.sezone   && data.sezone.length)   DATA.liga.sezone   = parseSezone(data.sezone);
+      if (data.treneri  && data.treneri.length)  DATA.liga.treneri  = parseTreneri(data.treneri);
+      DATA.liga._loaded = true;
 
-      if (data.igraci && data.igraci.length) {
-        IGRACI.length = 0;
-        data.igraci.forEach(r => IGRACI.push({
-          ime:          r.ime,
-          promasene:    toNum(r.promasene) || 0,
-          golovi:       toNum(r.golovi)    || 0,
-          kreirane:     toNum(r.kreirane)  || 0,
-          asistencije:  toNum(r.asistencije) || 0,
-          ga:           toNum(r.ga)        || 0,
-        }));
-      }
+      if (currentComp === 'liga' || currentComp === 'ukupno') applyComp(currentComp);
 
-      if (data.sezone && data.sezone.length) {
-        SEASONS.length = 0;
-        data.sezone.forEach(r => SEASONS.push({
-          sezona:      r.sezona,
-          kola:        toNum(r.kola),
-          bodovi:      toNum(r.bodovi),
-          bu:          toNum(r.bu),
-          golovi:      toNum(r.golovi),
-          primljeni:   toNum(r.primljeni),
-          vp:          toNum(r.vp),
-          promaseneVp: toNum(r.promaseneVp),
-          xg:          toNum(r.xg),
-        }));
-        SEASONS.sort((a, b) => a.sezona.localeCompare(b.sezona));
-      }
-
-      if (data.treneri && data.treneri.length) {
-        TRENERI.length = 0;
-        data.treneri.forEach(r => TRENERI.push({
-          sezona:    r.sezona,
-          trener:    r.trener,
-          utakmice:  toNum(r.utakmice),
-          pobjede:   toNum(r.pobjede),
-          remiji:    toNum(r.remiji),
-          porazi:    toNum(r.porazi),
-          bu:        toNum(r.bu),
-          vrijednost: r.vrijednost,
-        }));
-      }
-
-      try { renderPregled(); } catch(e) { console.warn('renderPregled:', e); }
-      try { renderMatches(); } catch(e) { console.warn('renderMatches:', e); }
-      try { renderSezone();  } catch(e) { console.warn('renderSezone:',  e); }
-      try { renderTreneri(); } catch(e) { console.warn('renderTreneri:', e); }
-      try { renderIgraci();  } catch(e) { console.warn('renderIgraci:',  e); }
-
-      console.log('[HajdukStats] Podaci osvježeni iz Apps Scripta');
+      console.log('[HajdukStats] Podaci (Prvenstvo) osvježeni iz Apps Scripta');
       if(window._stopLoader) window._stopLoader();
       document.getElementById('loader').classList.add('gone');
       setPill('ok');
 
     } catch(e) {
-      console.error('[HajdukStats] Greška:', e.message);
+      console.error('[HajdukStats] Greška (Prvenstvo):', e.message);
       if(window._stopLoader) window._stopLoader();
       document.getElementById('loader').classList.add('gone');
       setPill('error');
     }
   }
 
+  async function refreshEuropa() {
+    try {
+      const res = await fetch(API_URL_EU);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+
+      const sig = JSON.stringify(data);
+      if (sig !== window._euLastSig) {
+        window._euLastSig = sig;
+        if (data.utakmice && data.utakmice.length) DATA.europa.utakmice = parseUtakmice(data.utakmice);
+        if (data.igraci   && data.igraci.length)   DATA.europa.igraci   = parseIgraci(data.igraci);
+        if (data.sezone   && data.sezone.length)   DATA.europa.sezone   = parseSezone(data.sezone);
+        if (data.treneri  && data.treneri.length)  DATA.europa.treneri  = parseTreneri(data.treneri);
+        if (currentComp === 'europa' || currentComp === 'ukupno') applyComp(currentComp);
+      }
+      DATA.europa._loaded = true;
+      console.log('[HajdukStats] Podaci (Europa) osvježeni iz Apps Scripta');
+    } catch(e) {
+      DATA.europa._loaded = true;
+      console.warn('[HajdukStats] Europska tablica još nije povezana ili je došlo do greške:', e.message);
+    }
+  }
+  window.refreshEuropa = refreshEuropa;
+
   refresh();
   setInterval(refresh, INTERVAL * 1000);
+  setInterval(function(){ if (currentComp === 'europa' || currentComp === 'ukupno') refreshEuropa(); }, INTERVAL * 1000);
 })();
 
 </script>
