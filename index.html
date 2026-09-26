@@ -239,14 +239,19 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .kontakt-footer{margin-top:40px;text-align:center;font-family:'Comfortaa',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);}
 
 /* ── Prekidač natjecanja (Prvenstvo / Europa) ───────────────────────────── */
-.comp-switch{max-width:1240px;margin:0 auto;padding:14px 44px 0;display:flex;align-items:center;gap:12px;background:#fff;flex-wrap:wrap;}
-.comp-switch-lbl{font-family:'Comfortaa',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);}
-.comp-pills{display:inline-flex;background:rgba(15,27,51,.05);border:1px solid var(--border);border-radius:999px;padding:3px;gap:2px;}
-.comp-pill{font-family:'Comfortaa',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.06em;padding:8px 20px;border:none;border-radius:999px;background:transparent;color:var(--gray);cursor:pointer;transition:all .25s ease;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
-.comp-pill span.dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.5;}
+.comp-switch{max-width:1240px;margin:0 auto;padding:20px 44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#fff;flex-wrap:wrap;}
+.comp-switch-lbl{font-family:'Comfortaa',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gray);}
+.comp-pills{display:inline-flex;background:rgba(15,27,51,.05);border:1px solid var(--border);border-radius:999px;padding:5px;gap:4px;box-shadow:inset 0 1px 2px rgba(15,27,51,.04);}
+.comp-pill{font-family:'Comfortaa',sans-serif;font-size:.92rem;font-weight:700;letter-spacing:.06em;padding:11px 30px;border:none;border-radius:999px;background:transparent;color:var(--gray);cursor:pointer;transition:all .25s ease;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;}
+.comp-pill span.dot{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.5;}
 .comp-pill:hover:not(.active){color:var(--white);}
-.comp-pill.active{background:linear-gradient(135deg,var(--red),var(--blue));color:#fff;box-shadow:0 3px 10px rgba(15,27,51,.2);}
+.comp-pill.active{background:linear-gradient(135deg,var(--red),var(--blue));color:#fff;box-shadow:0 4px 14px rgba(15,27,51,.28);transform:translateY(-1px);}
 .comp-pill.active span.dot{opacity:1;}
+.comp-subpills{display:none;align-items:center;gap:8px;}
+.comp-subpills.show{display:inline-flex;}
+.subpill{font-family:'Comfortaa',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border:1px solid var(--border);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;transition:all .2s;}
+.subpill:hover:not(.active){color:var(--white);border-color:rgba(15,27,51,.2);}
+.subpill.active{background:var(--blue);color:#fff;border-color:var(--blue);}
 
 /* ── Klikabilni redak igrača + avatar ───────────────────────────────────── */
 .p-avatar{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--blue));color:#fff;font-family:'Comfortaa',sans-serif;font-weight:700;font-size:.66rem;margin-right:10px;flex-shrink:0;vertical-align:middle;}
@@ -318,10 +323,12 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   .tab{padding:12px 14px;font-size:.75rem;letter-spacing:.08em;white-space:nowrap;flex-shrink:0;}
 
   /* Prekidač natjecanja — kompaktnije, tri opcije u red */
-  .comp-switch{padding:12px 16px 0;gap:8px;}
+  .comp-switch{padding:14px 16px;gap:8px;}
   .comp-switch-lbl{display:none;}
   .comp-pills{width:100%;}
-  .comp-pill{padding:7px 0;font-size:.7rem;letter-spacing:.03em;flex:1;justify-content:center;}
+  .comp-pill{padding:9px 0;font-size:.76rem;letter-spacing:.03em;flex:1;justify-content:center;}
+  .comp-subpills{width:100%;justify-content:center;flex-wrap:wrap;}
+  .subpill{flex:1;text-align:center;padding:6px 8px;font-size:.66rem;}
 
   /* Main content */
   main{padding:18px 16px 60px;}
@@ -472,6 +479,11 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
     <button class="comp-pill active" data-comp="liga" onclick="setComp('liga')"><span class="dot"></span>Prvenstvo</button>
     <button class="comp-pill" data-comp="europa" onclick="setComp('europa')"><span class="dot"></span>Europa</button>
     <button class="comp-pill" data-comp="ukupno" onclick="setComp('ukupno')"><span class="dot"></span>Ukupno</button>
+  </div>
+  <div class="comp-subpills" id="europaSubPills">
+    <button class="subpill active" data-faza="sve" onclick="setFaza('sve',this)">Sve faze</button>
+    <button class="subpill" data-faza="kval" onclick="setFaza('kval',this)">Kvalifikacije</button>
+    <button class="subpill" data-faza="liga" onclick="setFaza('liga',this)">Ligaška faza</button>
   </div>
 </div>
 
@@ -842,6 +854,17 @@ function applyComp(comp){
 }
 
 const COMP_LBL_KEY = { liga:'liga', europa:'eu', ukupno:'ukupno' };
+let europaFaza = 'sve';
+// Prepoznavanje faze natjecanja iz teksta polja "kolo" (npr. "1. pretkolo", "Play-off", "3. kolo lige"...)
+function matchFaza(m){
+  return /kval|pretkolo|play.?off/i.test(m.kolo || '') ? 'kval' : 'liga';
+}
+function setFaza(faza, btn){
+  europaFaza = faza;
+  document.querySelectorAll('.subpill').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAllSections();
+}
 function setComp(comp){
   currentComp = comp;
   document.querySelectorAll('.comp-pill').forEach(b=>b.classList.toggle('active', b.dataset.comp === comp));
@@ -850,6 +873,12 @@ function setComp(comp){
   });
   const badge = document.getElementById('seasonBadge');
   if(badge) badge.textContent = badge.dataset[COMP_LBL_KEY[comp]] || badge.dataset.liga;
+  const subEl = document.getElementById('europaSubPills');
+  if(subEl) subEl.classList.toggle('show', comp === 'europa');
+  if(comp !== 'europa'){
+    europaFaza = 'sve';
+    document.querySelectorAll('.subpill').forEach(b=>b.classList.toggle('active', b.dataset.faza==='sve'));
+  }
   applyComp(comp);
   if((comp === 'europa' || comp === 'ukupno') && !DATA.europa._loaded) refreshEuropa();
 }
@@ -1504,6 +1533,7 @@ let curF='sve';
 function renderMatches(){
   const f=MATCHES.filter(m=>{
     if(m.g===null) return false; // sakrij neodigrane
+    if(currentComp==='europa' && europaFaza!=='sve' && matchFaza(m)!==europaFaza) return false;
     if(curF==='sve')return true;
     if(curF==='pobijede')return res(m)==='win';
     if(curF==='remiji')return res(m)==='draw';
