@@ -468,9 +468,6 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
     <a href="https://www.facebook.com/profile.php?id=61566645072890" target="_blank" rel="noopener" aria-label="Facebook" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:rgba(15,27,51,.05);border:1px solid rgba(15,27,51,.09);color:#2B3549;transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(24,119,242,.14)';this.style.borderColor='rgba(24,119,242,.4)';this.style.color='#1877f2'" onmouseout="this.style.background='rgba(15,27,51,.05)';this.style.borderColor='rgba(15,27,51,.09)';this.style.color='#2B3549'">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
     </a>
-    <a href="https://x.com/hajdukstatscom" target="_blank" rel="noopener" aria-label="X (Twitter)" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:rgba(15,27,51,.05);border:1px solid rgba(15,27,51,.09);color:#2B3549;transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(15,27,51,.1)';this.style.borderColor='rgba(15,27,51,.3)';this.style.color='#0f1b33'" onmouseout="this.style.background='rgba(15,27,51,.05)';this.style.borderColor='rgba(15,27,51,.09)';this.style.color='#2B3549'">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
-    </a>
   </div>
 </header>
 
@@ -492,7 +489,6 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   <button class="tab" onclick="showTab('sezone',this)">Sezone</button>
   <button class="tab" onclick="showTab('treneri',this)">Treneri</button>
   <button class="tab" onclick="showTab('igraci',this)">Igrači</button>
-  <button class="tab" onclick="showTab('kontakt',this)">Kontakt</button>
 </div>
 
 <main>
@@ -547,8 +543,6 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
     <div class="stitle"><i></i>Ligaška faza — Pregled</div>
     <div class="cards" id="statsCardsLiga"></div>
     <div class="rings" id="ringsLiga"></div>
-    <div class="stitle"><i></i>Bodovi po utakmici (B/U) — Ligaška faza</div>
-    <div class="cbox"><div id="buChartWrapLiga"></div></div>
     <div class="stitle"><i></i>Golovi po utakmicama — Ligaška faza</div>
     <div class="cbox"><div id="goloviChartWrapLiga"></div></div>
     <div class="stitle"><i></i>Velike prilike po utakmicama — Ligaška faza</div>
@@ -632,49 +626,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   <div class="cbox" id="igraciGA"></div>
 </div>
 
-<!-- KONTAKT -->
-<div class="sec" id="kontakt">
-  <div class="kontakt-wrap">
-
-    <div class="kontakt-deco">
-      <div class="kontakt-deco-line"></div>
-      <div class="kontakt-deco-icon">✦</div>
-      <div class="kontakt-deco-line"></div>
-    </div>
-
-    <div class="kontakt-heading">Javite <em>nam se</em></div>
-    <p class="kontakt-sub">
-      Tu smo za sva vaša pitanja — od statistika i podataka<br>do suradnje i prijedloga.
-    </p>
-
-    <div class="kontakt-card">
-      <div class="kontakt-card-lbl">Elektronička pošta</div>
-      <div class="kontakt-card-body">
-        <div class="kontakt-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-        </div>
-        <div class="kontakt-info">
-          <div class="kontakt-email"><a href="/cdn-cgi/l/email-protection#7b080b17121810120813140b5d584d4f401c161a121755181416" style="color:inherit;text-decoration:none">splickishop&#64;gmail.com</a></div>
-          <div class="kontakt-detail">Odgovaramo unutar 24 sata</div>
-        </div>
-      </div>
-      <a class="kontakt-btn" href="/cdn-cgi/l/email-protection#5a292a36333931332932352a7c796c6e613d373b333674393537">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        Pošaljite poruku
-      </a>
-    </div>
-
-    <div class="kontakt-note">
-      <p>
-        <strong>Radujemo se vašoj poruci!</strong><br>
-        Za sve upite vezane uz statistike, podatke ili suradnju slobodno nas kontaktirajte. Trudimo se odgovoriti što je prije moguće.
-      </p>
-    </div>
-
-    <div class="kontakt-footer">Hajduk Stats &nbsp;·&nbsp; Split, Hrvatska</div>
-
-  </div>
-</div>
+<div class="kontakt-footer" style="margin:40px 0 32px;padding:0 16px">Hajduk Stats &nbsp;·&nbsp; <a href="mailto:splickishop@gmail.com" style="color:inherit;text-decoration:none;text-transform:none">splickishop@gmail.com</a></div>
 
 <!-- MODAL: PROFIL IGRAČA -->
 <div class="p-modal" id="playerModal">
@@ -1627,7 +1579,6 @@ function renderPregled(){
     const l = statsCardsHTML(ligaM, {showBodovi:true, cur:ligaCur});
     document.getElementById('statsCardsLiga').innerHTML = l.html;
     renderVPEfficiency(document.getElementById('ringsLiga'), l.totZVP, l.totVP-l.totZVP, l.totVP, l.ef);
-    matchBarChart('buChartWrapLiga', ligaM, m=>pts(m), null, '#1E6FEB', '#1E6FEB', 'Bodovi', null);
     matchBarChart('goloviChartWrapLiga', ligaM, m=>m.g, m=>m.p, '#2E9E4F','#D6001C','Dani golovi','Primljeni golovi');
     matchBarChart('vpChartWrapLiga', ligaM, m=>m.zvp, m=>m.prom, '#2E9E4F','#D6001C','Zabijene vel. prilike','Promašene vel. prilike', m=>m.vp, '#1E6FEB', 'Ukupne vel. prilike');
       } catch(e){ console.error('[Pregled Ligaška faza]', e); }
@@ -2428,7 +2379,7 @@ function renderIgraci(){
   horizBar('igraciGA', 'Golovi + Asistencije (G+A)', byGA, '#D98C00', 'ime', 'ga', maxGA2);
 
   // ── Sortable Table ────────────────────────────────────────────────────────
-  window._igSortKey = 'promasene';
+  window._igSortKey = 'golovi';
   window._igRenderTable = function(){
     const key = window._igSortKey;
     const sorted = [...IGRACI].sort((a,b) => b[key] - a[key]);
@@ -2439,8 +2390,8 @@ function renderIgraci(){
     const maxGA = Math.max(...IGRACI.map(x => x.ga));
     const bar  = (w,col) => w>0 ? `<div style="flex:1;height:6px;background:rgba(15,27,51,.05);border-radius:3px;overflow:hidden;min-width:44px"><div style="height:100%;width:${w}%;background:${col};border-radius:3px"></div></div>` : '';
     const pills = [
-      {k:'promasene',  lbl:'Promašene vel. prilike', col:'#D6001C'},
       {k:'golovi',     lbl:'Golovi',                 col:'#1E2C40'},
+      {k:'promasene',  lbl:'Promašene vel. prilike', col:'#D6001C'},
       {k:'asistencije',lbl:'Asistencije',             col:'#1E6FEB'},
       {k:'ga',         lbl:'G+A',                    col:'#D98C00'},
       {k:'kreirane',   lbl:'Kreirane vel. prilike',  col:'#2E9E4F'},
