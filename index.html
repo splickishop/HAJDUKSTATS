@@ -254,7 +254,8 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 .subpill.active{background:var(--blue);color:#fff;border-color:var(--blue);}
 
 /* ── Klikabilni redak igrača + avatar ───────────────────────────────────── */
-.p-avatar{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--blue));color:#fff;font-family:'Comfortaa',sans-serif;font-weight:700;font-size:.66rem;margin-right:10px;flex-shrink:0;vertical-align:middle;}
+.p-avatar{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--blue));color:#fff;font-family:'Comfortaa',sans-serif;font-weight:700;font-size:.66rem;margin-right:10px;flex-shrink:0;vertical-align:middle;overflow:hidden;}
+.p-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
 .stable tbody tr.p-row{cursor:pointer;}
 .stable tbody tr.p-row td{transition:background .15s ease;}
 .stable tbody tr.p-row:hover td{background:rgba(214,0,28,.05);}
@@ -478,12 +479,10 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   <div class="comp-pills" id="compPills">
     <button class="comp-pill active" data-comp="liga" onclick="setComp('liga')"><span class="dot"></span>Prvenstvo</button>
     <button class="comp-pill" data-comp="europa" onclick="setComp('europa')"><span class="dot"></span>Europa</button>
-    <button class="comp-pill" data-comp="ukupno" onclick="setComp('ukupno')"><span class="dot"></span>Ukupno</button>
   </div>
   <div class="comp-subpills" id="europaSubPills">
-    <button class="subpill active" data-faza="sve" onclick="setFaza('sve',this)">Sve faze</button>
     <button class="subpill" data-faza="kval" onclick="setFaza('kval',this)">Kvalifikacije</button>
-    <button class="subpill" data-faza="liga" onclick="setFaza('liga',this)">Ligaška faza</button>
+    <button class="subpill active" data-faza="liga" onclick="setFaza('liga',this)">Ligaška faza</button>
   </div>
 </div>
 
@@ -500,35 +499,57 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 
 <!-- PREGLED -->
 <div class="sec active" id="pregled">
-  <div class="stitle"><i></i><span data-comp-label data-liga="Sezona 2026/2027 — Pregled" data-eu="Europska natjecanja — Pregled" data-ukupno="Ukupno (Prvenstvo + Europa) — Pregled">Sezona 2026/2027 — Pregled</span></div>
-  <div class="cards" id="statsCards"></div>
+  <div id="pregledDefault">
+    <div class="stitle"><i></i><span data-comp-label data-liga="Sezona 2026/2027 — Pregled" data-eu="Europska natjecanja — Pregled" data-ukupno="Ukupno (Prvenstvo + Europa) — Pregled">Sezona 2026/2027 — Pregled</span></div>
+    <div class="cards" id="statsCards"></div>
 
-  <div class="stitle"><i></i>Efikasnost velikih prilika</div>
-  <div class="rings" id="rings"></div>
+    <div class="stitle"><i></i>Efikasnost velikih prilika</div>
+    <div class="rings" id="rings"></div>
 
-  <div class="stitle"><i></i>Golovi po utakmicama</div>
-  <div class="cbox">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px">
-      <div class="cbox-title" style="margin-bottom:0">Dani i primljeni golovi — po kolu</div>
-      <div style="display:flex;gap:16px">
-        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;font-weight:700;color:#2B3549"><span style="width:10px;height:10px;border-radius:2px;background:#2E9E4F;display:inline-block"></span>Dani golovi</span>
-        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;font-weight:700;color:#2B3549"><span style="width:10px;height:10px;border-radius:2px;background:#D6001C;display:inline-block"></span>Primljeni golovi</span>
+    <div class="stitle"><i></i>Golovi po utakmicama</div>
+    <div class="cbox">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px">
+        <div class="cbox-title" style="margin-bottom:0">Dani i primljeni golovi — po kolu</div>
+        <div style="display:flex;gap:16px">
+          <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;font-weight:700;color:#2B3549"><span style="width:10px;height:10px;border-radius:2px;background:#2E9E4F;display:inline-block"></span>Dani golovi</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;font-weight:700;color:#2B3549"><span style="width:10px;height:10px;border-radius:2px;background:#D6001C;display:inline-block"></span>Primljeni golovi</span>
+        </div>
       </div>
+      <div id="goloviChartWrap"></div>
     </div>
-    <div id="goloviChartWrap"></div>
+
+    <div class="stitle"><i></i>Velike prilike po utakmicama</div>
+    <div class="cbox">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px">
+        <div class="cbox-title" style="margin-bottom:0">Zabijene i promašene velike prilike — po kolu</div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;font-weight:700;color:#2B3549"><span style="width:10px;height:10px;border-radius:2px;background:#2E9E4F;display:inline-block"></span>Zabijene</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;font-weight:700;color:#2B3549"><span style="width:10px;height:10px;border-radius:2px;background:#D6001C;display:inline-block"></span>Promašene</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;font-weight:700;color:#2B3549"><span style="width:10px;height:10px;border-radius:2px;background:#0047AB;display:inline-block"></span>Ukupne</span>
+        </div>
+      </div>
+      <div id="vpChartWrap"></div>
+    </div>
   </div>
 
-  <div class="stitle"><i></i>Velike prilike po utakmicama</div>
-  <div class="cbox">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px">
-      <div class="cbox-title" style="margin-bottom:0">Zabijene i promašene velike prilike — po kolu</div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;font-weight:700;color:#2B3549"><span style="width:10px;height:10px;border-radius:2px;background:#2E9E4F;display:inline-block"></span>Zabijene</span>
-        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;font-weight:700;color:#2B3549"><span style="width:10px;height:10px;border-radius:2px;background:#D6001C;display:inline-block"></span>Promašene</span>
-        <span style="display:inline-flex;align-items:center;gap:6px;font-family:Comfortaa,sans-serif;font-size:.68rem;font-weight:700;color:#2B3549"><span style="width:10px;height:10px;border-radius:2px;background:#0047AB;display:inline-block"></span>Ukupne</span>
-      </div>
-    </div>
-    <div id="vpChartWrap"></div>
+  <div id="pregledEuropa" style="display:none">
+    <div class="stitle"><i></i>Kvalifikacije — Pregled</div>
+    <div class="cards" id="statsCardsKval"></div>
+    <div class="rings" id="ringsKval"></div>
+    <div class="stitle"><i></i>Golovi po utakmicama — Kvalifikacije</div>
+    <div class="cbox"><div id="goloviChartWrapKval"></div></div>
+    <div class="stitle"><i></i>Velike prilike po utakmicama — Kvalifikacije</div>
+    <div class="cbox"><div id="vpChartWrapKval"></div></div>
+
+    <div class="stitle" style="margin-top:28px"><i></i>Ligaška faza — Pregled</div>
+    <div class="cards" id="statsCardsLiga"></div>
+    <div class="rings" id="ringsLiga"></div>
+    <div class="stitle"><i></i>Bodovi po utakmici (B/U) — Ligaška faza</div>
+    <div class="cbox"><div id="buChartWrapLiga"></div></div>
+    <div class="stitle"><i></i>Golovi po utakmicama — Ligaška faza</div>
+    <div class="cbox"><div id="goloviChartWrapLiga"></div></div>
+    <div class="stitle"><i></i>Velike prilike po utakmicama — Ligaška faza</div>
+    <div class="cbox"><div id="vpChartWrapLiga"></div></div>
   </div>
 </div>
 
@@ -547,36 +568,49 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 
 <!-- SEZONE -->
 <div class="sec" id="sezone">
-  <div class="stitle"><i></i>Usporedba sezona — tablica</div>
-  <div class="cbox" style="overflow-x:auto;-webkit-overflow-scrolling:touch" id="seasonTable"></div>
+  <div id="sezoneDefault">
+    <div class="stitle"><i></i>Usporedba sezona — tablica</div>
+    <div class="cbox" style="overflow-x:auto;-webkit-overflow-scrolling:touch" id="seasonTable"></div>
 
-  <div class="stitle"><i></i>Bodovi po utakmici (B/U)</div>
-  <div class="cbox" id="buBar"></div>
+    <div class="stitle"><i></i>Bodovi po utakmici (B/U)</div>
+    <div class="cbox" id="buBar"></div>
 
-  <div class="stitle"><i></i>Golovi — usporedba sezona</div>
-  <div class="cbox" id="golBar"></div>
+    <div class="stitle"><i></i>Golovi — usporedba sezona</div>
+    <div class="cbox" id="golBar"></div>
 
-  <div class="stitle"><i></i>Velike prilike — usporedba sezona</div>
-  <div class="cbox" id="vpBar"></div>
+    <div class="stitle"><i></i>Velike prilike — usporedba sezona</div>
+    <div class="cbox" id="vpBar"></div>
+  </div>
+  <div id="sezoneEuropa" style="display:none">
+    <div class="stitle"><i></i>Europska natjecanja — sezone</div>
+    <div class="cbox" id="sezoneEuropaList"></div>
+  </div>
 </div>
 
 <!-- TRENERI -->
 <div class="sec" id="treneri">
-  <div class="stitle"><i></i>Treneri po sezonama</div>
-  <div class="tgrid" id="tgrid"></div>
+  <div id="treneriDefault">
+    <div class="stitle"><i></i>Treneri po sezonama</div>
+    <div class="tgrid" id="tgrid"></div>
 
-  <div class="stitle"><i></i>Usporedba trenera — tablica</div>
-  <div class="cbox" style="overflow-x:auto;-webkit-overflow-scrolling:touch" id="trenerTable"></div>
+    <div class="stitle"><i></i>Usporedba trenera — tablica</div>
+    <div class="cbox" style="overflow-x:auto;-webkit-overflow-scrolling:touch" id="trenerTable"></div>
 
-  <div class="stitle"><i></i>Pobjede / Remiji / Porazi</div>
-  <div class="cbox" id="trenerWDL"></div>
+    <div class="stitle"><i></i>Pobjede / Remiji / Porazi</div>
+    <div class="cbox" id="trenerWDL"></div>
 
-  <div class="stitle"><i></i>B/U omjer</div>
-  <div class="cbox" id="trenerBU"></div>
+    <div class="stitle"><i></i>B/U omjer</div>
+    <div class="cbox" id="trenerBU"></div>
 
-  <div class="stitle"><i></i>Vrijednost momčadi (Transfermarkt)</div>
-  <div class="cbox" id="trenerVal"></div>
+    <div class="stitle"><i></i>Vrijednost momčadi (Transfermarkt)</div>
+    <div class="cbox" id="trenerVal"></div>
+  </div>
+  <div id="treneriEuropa" style="display:none">
+    <div class="stitle"><i></i>Treneri — europska natjecanja</div>
+    <div class="cbox" id="treneriEuropaList"></div>
+  </div>
 </div>
+
 
 <!-- IGRAČI -->
 <div class="sec" id="igraci">
@@ -768,12 +802,13 @@ function combineUtakmice(liga, europa){
 function combineIgraci(liga, europa){
   const map = new Map();
   const add = arr => arr.forEach(p=>{
-    const cur = map.get(p.ime) || {ime:p.ime, promasene:0, golovi:0, kreirane:0, asistencije:0, ga:0};
+    const cur = map.get(p.ime) || {ime:p.ime, promasene:0, golovi:0, kreirane:0, asistencije:0, ga:0, slika:''};
     cur.promasene   += p.promasene||0;
     cur.golovi      += p.golovi||0;
     cur.kreirane    += p.kreirane||0;
     cur.asistencije += p.asistencije||0;
     cur.ga           = cur.golovi + cur.asistencije;
+    if(!cur.slika && p.slika) cur.slika = p.slika;
     map.set(p.ime, cur);
   });
   add(liga); add(europa);
@@ -847,14 +882,20 @@ function applyComp(comp){
   SEASONS.length = 0; SEASONS.push(...d.sezone);
   MATCHES.length = 0; MATCHES.push(...d.utakmice);
   TRENERI.length = 0; TRENERI.push(...d.treneri);
-  IGRACI.length  = 0; IGRACI.push(...d.igraci);
+  // Slike igrača: Prvenstvo tablica je "izvor istine" za fotografije — ako
+  // igrač ima sliku upisanu u Prvenstvo, koristi se posvuda (Europa/Ukupno)
+  // čak i ako ta konkretna tablica nema svoju vrijednost za njega.
+  const ligaPhotoMap = {};
+  (DATA.liga.igraci||[]).forEach(p=>{ if(p.slika) ligaPhotoMap[p.ime] = p.slika; });
+  IGRACI.length  = 0;
+  IGRACI.push(...d.igraci.map(p => ({ ...p, slika: p.slika || ligaPhotoMap[p.ime] || '' })));
   curF = 'sve';
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.toggle('active', b.textContent.trim()==='Sve'));
   renderAllSections();
 }
 
 const COMP_LBL_KEY = { liga:'liga', europa:'eu', ukupno:'ukupno' };
-let europaFaza = 'sve';
+let europaFaza = 'liga';
 // Prepoznavanje faze natjecanja iz teksta polja "kolo" (npr. "1. pretkolo", "Play-off", "3. kolo lige"...)
 function matchFaza(m){
   return /kval|pretkolo|play.?off/i.test(m.kolo || '') ? 'kval' : 'liga';
@@ -875,9 +916,13 @@ function setComp(comp){
   if(badge) badge.textContent = badge.dataset[COMP_LBL_KEY[comp]] || badge.dataset.liga;
   const subEl = document.getElementById('europaSubPills');
   if(subEl) subEl.classList.toggle('show', comp === 'europa');
+  const pregDef = document.getElementById('pregledDefault');
+  const pregEu  = document.getElementById('pregledEuropa');
+  if(pregDef) pregDef.style.display = comp === 'europa' ? 'none' : '';
+  if(pregEu)  pregEu.style.display  = comp === 'europa' ? '' : 'none';
   if(comp !== 'europa'){
-    europaFaza = 'sve';
-    document.querySelectorAll('.subpill').forEach(b=>b.classList.toggle('active', b.dataset.faza==='sve'));
+    europaFaza = 'liga';
+    document.querySelectorAll('.subpill').forEach(b=>b.classList.toggle('active', b.dataset.faza==='liga'));
   }
   applyComp(comp);
   if((comp === 'europa' || comp === 'ukupno') && !DATA.europa._loaded) refreshEuropa();
@@ -894,6 +939,27 @@ function initials(name){
   return String(name).trim().split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
 }
 
+// Vraća HTML za avatar igrača u tablicama: sliku ako postoji (slika = URL iz tablice),
+// s automatskim fallbackom na inicijale ako slika ne postoji ili se ne učita.
+function avatarHTML(name, slika){
+  const initTxt = initials(name);
+  if(slika){
+    return `<span class="p-avatar"><img src="${slika}" alt="" loading="lazy" onerror="this.parentElement.outerHTML='<span class=&quot;p-avatar&quot;>${initTxt}</span>'"></span>`;
+  }
+  return `<span class="p-avatar">${initTxt}</span>`;
+}
+
+// Postavlja avatar (sliku ili inicijale) direktno na DOM element (koristi se u modalu igrača)
+function setAvatarEl(el, name, slika){
+  if(!el) return;
+  const initTxt = initials(name);
+  if(slika){
+    el.innerHTML = `<img src="${slika}" alt="" loading="lazy" style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block" onerror="this.remove();this.parentElement.textContent='${initTxt.replace(/'/g,"\\'")}'">`;
+  } else {
+    el.textContent = initTxt;
+  }
+}
+
 function openPlayer(name){
   computeUkupno();
   const ligaP = DATA.liga.igraci.find(p=>p.ime===name)   || null;
@@ -902,13 +968,13 @@ function openPlayer(name){
 
   const nameEl = document.getElementById('pmName');
   const avaEl  = document.getElementById('pmAvatar');
+  const slika  = (ligaP && ligaP.slika) || (euP && euP.slika) || (ukP && ukP.slika) || '';
   if(nameEl) nameEl.textContent = name;
-  if(avaEl)  avaEl.textContent = initials(name);
+  setAvatarEl(avaEl, name, slika);
 
   const groups = [
     {label:'Prvenstvo', data: ligaP},
     {label:'Europa',    data: euP},
-    {label:'Ukupno',    data: ukP},
   ];
   const stat = (val,lbl) => `<div class="p-stat"><div class="p-stat-val">${val || 0}</div><div class="p-stat-lbl">${lbl}</div></div>`;
 
@@ -975,13 +1041,13 @@ function legend(...items){
 // fnC / colC / labelC — optional 3rd series drawn as outline bars (total VP line)
 function matchBarChart(wrapId, matches, fnA, fnB, colA, colB, labelA, labelB, fnC, colC, labelC){
   const played = matches.filter(m => m.g !== null);
-  const allV = [...played.map(fnA),...played.map(fnB), ...(fnC?played.map(fnC):[])].filter(v=>v!=null);
+  const allV = [...played.map(fnA),...(fnB?played.map(fnB):[]), ...(fnC?played.map(fnC):[])].filter(v=>v!=null);
   const dataMax = Math.max(...allV, 1);
   const yMax = dataMax + 1;
 
   const PAD_L=42, PAD_R=16, PAD_T=18, PAD_B=46;
-  // 3 bars if fnC exists, else 2
-  const nBars = fnC ? 3 : 2;
+  // 3 bara ako postoji fnC, 2 ako postoji fnB, inace samo 1 (fnA)
+  const nBars = fnC ? 3 : (fnB ? 2 : 1);
   const BAR_W=8, BAR_GAP=3;
   const totalGroupW = BAR_W*nBars + BAR_GAP*(nBars-1);
   const MIN_SLOT = totalGroupW + 12;
@@ -1049,7 +1115,7 @@ function matchBarChart(wrapId, matches, fnA, fnB, colA, colB, labelA, labelB, fn
 
     played.forEach((m,i)=>{
       const vA = fnA(m) ?? 0;
-      const vB = fnB(m) ?? 0;
+      const vB = fnB ? (fnB(m) ?? 0) : 0;
       const vC = fnC ? (fnC(m) ?? 0) : 0;
       const cx  = PAD_L + i*slot + slot/2;
       const gx  = cx - totalGroupW/2;
@@ -1163,7 +1229,7 @@ function matchBarChart(wrapId, matches, fnA, fnB, colA, colB, labelA, labelB, fn
     html += `<span style="color:${rCol};font-size:.68rem">${rTxt}</span></div>`;
     html += `<div style="border-top:1px solid rgba(15,27,51,.1);padding-top:7px;display:flex;flex-direction:column;gap:3px">`;
     html += `<div style="display:flex;align-items:center;gap:7px"><span style="width:8px;height:8px;border-radius:2px;background:${colA};display:inline-block;flex-shrink:0"></span><span style="color:#2B3549;font-weight:600">${lA}:</span> <b style="color:${colA}">${vA}</b></div>`;
-    html += `<div style="display:flex;align-items:center;gap:7px"><span style="width:8px;height:8px;border-radius:2px;background:${colB};display:inline-block;flex-shrink:0"></span><span style="color:#2B3549;font-weight:600">${lB}:</span> <b style="color:${colB}">${vB}</b></div>`;
+    if(fnB) html += `<div style="display:flex;align-items:center;gap:7px"><span style="width:8px;height:8px;border-radius:2px;background:${colB};display:inline-block;flex-shrink:0"></span><span style="color:#2B3549;font-weight:600">${lB}:</span> <b style="color:${colB}">${vB}</b></div>`;
     if(fnC) html += `<div style="display:flex;align-items:center;gap:7px"><span style="width:8px;height:8px;border-radius:2px;background:${colC};display:inline-block;flex-shrink:0"></span><span style="color:#2B3549;font-weight:600">${lC||'Ukupno'}:</span> <b style="color:${colC}">${vC}</b></div>`;
     html += `</div>`;
     return html;
@@ -1178,7 +1244,7 @@ function matchBarChart(wrapId, matches, fnA, fnB, colA, colB, labelA, labelB, fn
     if(newHov !== hovIdx){ hovIdx = newHov; draw(1); }
     if(newHov >= 0){
       const m = played[newHov];
-      const vA = fnA(m)??0, vB = fnB(m)??0, vC = fnC?(fnC(m)??0):0;
+      const vA = fnA(m)??0, vB = fnB?(fnB(m)??0):0, vC = fnC?(fnC(m)??0):0;
       tip.innerHTML = buildTooltip(m, vA, vB, vC, labelA||'A', labelB||'B', labelC);
       const cx = PAD_L + (newHov+0.5)*slot;
       const tipW = 200;
@@ -1494,9 +1560,9 @@ function renderVPEfficiency(el, zabijene, promasene, ukupno, ef){
 }
 
 /* ── PREGLED ─────────────────────────────────────────────────────────────── */
-function renderPregled(){
-  const cur = SEASONS[SEASONS.length-1];
-  const played = MATCHES.filter(m=>m.g!==null);
+function statsCardsHTML(matches, opts){
+  opts = opts || {};
+  const played = matches.filter(m=>m.g!==null);
   const totVP  = played.reduce((s,m)=>s+(m.vp||0),0);
   const totZVP = played.reduce((s,m)=>s+(m.zvp||0),0);
   const totG   = played.reduce((s,m)=>s+(m.g||0),0);
@@ -1505,21 +1571,60 @@ function renderPregled(){
   const wins   = played.filter(m=>res(m)==='win').length;
   const draws  = played.filter(m=>res(m)==='draw').length;
   const losses = played.filter(m=>res(m)==='loss').length;
+  const brPoUtakmici = played.length ? (totG/played.length).toFixed(2) : '0.00';
+  const primPoUtakmici = played.length ? (totP/played.length).toFixed(2) : '0.00';
+  const vpPoUtakmici = played.length ? (totVP/played.length).toFixed(2) : '0.00';
+  const promPoUtakmici = played.length ? ((totVP-totZVP)/played.length).toFixed(2) : '0.00';
 
-  document.getElementById('statsCards').innerHTML=`
-    <div class="card cr"><div class="clbl">Bodovi</div><div class="cval r">${cur.bodovi}</div><div class="csub">od ${cur.kola} kola</div></div>
-    <div class="card cb"><div class="clbl">B/U omjer</div><div class="cval b">${typeof cur.bu === 'number' ? cur.bu.toFixed(2) : cur.bu}</div><div class="csub">bodova po utakmici</div></div>
-    <div class="card cg"><div class="clbl">Pobjede</div><div class="cval g">${wins}</div><div class="csub">${draws} remija · ${losses} poraza</div></div>
-    <div class="card cw"><div class="clbl">Dani golovi</div><div class="cval">${totG}</div><div class="csub">${cur.golovi} po utakmici</div></div>
-    <div class="card cr"><div class="clbl">Primljeni</div><div class="cval r">${totP}</div><div class="csub">${cur.primljeni} po utakmici</div></div>
-    <div class="card cb"><div class="clbl">Vel. prilike</div><div class="cval b">${totVP}</div><div class="csub">${cur.vp} po utakmici</div></div>
+  let html = '';
+  if(opts.showBodovi && opts.cur){
+    html += `<div class="card cr"><div class="clbl">Bodovi</div><div class="cval r">${opts.cur.bodovi}</div><div class="csub">od ${opts.cur.kola} kola</div></div>`;
+    html += `<div class="card cb"><div class="clbl">B/U omjer</div><div class="cval b">${typeof opts.cur.bu === 'number' ? opts.cur.bu.toFixed(2) : opts.cur.bu}</div><div class="csub">bodova po utakmici</div></div>`;
+  }
+  html += `<div class="card cg"><div class="clbl">Pobjede</div><div class="cval g">${wins}</div><div class="csub">${draws} remija · ${losses} poraza</div></div>
+    <div class="card cw"><div class="clbl">Dani golovi</div><div class="cval">${totG}</div><div class="csub">${brPoUtakmici} po utakmici</div></div>
+    <div class="card cr"><div class="clbl">Primljeni</div><div class="cval r">${totP}</div><div class="csub">${primPoUtakmici} po utakmici</div></div>
+    <div class="card cb"><div class="clbl">Vel. prilike</div><div class="cval b">${totVP}</div><div class="csub">${vpPoUtakmici} po utakmici</div></div>
     <div class="card cw"><div class="clbl">Iskoristivost velikih prilika</div><div class="cval">${ef}%</div><div class="csub">${totZVP} zabijeno · ${totVP-totZVP} promašeno</div></div>
-    <div class="card cy"><div class="clbl">Promašene vel. prilike/U</div><div class="cval y">${cur.promaseneVp}</div><div class="csub">po utakmici</div></div>
-    ${cur.xg!=null?`<div class="card cg"><div class="clbl">xG — ukupno</div><div class="cval g">${cur.xg}</div><div class="csub">očekivani golovi</div></div>`:''}`;
+    <div class="card cy"><div class="clbl">Promašene vel. prilike/U</div><div class="cval y">${promPoUtakmici}</div><div class="csub">po utakmici</div></div>`;
+  return { html, totVP, totZVP, ef };
+}
 
+function renderPregled(){
+  const cur = SEASONS[SEASONS.length-1];
+
+  if(currentComp === 'europa'){
+    const kvalM = MATCHES.filter(m=>matchFaza(m)==='kval');
+    const ligaM = MATCHES.filter(m=>matchFaza(m)==='liga');
+
+    // Kvalifikacije — BEZ Bodova i B/U (koncept "bodova" ne postoji kod dvomečeva)
+    const k = statsCardsHTML(kvalM, {showBodovi:false});
+    document.getElementById('statsCardsKval').innerHTML = k.html;
+    renderVPEfficiency(document.getElementById('ringsKval'), k.totZVP, k.totVP-k.totZVP, k.totVP, k.ef);
+    matchBarChart('goloviChartWrapKval', kvalM, m=>m.g, m=>m.p, '#2E9E4F','#D6001C','Dani golovi','Primljeni golovi');
+    matchBarChart('vpChartWrapKval', kvalM, m=>m.zvp, m=>m.prom, '#2E9E4F','#D6001C','Zabijene vel. prilike','Promašene vel. prilike', m=>m.vp, '#1E6FEB', 'Ukupne vel. prilike');
+    // Napomena: namjerno nema grafa "Bodovi po utakmici (B/U)" za kvalifikacije
+
+    // Ligaška faza — sa Bodovima i B/U (sezonski podaci iz tablice odnose se na ligašku fazu)
+    // Bodovi i B/U računaju se izravno iz odigranih utakmica ligaške faze
+    const ligaPlayed = ligaM.filter(m=>m.g!==null);
+    const ligaBod = ligaPlayed.reduce((sum,m)=>sum+pts(m),0);
+    const ligaCur = { bodovi: ligaBod, kola: ligaPlayed.length, bu: ligaPlayed.length ? +(ligaBod/ligaPlayed.length).toFixed(2) : 0 };
+    const l = statsCardsHTML(ligaM, {showBodovi:true, cur:ligaCur});
+    document.getElementById('statsCardsLiga').innerHTML = l.html;
+    renderVPEfficiency(document.getElementById('ringsLiga'), l.totZVP, l.totVP-l.totZVP, l.totVP, l.ef);
+    matchBarChart('buChartWrapLiga', ligaM, m=>pts(m), null, '#1E6FEB', '#1E6FEB', 'Bodovi', null);
+    matchBarChart('goloviChartWrapLiga', ligaM, m=>m.g, m=>m.p, '#2E9E4F','#D6001C','Dani golovi','Primljeni golovi');
+    matchBarChart('vpChartWrapLiga', ligaM, m=>m.zvp, m=>m.prom, '#2E9E4F','#D6001C','Zabijene vel. prilike','Promašene vel. prilike', m=>m.vp, '#1E6FEB', 'Ukupne vel. prilike');
+    return;
+  }
+
+  const s = statsCardsHTML(MATCHES, {showBodovi:true, cur});
+  document.getElementById('statsCards').innerHTML = s.html +
+    (cur.xg!=null?`<div class="card cg"><div class="clbl">xG — ukupno</div><div class="cval g">${cur.xg}</div><div class="csub">očekivani golovi</div></div>`:'');
 
   // Modern VP efficiency visualization
-  renderVPEfficiency(document.getElementById('rings'), totZVP, totVP-totZVP, totVP, ef);
+  renderVPEfficiency(document.getElementById('rings'), s.totZVP, s.totVP-s.totZVP, s.totVP, s.ef);
 
   // Golovi per match
   matchBarChart('goloviChartWrap', MATCHES, m=>m.g, m=>m.p, '#2E9E4F','#D6001C','Dani golovi','Primljeni golovi');
@@ -1533,7 +1638,7 @@ let curF='sve';
 function renderMatches(){
   const f=MATCHES.filter(m=>{
     if(m.g===null) return false; // sakrij neodigrane
-    if(currentComp==='europa' && europaFaza!=='sve' && matchFaza(m)!==europaFaza) return false;
+    if(currentComp==='europa' && matchFaza(m)!==europaFaza) return false;
     if(curF==='sve')return true;
     if(curF==='pobijede')return res(m)==='win';
     if(curF==='remiji')return res(m)==='draw';
@@ -1607,6 +1712,31 @@ function closeMatch(){
 
 /* ── SEZONE ──────────────────────────────────────────────────────────────── */
 function renderSezone(){
+  const defEl = document.getElementById('sezoneDefault');
+  const euEl  = document.getElementById('sezoneEuropa');
+
+  if(currentComp === 'europa'){
+    if(defEl) defEl.style.display = 'none';
+    if(euEl)  euEl.style.display  = '';
+    const rev = [...SEASONS].reverse(); // najnovija prva
+    const dosegPoSezoni = {};
+    TRENERI.forEach(t=>{ if(t.doseg) dosegPoSezoni[t.sezona] = t.doseg; });
+    const rows = rev.map((s,i)=>{
+      const cur = i===0;
+      const ishod = dosegPoSezoni[s.sezona] || (cur ? 'Ligaška faza' : 'Ispao u 3. pretkolu');
+      const boja  = cur ? 'var(--blue-l)' : 'var(--gray)';
+      return `<tr ${cur?'style="background:rgba(204,0,0,.06)"':''}>
+        <td class="sn ${cur?'cur':''}">${s.sezona}</td>
+        <td style="color:${boja};font-weight:700">${ishod}</td>
+      </tr>`;
+    }).join('');
+    const el = document.getElementById('sezoneEuropaList');
+    if(el) el.innerHTML = `<table class="stable"><thead><tr><th>Sezona</th><th>Ishod</th></tr></thead><tbody>${rows}</tbody></table>`;
+    return;
+  }
+  if(defEl) defEl.style.display = '';
+  if(euEl)  euEl.style.display  = 'none';
+
   const tbody=[...SEASONS].reverse().map((s,i)=>{
     const cur=i===0;
     return`<tr ${cur?'style="background:rgba(204,0,0,.06)"':''}>
@@ -1762,6 +1892,29 @@ function renderSezoneBUChart(){
 
 /* ── TRENERI ─────────────────────────────────────────────────────────────── */
 function renderTreneri(){
+  const defEl = document.getElementById('treneriDefault');
+  const euEl  = document.getElementById('treneriEuropa');
+
+  if(currentComp === 'europa'){
+    if(defEl) defEl.style.display = 'none';
+    if(euEl)  euEl.style.display  = '';
+    const rows = TRENERI.map((t,i)=>{
+      const cur = i===0; // najnovija sezona je prva u nizu
+      const ishod = t.doseg || (cur ? 'Ligaška faza' : 'Ispao u 3. pretkolu');
+      const boja  = cur ? 'var(--blue-l)' : 'var(--gray)';
+      return `<tr ${cur?'style="background:rgba(204,0,0,.06)"':''}>
+        <td class="sn ${cur?'cur':''}">${t.trener}</td>
+        <td>${t.sezona}</td>
+        <td style="color:${boja};font-weight:700">${ishod}</td>
+      </tr>`;
+    }).join('');
+    const el = document.getElementById('treneriEuropaList');
+    if(el) el.innerHTML = `<table class="stable"><thead><tr><th>Trener</th><th>Sezona</th><th>Ishod</th></tr></thead><tbody>${rows}</tbody></table>`;
+    return;
+  }
+  if(defEl) defEl.style.display = '';
+  if(euEl)  euEl.style.display  = 'none';
+
   document.getElementById('tgrid').innerHTML=TRENERI.map((t,i)=>{
     const u=t.utakmice, p=t.pobjede, n=t.remiji, l=t.porazi;
     const wp=Math.round(p/u*100), dp=Math.round(n/u*100), lp=Math.round(l/u*100);
@@ -2301,7 +2454,7 @@ function renderIgraci(){
         const aW  = maxA >0 ? Math.round(p.asistencije /maxA *100) : 0;
         const gaW = maxGA>0 ? Math.round(p.ga          /maxGA*100) : 0;
         return `<tr class="p-row" onclick="openPlayer('${p.ime.replace(/'/g,"\\'")}')">
-          <td class="sn"><span class="p-avatar">${initials(p.ime)}</span>${p.ime}</td>
+          <td class="sn">${avatarHTML(p.ime, p.slika)}${p.ime}</td>
           <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#D6001C;min-width:18px">${p.promasene||'—'}</span>${bar(pW,'#D6001C')}</div></td>
           <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#1E2C40;min-width:18px">${p.golovi||'—'}</span>${bar(gW,'#3C4D62')}</div></td>
           <td><div style="display:flex;align-items:center;gap:8px"><span style="font-family:Comfortaa;font-weight:700;color:#1E6FEB;min-width:18px">${p.asistencije||'—'}</span>${bar(aW,'#1E6FEB')}</div></td>
@@ -2351,11 +2504,11 @@ renderAllSections();
 
 /* ── AUTO-REFRESH IZ GOOGLE APPS SCRIPT ─────────────────────────────────── */
 (function() {
-  const API_URL = 'https://script.google.com/macros/s/AKfycbwn3DLmzY9ys6tQCvH-6Tzm2KIh4h2vQTatDDZZGE4ltzHYkGN1YnYhluweuKeAm3-Z/exec';
+  const API_URL = 'https://script.google.com/macros/s/AKfycbx1ZI3Px1K0euJ3WnRvxU0ije5xXBc67LzKYYOlJNXjOV4yCdZEYB19VehmerDY_zc/exec';
   // Zasebna Google tablica / Apps Script deployment za EUROPSKA natjecanja —
   // ista struktura JSON odgovora (utakmice, igraci, sezone, treneri).
   // Zamijenite URL ispod stvarnim "exec" linkom vaše europske tablice.
-  const API_URL_EU = 'https://script.google.com/macros/s/AKfycbwz10jHhERULi7wWsOVUnQXnA3FLgMb17Rw5fvLD_fLzK5zsDIllWpJ1Im5MDqXKRn4/exec';
+  const API_URL_EU = 'https://script.google.com/macros/s/AKfycbx1ZI3Px1K0euJ3WnRvxU0ije5xXBc67LzKYYOlJNXjOV4yCdZEYB19VehmerDY_zc/exec';
   const INTERVAL = 30;
 
   const pill = document.querySelector('.live-pill');
@@ -2397,6 +2550,7 @@ renderAllSections();
       kreirane:     toNum(r.kreirane)  || 0,
       asistencije:  toNum(r.asistencije) || 0,
       ga:           toNum(r.ga)        || 0,
+      slika:        r.slika ? String(r.slika).trim() : '',
     }));
   }
 
@@ -2425,10 +2579,15 @@ renderAllSections();
       remiji:    toNum(r.remiji),
       porazi:    toNum(r.porazi),
       bu:        toNum(r.bu),
+      doseg:     r.doseg || null,
       vrijednost: r.vrijednost,
     }));
   }
 
+  // Ista tablica (jedan Apps Script) sada sadrži i Prvenstvo i Europu
+  // (Kvalifikacije + Ligaška faza), pa jedan fetch popunjava oba dijela
+  // DATA-e. Ako odgovor još dolazi u starom "ravnom" obliku (bez ključeva
+  // liga/europa), tretiramo ga kao Prvenstvo — radi kompatibilnosti.
   async function refresh() {
     setPill('loading');
     try {
@@ -2440,54 +2599,69 @@ renderAllSections();
       if (sig === window._ligaLastSig) { setPill('ok'); if(window._stopLoader) window._stopLoader(); document.getElementById('loader').classList.add('gone'); return; }
       window._ligaLastSig = sig;
 
-      if (data.utakmice && data.utakmice.length) DATA.liga.utakmice = parseUtakmice(data.utakmice);
-      if (data.igraci   && data.igraci.length)   DATA.liga.igraci   = parseIgraci(data.igraci);
-      if (data.sezone   && data.sezone.length)   DATA.liga.sezone   = parseSezone(data.sezone);
-      if (data.treneri  && data.treneri.length)  DATA.liga.treneri  = parseTreneri(data.treneri);
+      const liga = data.liga || data;
+      const europa = data.europa || null;
+
+      if (liga.utakmice && liga.utakmice.length) DATA.liga.utakmice = parseUtakmice(liga.utakmice);
+      if (liga.igraci   && liga.igraci.length)   DATA.liga.igraci   = parseIgraci(liga.igraci);
+      if (liga.sezone   && liga.sezone.length)   DATA.liga.sezone   = parseSezone(liga.sezone);
+      if (liga.treneri  && liga.treneri.length)  DATA.liga.treneri  = parseTreneri(liga.treneri);
       DATA.liga._loaded = true;
 
-      if (currentComp === 'liga' || currentComp === 'ukupno') applyComp(currentComp);
+      if (europa) {
+        if (europa.utakmice && europa.utakmice.length) DATA.europa.utakmice = parseUtakmice(europa.utakmice);
+        if (europa.igraci   && europa.igraci.length)   DATA.europa.igraci   = parseIgraci(europa.igraci);
+        if (europa.sezone   && europa.sezone.length)   DATA.europa.sezone   = parseSezone(europa.sezone);
+        if (europa.treneri  && europa.treneri.length)  DATA.europa.treneri  = parseTreneri(europa.treneri);
+        DATA.europa._loaded = true;
+      }
 
-      console.log('[HajdukStats] Podaci (Prvenstvo) osvježeni iz Apps Scripta');
+      if (currentComp === 'liga' || currentComp === 'europa' || currentComp === 'ukupno') applyComp(currentComp);
+
+      console.log('[HajdukStats] Podaci osvježeni iz Apps Scripta');
       if(window._stopLoader) window._stopLoader();
       document.getElementById('loader').classList.add('gone');
       setPill('ok');
 
     } catch(e) {
-      console.error('[HajdukStats] Greška (Prvenstvo):', e.message);
+      console.error('[HajdukStats] Greška:', e.message);
       if(window._stopLoader) window._stopLoader();
       document.getElementById('loader').classList.add('gone');
       setPill('error');
     }
   }
 
+  // Rezervni put: ako se Europa ikad ponovno odvoji u zaseban spreadsheet/
+  // deployment, ovo i dalje radi neovisno (poziva se ručno ili ako Europa
+  // nije stigla kroz glavni refresh()).
   async function refreshEuropa() {
+    if (DATA.europa._loaded) return; // već stiglo kroz glavni refresh()
     try {
       const res = await fetch(API_URL_EU);
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const data = await res.json();
+      const europa = data.europa || data;
 
-      const sig = JSON.stringify(data);
+      const sig = JSON.stringify(europa);
       if (sig !== window._euLastSig) {
         window._euLastSig = sig;
-        if (data.utakmice && data.utakmice.length) DATA.europa.utakmice = parseUtakmice(data.utakmice);
-        if (data.igraci   && data.igraci.length)   DATA.europa.igraci   = parseIgraci(data.igraci);
-        if (data.sezone   && data.sezone.length)   DATA.europa.sezone   = parseSezone(data.sezone);
-        if (data.treneri  && data.treneri.length)  DATA.europa.treneri  = parseTreneri(data.treneri);
+        if (europa.utakmice && europa.utakmice.length) DATA.europa.utakmice = parseUtakmice(europa.utakmice);
+        if (europa.igraci   && europa.igraci.length)   DATA.europa.igraci   = parseIgraci(europa.igraci);
+        if (europa.sezone   && europa.sezone.length)   DATA.europa.sezone   = parseSezone(europa.sezone);
+        if (europa.treneri  && europa.treneri.length)  DATA.europa.treneri  = parseTreneri(europa.treneri);
         if (currentComp === 'europa' || currentComp === 'ukupno') applyComp(currentComp);
       }
       DATA.europa._loaded = true;
-      console.log('[HajdukStats] Podaci (Europa) osvježeni iz Apps Scripta');
+      console.log('[HajdukStats] Podaci (Europa, rezervni izvor) osvježeni');
     } catch(e) {
       DATA.europa._loaded = true;
-      console.warn('[HajdukStats] Europska tablica još nije povezana ili je došlo do greške:', e.message);
+      console.warn('[HajdukStats] Europska tablica (rezervni izvor) nije dostupna:', e.message);
     }
   }
   window.refreshEuropa = refreshEuropa;
 
   refresh();
   setInterval(refresh, INTERVAL * 1000);
-  setInterval(function(){ if (currentComp === 'europa' || currentComp === 'ukupno') refreshEuropa(); }, INTERVAL * 1000);
 })();
 
 </script>
