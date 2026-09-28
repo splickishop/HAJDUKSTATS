@@ -533,6 +533,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   </div>
 
   <div id="pregledEuropa" style="display:none">
+   <div id="pregledKval">
     <div class="stitle"><i></i>Kvalifikacije — Pregled</div>
     <div class="cards" id="statsCardsKval"></div>
     <div class="rings" id="ringsKval"></div>
@@ -540,8 +541,10 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
     <div class="cbox"><div id="goloviChartWrapKval"></div></div>
     <div class="stitle"><i></i>Velike prilike po utakmicama — Kvalifikacije</div>
     <div class="cbox"><div id="vpChartWrapKval"></div></div>
+   </div>
 
-    <div class="stitle" style="margin-top:28px"><i></i>Ligaška faza — Pregled</div>
+   <div id="pregledLigaFaza">
+    <div class="stitle"><i></i>Ligaška faza — Pregled</div>
     <div class="cards" id="statsCardsLiga"></div>
     <div class="rings" id="ringsLiga"></div>
     <div class="stitle"><i></i>Bodovi po utakmici (B/U) — Ligaška faza</div>
@@ -550,6 +553,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
     <div class="cbox"><div id="goloviChartWrapLiga"></div></div>
     <div class="stitle"><i></i>Velike prilike po utakmicama — Ligaška faza</div>
     <div class="cbox"><div id="vpChartWrapLiga"></div></div>
+   </div>
   </div>
 </div>
 
@@ -1594,6 +1598,10 @@ function renderPregled(){
   const cur = SEASONS[SEASONS.length-1];
 
   if(currentComp === 'europa'){
+    // prikaži samo odabranu fazu (Kvalifikacije ILI Ligaška faza)
+    const pk = document.getElementById('pregledKval'), pl = document.getElementById('pregledLigaFaza');
+    if(pk) pk.style.display = europaFaza === 'kval' ? '' : 'none';
+    if(pl) pl.style.display = europaFaza === 'liga' ? '' : 'none';
     const kvalM = MATCHES.filter(m=>matchFaza(m)==='kval');
     const ligaM = MATCHES.filter(m=>matchFaza(m)==='liga');
 
