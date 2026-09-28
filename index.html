@@ -1602,8 +1602,10 @@ function renderPregled(){
     const pk = document.getElementById('pregledKval'), pl = document.getElementById('pregledLigaFaza');
     if(pk) pk.style.display = europaFaza === 'kval' ? '' : 'none';
     if(pl) pl.style.display = europaFaza === 'liga' ? '' : 'none';
+    // svaka faza se crta zasebno i samo kad je odabrana; greška u jednoj ne ruši drugu
+    if(europaFaza === 'kval'){
+      try {
     const kvalM = MATCHES.filter(m=>matchFaza(m)==='kval');
-    const ligaM = MATCHES.filter(m=>matchFaza(m)==='liga');
 
     // Kvalifikacije — BEZ Bodova i B/U (koncept "bodova" ne postoji kod dvomečeva)
     const k = statsCardsHTML(kvalM, {showBodovi:false});
@@ -1613,6 +1615,10 @@ function renderPregled(){
     matchBarChart('vpChartWrapKval', kvalM, m=>m.zvp, m=>m.prom, '#2E9E4F','#D6001C','Zabijene vel. prilike','Promašene vel. prilike', m=>m.vp, '#1E6FEB', 'Ukupne vel. prilike');
     // Napomena: namjerno nema grafa "Bodovi po utakmici (B/U)" za kvalifikacije
 
+      } catch(e){ console.error('[Pregled Kvalifikacije]', e); }
+    } else {
+      try {
+    const ligaM = MATCHES.filter(m=>matchFaza(m)==='liga');
     // Ligaška faza — sa Bodovima i B/U (sezonski podaci iz tablice odnose se na ligašku fazu)
     // Bodovi i B/U računaju se izravno iz odigranih utakmica ligaške faze
     const ligaPlayed = ligaM.filter(m=>m.g!==null);
@@ -1624,6 +1630,8 @@ function renderPregled(){
     matchBarChart('buChartWrapLiga', ligaM, m=>pts(m), null, '#1E6FEB', '#1E6FEB', 'Bodovi', null);
     matchBarChart('goloviChartWrapLiga', ligaM, m=>m.g, m=>m.p, '#2E9E4F','#D6001C','Dani golovi','Primljeni golovi');
     matchBarChart('vpChartWrapLiga', ligaM, m=>m.zvp, m=>m.prom, '#2E9E4F','#D6001C','Zabijene vel. prilike','Promašene vel. prilike', m=>m.vp, '#1E6FEB', 'Ukupne vel. prilike');
+      } catch(e){ console.error('[Pregled Ligaška faza]', e); }
+    }
     return;
   }
 
