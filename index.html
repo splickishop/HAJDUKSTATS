@@ -439,6 +439,87 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   .fbtn{min-height:38px;}
 }
 
+
+/* ── Izbornik: centriran, moderan, ispunjena aktivna sekcija ─────────────── */
+.tabs{justify-content:center;align-items:center;gap:8px;padding:16px 44px 20px;flex-wrap:wrap;overflow:visible;}
+.tab{border:none;border-bottom:none;margin-bottom:0;border-radius:999px;padding:12px 28px;font-size:.86rem;letter-spacing:.1em;background:rgba(15,27,51,.05);color:var(--gray);}
+.tab:hover{background:rgba(15,27,51,.1);color:var(--white);transform:translateY(-1px);}
+.tab.active{background:linear-gradient(135deg,#0F1B33 0%,#0047AB 55%,#1E9BEB 100%);color:#fff;box-shadow:0 6px 18px rgba(0,71,171,.32);transform:translateY(-1px);}
+/* ── Popup igrača: centrirana slika i prezime ────────────────────────────── */
+#playerModal .p-modal-head{display:flex;flex-direction:column;align-items:center;text-align:center;padding:34px 28px 24px;}
+#playerModal .p-modal-avatar{width:96px;height:96px;margin:0 auto 14px;overflow:hidden;font-size:1.8rem;border:3px solid rgba(255,255,255,.85);}
+#playerModal .p-modal-name{font-size:1.5rem;text-align:center;width:100%;}
+/* ── Popup utakmice: sve u headeru centrirano ────────────────────────────── */
+#matchModal .p-modal-head{text-align:center;display:flex;flex-direction:column;align-items:center;padding:34px 28px 24px;}
+#matchModal .mm-kolo,#matchModal .mm-teams,#matchModal .mm-score,#matchModal .mm-result{width:100%;text-align:center;}
+
+/* ── RESPONSIVE: stranica i izbornik uvijek staju na ekran ───────────────── */
+html{-webkit-text-size-adjust:100%;}
+html,body{max-width:100%;overflow-x:hidden;}
+img,canvas,svg{max-width:100%;}
+#sezoneEuropaList,#treneriEuropaList{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+@media(max-width:1024px){
+  .tabs{padding:14px 24px 18px;}
+  .tab{padding:11px 22px;font-size:.8rem;}
+}
+@media(max-width:900px){
+  .comp-switch{padding:16px 24px;}
+  .mrow{grid-template-columns:66px 1fr 76px 58px 58px;gap:10px;}
+  .mdots{display:none;}
+  .h-social{right:24px !important;}
+}
+@media(max-width:600px){
+  html,body{overflow-x:hidden;}
+  /* izbornik: bez scrollanja, centriran, prelama se u redove ako treba */
+  .tabs{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;overflow:visible;padding:12px 10px 14px;gap:6px;}
+  .tabs .tab:first-child,.tabs .tab:last-child{margin:0;}
+  .tab{flex:0 1 auto;padding:10px clamp(10px,3.4vw,18px);font-size:clamp(.62rem,2.9vw,.76rem);letter-spacing:.05em;}
+  .comp-switch{align-items:center;}
+  .comp-pills,.comp-subpills{justify-content:center;}
+  /* popup igrača i utakmice — sve centrirano */
+  .p-modal{padding:12px;}
+  .p-modal-head{text-align:center;}
+  #playerModal .p-modal-avatar{width:88px;height:88px;}
+  #playerModal .p-modal-name{font-size:1.3rem;}
+  #matchModal .mm-teams{font-size:.95rem;}
+  #matchModal .mm-score{font-size:1.9rem;}
+  .p-modal-body{padding:18px 16px 22px;}
+  .p-comp-label{justify-content:center;text-align:center;}
+  .p-comp-label::before{content:'';flex:1;height:1px;background:var(--border);}
+  .p-stat-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}
+  .p-stat{flex:0 0 calc(50% - 4px);}
+  .p-modal-empty{text-align:center;}
+  /* naslovi i sadržaj */
+  .stitle{flex-wrap:wrap;}
+  .h-social{position:static !important;justify-content:center;}
+}
+@media(max-width:360px){
+  .tab{padding:9px 9px;font-size:.6rem;letter-spacing:.03em;}
+  main{padding:14px 12px 50px;}
+  .p-stat{flex:0 0 100%;}
+}
+
+/* ── Izbornik u jednoj liniji na uskim ekranima ──────────────────────────── */
+@media(max-width:600px){
+  .tabs{flex-wrap:nowrap;justify-content:center;gap:4px;padding:10px 8px 12px;overflow:hidden;}
+  .tab{flex:1 1 0;min-width:0;padding:10px 2px;text-align:center;white-space:nowrap;letter-spacing:.02em;font-size:clamp(.48rem,2.7vw,.72rem);}
+}
+@media(max-width:360px){
+  .tab{padding:9px 1px;font-size:clamp(.46rem,2.6vw,.6rem);letter-spacing:0;}
+}
+/* ── Utakmice: velike šanse, xG i točkice vidljivi i na mobitelu ─────────── */
+.mstats{display:contents;}
+@media(max-width:600px){
+  .mrow{row-gap:8px;}
+  .mrow .mstats{display:flex;grid-column:1 / -1;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--border);}
+  .mrow .mstats .mvp{display:flex;align-items:baseline;gap:5px;text-align:left;}
+  .mrow .mstats .mvp .vn{font-size:1rem;}
+  .mrow .mstats .mvp .vl{display:inline;font-size:.58rem;}
+  .mrow .mstats .mdots{display:flex;justify-content:center;flex-wrap:wrap;gap:4px;max-width:100%;}
+  .mrow .mstats .mdots:empty{display:none;}
+  .dot{width:10px;height:10px;}
+}
 </style>
 </head>
 <body>
@@ -606,6 +687,8 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
   <div id="treneriEuropa" style="display:none">
     <div class="stitle"><i></i>Treneri — europska natjecanja</div>
     <div class="cbox" id="treneriEuropaList"></div>
+    <div class="stitle"><i></i>Vrijednost momčadi (Transfermarkt)</div>
+    <div class="cbox" id="trenerValEu"></div>
   </div>
 </div>
 
@@ -895,9 +978,43 @@ function initials(name){
   return String(name).trim().split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
 }
 
+/* ── SLIKE IGRAČA ────────────────────────────────────────────────────────────
+   Mapa prezime → slika. Upišite naziv datoteke (npr. 'sego.jpg' iz mape slike/)
+   ili puni URL. Ako je prazno, koristi se slika iz Google tablice (stupac "slika"),
+   a ako ni nje nema — inicijali. */
+const PHOTO_DIR = 'slike/';
+const PLAYER_PHOTOS = {
+  'Šego': '',
+  'Rebić': '',
+  'Pukštas': '',
+  'Brajković': '',
+  'Bamba': '',
+  'Raci': '',
+  'Almena': '',
+  'Mlačić': '',
+  'Livaja': '',
+  'Marešić': '',
+  'Šarlija': '',
+  'Krovinović': '',
+  'Pajaziti': '',
+  'Kalik': '',
+  'Skoko': '',
+  'Hrgović': '',
+  'Sigur': '',
+  'Durdov': '',
+  'Guillamon': '',
+  'Melnjak': ''
+};
+function resolvePhoto(name, slika){
+  const v = String(PLAYER_PHOTOS[name] || slika || '').trim();
+  if(!v) return '';
+  return /^(https?:|data:|\/|\.{1,2}\/)/i.test(v) ? v : PHOTO_DIR + v;
+}
+
 // Vraća HTML za avatar igrača u tablicama: sliku ako postoji (slika = URL iz tablice),
 // s automatskim fallbackom na inicijale ako slika ne postoji ili se ne učita.
 function avatarHTML(name, slika){
+  slika = resolvePhoto(name, slika);
   const initTxt = initials(name);
   if(slika){
     return `<span class="p-avatar"><img src="${slika}" alt="" loading="lazy" onerror="this.parentElement.outerHTML='<span class=&quot;p-avatar&quot;>${initTxt}</span>'"></span>`;
@@ -908,6 +1025,7 @@ function avatarHTML(name, slika){
 // Postavlja avatar (sliku ili inicijale) direktno na DOM element (koristi se u modalu igrača)
 function setAvatarEl(el, name, slika){
   if(!el) return;
+  slika = resolvePhoto(name, slika);
   const initTxt = initials(name);
   if(slika){
     el.innerHTML = `<img src="${slika}" alt="" loading="lazy" style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block" onerror="this.remove();this.parentElement.textContent='${initTxt.replace(/'/g,"\\'")}'">`;
@@ -1577,7 +1695,9 @@ function renderPregled(){
     const ligaBod = ligaPlayed.reduce((sum,m)=>sum+pts(m),0);
     const ligaCur = { bodovi: ligaBod, kola: ligaPlayed.length, bu: ligaPlayed.length ? +(ligaBod/ligaPlayed.length).toFixed(2) : 0 };
     const l = statsCardsHTML(ligaM, {showBodovi:true, cur:ligaCur});
-    document.getElementById('statsCardsLiga').innerHTML = l.html;
+    const xgL = (cur && cur.xg!=null) ? cur.xg : (ligaM.some(m=>m.xg!=null) ? +ligaM.reduce((a,m)=>a+(m.xg||0),0).toFixed(2) : null);
+    document.getElementById('statsCardsLiga').innerHTML = l.html +
+      (xgL!=null ? `<div class="card cg"><div class="clbl">xG — ukupno</div><div class="cval g">${xgL}</div><div class="csub">očekivani golovi</div></div>` : '');
     renderVPEfficiency(document.getElementById('ringsLiga'), l.totZVP, l.totVP-l.totZVP, l.totVP, l.ef);
     matchBarChart('goloviChartWrapLiga', ligaM, m=>m.g, m=>m.p, '#2E9E4F','#D6001C','Dani golovi','Primljeni golovi');
     matchBarChart('vpChartWrapLiga', ligaM, m=>m.zvp, m=>m.prom, '#2E9E4F','#D6001C','Zabijene vel. prilike','Promašene vel. prilike', m=>m.vp, '#1E6FEB', 'Ukupne vel. prilike');
@@ -1629,7 +1749,7 @@ function renderMatches(){
       <div class="mkolo">${m.kolo}</div>
       <div class="mname">${dispName}</div>
       <div class="mres ${r}">${txt}</div>
-      ${vpH}${xgH}${dH}
+      <div class="mstats">${vpH}${xgH}${dH}</div>
     </div>`;
   }).join('');
 }
@@ -1688,6 +1808,8 @@ function renderSezone(){
     const rev = [...SEASONS].reverse(); // najnovija prva
     const dosegPoSezoni = {};
     TRENERI.forEach(t=>{ if(t.doseg) dosegPoSezoni[t.sezona] = t.doseg; });
+    const vrijPoSezoni = {};
+    TRENERI.forEach(t=>{ if(t.vrijednost && !vrijPoSezoni[t.sezona]) vrijPoSezoni[t.sezona] = t.vrijednost; });
     const rows = rev.map((s,i)=>{
       const cur = i===0;
       const ishod = dosegPoSezoni[s.sezona] || (cur ? 'Ligaška faza' : 'Ispao u 3. pretkolu');
@@ -1695,10 +1817,11 @@ function renderSezone(){
       return `<tr ${cur?'style="background:rgba(204,0,0,.06)"':''}>
         <td class="sn ${cur?'cur':''}">${s.sezona}</td>
         <td style="color:${boja};font-weight:700">${ishod}</td>
+        <td style="font-weight:700">${vrijPoSezoni[s.sezona] || '—'}</td>
       </tr>`;
     }).join('');
     const el = document.getElementById('sezoneEuropaList');
-    if(el) el.innerHTML = `<table class="stable"><thead><tr><th>Sezona</th><th>Ishod</th></tr></thead><tbody>${rows}</tbody></table>`;
+    if(el) el.innerHTML = `<table class="stable"><thead><tr><th>Sezona</th><th>Ishod</th><th>Vrijednost momčadi</th></tr></thead><tbody>${rows}</tbody></table>`;
     return;
   }
   if(defEl) defEl.style.display = '';
@@ -1873,10 +1996,12 @@ function renderTreneri(){
         <td class="sn ${cur?'cur':''}">${t.trener}</td>
         <td>${t.sezona}</td>
         <td style="color:${boja};font-weight:700">${ishod}</td>
+        <td style="font-weight:700">${t.vrijednost || '—'}</td>
       </tr>`;
     }).join('');
     const el = document.getElementById('treneriEuropaList');
-    if(el) el.innerHTML = `<table class="stable"><thead><tr><th>Trener</th><th>Sezona</th><th>Ishod</th></tr></thead><tbody>${rows}</tbody></table>`;
+    if(el) el.innerHTML = `<table class="stable"><thead><tr><th>Trener</th><th>Sezona</th><th>Ishod</th><th>Vrijednost momčadi</th></tr></thead><tbody>${rows}</tbody></table>`;
+    renderVrijednostChart('trenerValEu', TRENERI);
     return;
   }
   if(defEl) defEl.style.display = '';
@@ -2064,14 +2189,16 @@ function renderBUChart(){
 }
 
 /* ── Vrijednost momčadi — sleek column chart with callouts ─────────────── */
-function renderVrijednostChart(){
-  const el = document.getElementById('trenerVal');
-  const parseVal = v => parseFloat((v||'0').replace(/[€m\s]/g,''))||0;
-  const coaches = TRENERI.map(t=>({
+function renderVrijednostChart(elId, list){
+  const el = document.getElementById(elId || 'trenerVal');
+  list = list || TRENERI;
+  if(!el || !list.length) return;
+  const parseVal = v => parseFloat(String(v||'0').replace(/[€m\s]/g,''))||0;
+  const coaches = list.map(t=>({
     ime: t.trener==='Ivan Leko (Karoglan + Ivanković)'?'Leko':t.trener.split(' ').pop(),
     sezona: t.sezona,
     val: parseVal(t.vrijednost),
-    label: t.vrijednost
+    label: t.vrijednost || '—'
   }));
   const maxV = Math.max(...coaches.map(c=>c.val)) * 1.15;
   const COLORS = ['#D6001C','#9AA5B1','#1E6FEB'];
