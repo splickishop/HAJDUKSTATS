@@ -301,7 +301,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 
 /* ── Klikabilni redak igrača + avatar ───────────────────────────────────── */
 .p-avatar{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--blue));color:#fff;font-family:'Inter',sans-serif;font-weight:700;font-size:.66rem;margin-right:10px;flex-shrink:0;vertical-align:middle;overflow:hidden;}
-.p-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+.p-avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block;transform:scale(1.22);transform-origin:50% 22%;}
 .stable tbody tr.p-row{cursor:pointer;}
 .stable tbody tr.p-row td{transition:background .15s ease;}
 .stable tbody tr.p-row:hover td{background:rgba(214,0,28,.05);}
@@ -515,7 +515,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 /* ── Popup igrača: centrirana slika i prezime ────────────────────────────── */
 #playerModal .p-modal-head{display:flex;flex-direction:column;align-items:center;text-align:center;padding:34px 28px 24px;}
 #playerModal .p-modal-avatar{width:96px;height:96px;margin:0 auto 14px;overflow:hidden;font-size:1.8rem;border:3px solid rgba(255,255,255,.85);}
-#playerModal .p-modal-avatar img{width:100%;height:100%;object-fit:cover!important;object-position:50% 18%!important;padding:0;background:transparent;transform:scale(1.42);transform-origin:50% 18%;}
+#playerModal .p-modal-avatar img{width:100%;height:100%;object-fit:cover!important;object-position:50% 25%!important;padding:0;background:transparent;transform:scale(1.05);transform-origin:50% 25%;}
 #playerModal .p-modal-name{font-size:1.5rem;text-align:center;width:100%;}
 /* ── Popup utakmice: sve u headeru centrirano ────────────────────────────── */
 #matchModal .p-modal-head{text-align:center;display:flex;flex-direction:column;align-items:center;padding:34px 28px 24px;}
@@ -1577,7 +1577,7 @@ function setAvatarEl(el, name, slika){
   slika = resolvePhoto(name, slika);
   const initTxt = initials(name);
   if(slika){
-    el.innerHTML = `<img src="${slika}" alt="Hajduk Stats – statistika HNK Hajduk Split" loading="lazy" style="width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 18%;display:block;transform:scale(1.42);transform-origin:50% 18%" onerror="this.remove();this.parentElement.textContent='${initTxt.replace(/'/g,"\\'")}'">`;
+    el.innerHTML = `<img src="${slika}" alt="Hajduk Stats – statistika HNK Hajduk Split" loading="lazy" style="width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 25%;display:block;transform:scale(1.05);transform-origin:50% 25%" onerror="this.remove();this.parentElement.textContent='${initTxt.replace(/'/g,"\\'")}'">`;
   } else {
     el.textContent = initTxt;
   }
