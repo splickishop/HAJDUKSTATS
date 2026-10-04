@@ -515,7 +515,7 @@ main{max-width:1240px;margin:0 auto;padding:36px 44px 80px;}
 /* ── Popup igrača: centrirana slika i prezime ────────────────────────────── */
 #playerModal .p-modal-head{display:flex;flex-direction:column;align-items:center;text-align:center;padding:34px 28px 24px;}
 #playerModal .p-modal-avatar{width:96px;height:96px;margin:0 auto 14px;overflow:hidden;font-size:1.8rem;border:3px solid rgba(255,255,255,.85);}
-#playerModal .p-modal-avatar img{object-fit:contain!important;object-position:50% 50%!important;padding:3px;background:rgba(255,255,255,.08);}
+#playerModal .p-modal-avatar img{width:100%;height:100%;object-fit:cover!important;object-position:50% 18%!important;padding:0;background:transparent;transform:scale(1.42);transform-origin:50% 18%;}
 #playerModal .p-modal-name{font-size:1.5rem;text-align:center;width:100%;}
 /* ── Popup utakmice: sve u headeru centrirano ────────────────────────────── */
 #matchModal .p-modal-head{text-align:center;display:flex;flex-direction:column;align-items:center;padding:34px 28px 24px;}
@@ -1577,7 +1577,7 @@ function setAvatarEl(el, name, slika){
   slika = resolvePhoto(name, slika);
   const initTxt = initials(name);
   if(slika){
-    el.innerHTML = `<img src="${slika}" alt="Hajduk Stats – statistika HNK Hajduk Split" loading="lazy" style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block" onerror="this.remove();this.parentElement.textContent='${initTxt.replace(/'/g,"\\'")}'">`;
+    el.innerHTML = `<img src="${slika}" alt="Hajduk Stats – statistika HNK Hajduk Split" loading="lazy" style="width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 18%;display:block;transform:scale(1.42);transform-origin:50% 18%" onerror="this.remove();this.parentElement.textContent='${initTxt.replace(/'/g,"\\'")}'">`;
   } else {
     el.textContent = initTxt;
   }
